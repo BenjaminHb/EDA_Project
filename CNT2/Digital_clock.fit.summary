@@ -1,0 +1,12 @@
+Fitter Status : Successful - Tue May 02 15:18:04 2017
+Quartus II Version : 9.1 Build 222 10/21/2009 SJ Full Version
+Revision Name : Digital_clock
+Top-level Entity Name : Digital_clock
+Family : Cyclone
+Device : EP1C6Q240C8
+Timing Models : Final
+Total logic elements : 0 / 5,980 ( 0 % )
+Total pins : 1 / 185 ( < 1 % )
+Total virtual pins : 0
+Total memory bits : 0 / 92,160 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

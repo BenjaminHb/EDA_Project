@@ -1,5 +1,5 @@
 Fitter report for Digital_clock
-Wed May 03 01:40:30 2017
+Wed May 03 02:15:40 2017
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -52,7 +52,7 @@ applicable agreement for further details.
 +------------------------------------------------------------------+
 ; Fitter Summary                                                   ;
 +-----------------------+------------------------------------------+
-; Fitter Status         ; Successful - Wed May 03 01:40:29 2017    ;
+; Fitter Status         ; Successful - Wed May 03 02:15:40 2017    ;
 ; Quartus II Version    ; 9.1 Build 222 10/21/2009 SJ Full Version ;
 ; Revision Name         ; Digital_clock                            ;
 ; Top-level Entity Name ; Digital_clock                            ;
@@ -619,7 +619,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II Fitter
     Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
-    Info: Processing started: Wed May 03 01:40:28 2017
+    Info: Processing started: Wed May 03 02:15:38 2017
 Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off Digital_clock -c Digital_clock
 Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info: Selected device EP1C6Q240C8 for design "Digital_clock"
@@ -686,9 +686,9 @@ Warning: The Reserve All Unused Pins setting has not been specified, and will de
 Info: Generated suppressed messages file Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/Digital_clock/Digital_clock.fit.smsg
 Info: Quartus II Fitter was successful. 0 errors, 2 warnings
     Info: Peak virtual memory: 271 megabytes
-    Info: Processing ended: Wed May 03 01:40:30 2017
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Processing ended: Wed May 03 02:15:41 2017
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
 
 
 +----------------------------+

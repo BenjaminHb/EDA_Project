@@ -19,8 +19,8 @@ module anti_shaking(clk, KeyIn, KeyOut);
 	end
 
 	always @(posedge clk) begin
-		if (KeyHigh > 'd10000000) KeyOut <= 1'b1;
-		else if (KeyLow > 'd10000000) KeyOut <= 1'b0;
+		if (KeyHigh > 'd10000000) KeyOut <= 1'b0;
+		else if (KeyLow > 'd10000000) KeyOut <= 1'b1;
 	end
 
 endmodule

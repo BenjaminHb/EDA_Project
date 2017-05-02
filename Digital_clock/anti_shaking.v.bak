@@ -9,12 +9,12 @@ module anti_shaking(clk, KeyIn, KeyOut);
 	reg [30:0]	KeyHigh, KeyLow;
 
 	always @(posedge clk) begin
-		if (!KeyIn) KeyLow <= KeyLow + 1;
+		if (!KeyIn) KeyLow <= KeyLow + 1'b1;
 		else KeyLow <= 20'b0;
 	end
 
 	always @(posedge clk) begin
-		if (KeyIn) KeyHigh <= KeyHigh + 1;
+		if (KeyIn) KeyHigh <= KeyHigh + 1'b1;
 		else KeyHigh <= 20'b0;
 	end
 

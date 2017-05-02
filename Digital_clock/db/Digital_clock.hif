@@ -56,45 +56,6 @@ LED_Processing_Unit:inst1
 
 # end
 # entity
-anti_shaking
-# storage
-db|Digital_clock.(4).cnf
-db|Digital_clock.(4).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-anti_shaking.v
-67f072301734def0e1766dbbf33828d1
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# hierarchies {
-anti_shaking:inst4
-anti_shaking:inst5
-anti_shaking:inst6
-anti_shaking:inst7
-}
-# macro_sequence
-
-# end
-# entity
 CNT10
 # storage
 db|Digital_clock.(2).cnf
@@ -329,6 +290,45 @@ BinToLED:inst11
 BinToLED:inst13
 BinToLED:inst14
 BinToLED:inst15
+}
+# macro_sequence
+
+# end
+# entity
+anti_shaking
+# storage
+db|Digital_clock.(4).cnf
+db|Digital_clock.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+anti_shaking.v
+16ce721dbab13fb0d92dab3b99f9731d
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+anti_shaking:inst4
+anti_shaking:inst5
+anti_shaking:inst6
+anti_shaking:inst7
 }
 # macro_sequence
 

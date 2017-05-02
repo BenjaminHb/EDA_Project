@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Digital_clock
-Wed May 03 01:40:27 2017
+Wed May 03 02:15:37 2017
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -43,7 +43,7 @@ applicable agreement for further details.
 +------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                           ;
 +-----------------------------+------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Wed May 03 01:40:27 2017    ;
+; Analysis & Synthesis Status ; Successful - Wed May 03 02:15:37 2017    ;
 ; Quartus II Version          ; 9.1 Build 222 10/21/2009 SJ Full Version ;
 ; Revision Name               ; Digital_clock                            ;
 ; Top-level Entity Name       ; Digital_clock                            ;
@@ -285,7 +285,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
-    Info: Processing started: Wed May 03 01:40:23 2017
+    Info: Processing started: Wed May 03 02:15:33 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Digital_clock -c Digital_clock
 Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info: Found 1 design units, including 1 entities, in source file freq_divider.v
@@ -470,7 +470,7 @@ Info: Implemented 17 device resources after synthesis - the final resource count
     Info: Implemented 12 output pins
 Info: Quartus II Analysis & Synthesis was successful. 0 errors, 22 warnings
     Info: Peak virtual memory: 231 megabytes
-    Info: Processing ended: Wed May 03 01:40:27 2017
+    Info: Processing ended: Wed May 03 02:15:37 2017
     Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:05
 

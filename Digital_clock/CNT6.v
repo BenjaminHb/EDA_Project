@@ -1,10 +1,11 @@
-module CNT6(rst, carryin, out, carryout);
+module CNT6(clk, rst, carryin, out, carryout);
+	input				clk;
 	input				rst;
 	input				carryin;
 	output reg [7:0]	out;
 	output reg			carryout;
 
-	always @(*) begin
+	always @(posedge clk) begin
 		if (rst) begin
 			out = 8'b00000000;
 			carryout = 0;

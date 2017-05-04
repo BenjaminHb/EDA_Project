@@ -1,4 +1,5 @@
-module CNT4(en, rst, key_hrs, carryin, CNT2In, out, carryout);
+module CNT4(clk, en, rst, key_hrs, carryin, CNT2In, out, carryout);
+	input				clk;
 	input				en;
 	input				rst;
 	input               key_hrs;
@@ -7,7 +8,7 @@ module CNT4(en, rst, key_hrs, carryin, CNT2In, out, carryout);
 	output reg [7:0]	out;
 	output reg          carryout;
 
-	always @(*) begin
+	always @(posedge clk) begin
 		if (rst) begin
 			out = 8'b00000000;
 			carryout = 0;

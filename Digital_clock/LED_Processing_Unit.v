@@ -14,9 +14,9 @@ module LED_Processing_Unit(clk, LED1In, LED2In, LED3In, LED4In, LEDOut, LEDSelec
 	reg [1:0]			select_count;	
 
 
-	always @(posedge clk) begin
+	always @(posedge clk) begin 
 		if (count == 'd1000000) begin
-            clk2 = ~clk;
+            clk2 = ~clk2;
             count <= 0;
 		end
         else    count <= count + 1'b1;
@@ -35,18 +35,18 @@ module LED_Processing_Unit(clk, LED1In, LED2In, LED3In, LED4In, LEDOut, LEDSelec
 						select_count = select_count + 1'b1;
 					end
 			2'b10:	begin
-						LEDOut = LED3In;
+						LEDOut = {1'b1, LED3In[6:0]};
 						LEDSelect = 4'b0100;
 						select_count = select_count + 1'b1;
 					end
 			2'b11:	begin
 						LEDOut = LED4In;
 						LEDSelect = 4'b1000;
-						select_count = select_count + 1'b1;
+						select_count = 2'b00;
 					end
 		  default:	begin
-					LEDOut = 8'b00000000;
-					select_count = select_count + 1'b1;
+					LEDOut = 8'b11111001;
+					select_count = 2'b00;
 					end
 		endcase
 	end

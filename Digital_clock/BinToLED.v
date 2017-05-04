@@ -14,7 +14,7 @@ module BinToLED(BinData, LEDData);
 		  8'd7:	LEDData = 8'b00000111;
 		  8'd8:	LEDData = 8'b01111111;
 		  8'd9: LEDData = 8'b01101111;
-		  default:	LEDData = 8'b00000000;
+		  default:	LEDData = 8'b01111001;
 		endcase
 	end
 

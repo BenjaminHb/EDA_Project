@@ -1,5 +1,5 @@
 Classic Timing Analyzer report for Digital_clock
-Wed May 03 02:15:45 2017
+Thu May 04 16:30:23 2017
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -7,9 +7,15 @@ Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Timing Analyzer Settings
-  3. Parallel Compilation
-  4. Timing Analyzer Messages
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'clk'
+  7. tsu
+  8. tco
+  9. th
+ 10. Timing Analyzer Messages
 
 
 
@@ -30,6 +36,19 @@ programming logic devices manufactured by Altera and sold by
 Altera or its authorized distributors.  Please refer to the 
 applicable agreement for further details.
 
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                    ;
++------------------------------+-------+---------------+----------------------------------+-------------------------------------+-------------------------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From                                ; To                                  ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+-------------------------------------+-------------------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 7.733 ns                         ; MINS                                ; anti_shaking:inst6|KeyLow[3]        ; --         ; clk      ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 13.907 ns                        ; LED_Processing_Unit:inst1|LEDOut[7] ; LED_OUT[7]                          ; clk        ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; -4.719 ns                        ; HRS                                 ; anti_shaking:inst7|KeyLow[13]       ; --         ; clk      ; 0            ;
+; Clock Setup: 'clk'           ; N/A   ; None          ; 170.91 MHz ( period = 5.851 ns ) ; LED_Processing_Unit:inst1|count[2]  ; LED_Processing_Unit:inst1|count[17] ; clk        ; clk      ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                                     ;                                     ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+-------------------------------------+-------------------------------------+------------+----------+--------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -66,6 +85,15 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
 
 
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clk             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
 +------------------------------------------+
 ; Parallel Compilation                     ;
 +----------------------------+-------------+
@@ -83,20 +111,830 @@ applicable agreement for further details.
 +----------------------------+-------------+
 
 
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clk'                                                                                                                                                                                                                                                                    ;
++-----------------------------------------+-----------------------------------------------------+-------------------------------------+-------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From                                ; To                                  ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+-------------------------------------+-------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 170.91 MHz ( period = 5.851 ns )                    ; LED_Processing_Unit:inst1|count[2]  ; LED_Processing_Unit:inst1|count[17] ; clk        ; clk      ; None                        ; None                      ; 5.561 ns                ;
+; N/A                                     ; 170.94 MHz ( period = 5.850 ns )                    ; LED_Processing_Unit:inst1|count[2]  ; LED_Processing_Unit:inst1|count[6]  ; clk        ; clk      ; None                        ; None                      ; 5.560 ns                ;
+; N/A                                     ; 170.94 MHz ( period = 5.850 ns )                    ; LED_Processing_Unit:inst1|count[2]  ; LED_Processing_Unit:inst1|count[14] ; clk        ; clk      ; None                        ; None                      ; 5.560 ns                ;
+; N/A                                     ; 171.67 MHz ( period = 5.825 ns )                    ; LED_Processing_Unit:inst1|count[2]  ; LED_Processing_Unit:inst1|count[19] ; clk        ; clk      ; None                        ; None                      ; 5.535 ns                ;
+; N/A                                     ; 171.70 MHz ( period = 5.824 ns )                    ; LED_Processing_Unit:inst1|count[2]  ; LED_Processing_Unit:inst1|count[9]  ; clk        ; clk      ; None                        ; None                      ; 5.534 ns                ;
+; N/A                                     ; 176.49 MHz ( period = 5.666 ns )                    ; LED_Processing_Unit:inst1|count[3]  ; LED_Processing_Unit:inst1|count[17] ; clk        ; clk      ; None                        ; None                      ; 5.376 ns                ;
+; N/A                                     ; 176.52 MHz ( period = 5.665 ns )                    ; LED_Processing_Unit:inst1|count[3]  ; LED_Processing_Unit:inst1|count[6]  ; clk        ; clk      ; None                        ; None                      ; 5.375 ns                ;
+; N/A                                     ; 176.52 MHz ( period = 5.665 ns )                    ; LED_Processing_Unit:inst1|count[3]  ; LED_Processing_Unit:inst1|count[14] ; clk        ; clk      ; None                        ; None                      ; 5.375 ns                ;
+; N/A                                     ; 177.30 MHz ( period = 5.640 ns )                    ; LED_Processing_Unit:inst1|count[3]  ; LED_Processing_Unit:inst1|count[19] ; clk        ; clk      ; None                        ; None                      ; 5.350 ns                ;
+; N/A                                     ; 177.34 MHz ( period = 5.639 ns )                    ; LED_Processing_Unit:inst1|count[3]  ; LED_Processing_Unit:inst1|count[9]  ; clk        ; clk      ; None                        ; None                      ; 5.349 ns                ;
+; N/A                                     ; 177.46 MHz ( period = 5.635 ns )                    ; LED_Processing_Unit:inst1|count[2]  ; LED_Processing_Unit:inst1|clk2      ; clk        ; clk      ; None                        ; None                      ; 5.345 ns                ;
+; N/A                                     ; 177.49 MHz ( period = 5.634 ns )                    ; LED_Processing_Unit:inst1|count[2]  ; LED_Processing_Unit:inst1|count[18] ; clk        ; clk      ; None                        ; None                      ; 5.344 ns                ;
+; N/A                                     ; 179.12 MHz ( period = 5.583 ns )                    ; LED_Processing_Unit:inst1|count[2]  ; LED_Processing_Unit:inst1|count[0]  ; clk        ; clk      ; None                        ; None                      ; 5.322 ns                ;
+; N/A                                     ; 183.32 MHz ( period = 5.455 ns )                    ; LED_Processing_Unit:inst1|count[26] ; LED_Processing_Unit:inst1|count[17] ; clk        ; clk      ; None                        ; None                      ; 5.194 ns                ;
+; N/A                                     ; 183.35 MHz ( period = 5.454 ns )                    ; LED_Processing_Unit:inst1|count[26] ; LED_Processing_Unit:inst1|count[6]  ; clk        ; clk      ; None                        ; None                      ; 5.193 ns                ;
+; N/A                                     ; 183.35 MHz ( period = 5.454 ns )                    ; LED_Processing_Unit:inst1|count[26] ; LED_Processing_Unit:inst1|count[14] ; clk        ; clk      ; None                        ; None                      ; 5.193 ns                ;
+; N/A                                     ; 183.49 MHz ( period = 5.450 ns )                    ; LED_Processing_Unit:inst1|count[3]  ; LED_Processing_Unit:inst1|clk2      ; clk        ; clk      ; None                        ; None                      ; 5.160 ns                ;
+; N/A                                     ; 183.52 MHz ( period = 5.449 ns )                    ; LED_Processing_Unit:inst1|count[3]  ; LED_Processing_Unit:inst1|count[18] ; clk        ; clk      ; None                        ; None                      ; 5.159 ns                ;
+; N/A                                     ; 184.20 MHz ( period = 5.429 ns )                    ; LED_Processing_Unit:inst1|count[26] ; LED_Processing_Unit:inst1|count[19] ; clk        ; clk      ; None                        ; None                      ; 5.168 ns                ;
+; N/A                                     ; 184.23 MHz ( period = 5.428 ns )                    ; LED_Processing_Unit:inst1|count[26] ; LED_Processing_Unit:inst1|count[9]  ; clk        ; clk      ; None                        ; None                      ; 5.167 ns                ;
+; N/A                                     ; 185.25 MHz ( period = 5.398 ns )                    ; LED_Processing_Unit:inst1|count[3]  ; LED_Processing_Unit:inst1|count[0]  ; clk        ; clk      ; None                        ; None                      ; 5.137 ns                ;
+; N/A                                     ; 186.95 MHz ( period = 5.349 ns )                    ; LED_Processing_Unit:inst1|count[6]  ; LED_Processing_Unit:inst1|count[17] ; clk        ; clk      ; None                        ; None                      ; 5.088 ns                ;
+; N/A                                     ; 186.99 MHz ( period = 5.348 ns )                    ; LED_Processing_Unit:inst1|count[6]  ; LED_Processing_Unit:inst1|count[6]  ; clk        ; clk      ; None                        ; None                      ; 5.087 ns                ;
+; N/A                                     ; 186.99 MHz ( period = 5.348 ns )                    ; LED_Processing_Unit:inst1|count[6]  ; LED_Processing_Unit:inst1|count[14] ; clk        ; clk      ; None                        ; None                      ; 5.087 ns                ;
+; N/A                                     ; 187.86 MHz ( period = 5.323 ns )                    ; LED_Processing_Unit:inst1|count[6]  ; LED_Processing_Unit:inst1|count[19] ; clk        ; clk      ; None                        ; None                      ; 5.062 ns                ;
+; N/A                                     ; 187.90 MHz ( period = 5.322 ns )                    ; LED_Processing_Unit:inst1|count[6]  ; LED_Processing_Unit:inst1|count[9]  ; clk        ; clk      ; None                        ; None                      ; 5.061 ns                ;
+; N/A                                     ; 188.61 MHz ( period = 5.302 ns )                    ; anti_shaking:inst4|KeyHigh[24]      ; anti_shaking:inst4|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 5.041 ns                ;
+; N/A                                     ; 189.29 MHz ( period = 5.283 ns )                    ; LED_Processing_Unit:inst1|count[25] ; LED_Processing_Unit:inst1|count[17] ; clk        ; clk      ; None                        ; None                      ; 5.022 ns                ;
+; N/A                                     ; 189.32 MHz ( period = 5.282 ns )                    ; LED_Processing_Unit:inst1|count[25] ; LED_Processing_Unit:inst1|count[6]  ; clk        ; clk      ; None                        ; None                      ; 5.021 ns                ;
+; N/A                                     ; 189.32 MHz ( period = 5.282 ns )                    ; LED_Processing_Unit:inst1|count[25] ; LED_Processing_Unit:inst1|count[14] ; clk        ; clk      ; None                        ; None                      ; 5.021 ns                ;
+; N/A                                     ; 190.22 MHz ( period = 5.257 ns )                    ; LED_Processing_Unit:inst1|count[25] ; LED_Processing_Unit:inst1|count[19] ; clk        ; clk      ; None                        ; None                      ; 4.996 ns                ;
+; N/A                                     ; 190.26 MHz ( period = 5.256 ns )                    ; LED_Processing_Unit:inst1|count[25] ; LED_Processing_Unit:inst1|count[9]  ; clk        ; clk      ; None                        ; None                      ; 4.995 ns                ;
+; N/A                                     ; 190.88 MHz ( period = 5.239 ns )                    ; LED_Processing_Unit:inst1|count[26] ; LED_Processing_Unit:inst1|clk2      ; clk        ; clk      ; None                        ; None                      ; 4.978 ns                ;
+; N/A                                     ; 190.91 MHz ( period = 5.238 ns )                    ; LED_Processing_Unit:inst1|count[26] ; LED_Processing_Unit:inst1|count[18] ; clk        ; clk      ; None                        ; None                      ; 4.977 ns                ;
+; N/A                                     ; 192.64 MHz ( period = 5.191 ns )                    ; LED_Processing_Unit:inst1|count[27] ; LED_Processing_Unit:inst1|count[17] ; clk        ; clk      ; None                        ; None                      ; 4.930 ns                ;
+; N/A                                     ; 192.68 MHz ( period = 5.190 ns )                    ; LED_Processing_Unit:inst1|count[27] ; LED_Processing_Unit:inst1|count[6]  ; clk        ; clk      ; None                        ; None                      ; 4.929 ns                ;
+; N/A                                     ; 192.68 MHz ( period = 5.190 ns )                    ; LED_Processing_Unit:inst1|count[27] ; LED_Processing_Unit:inst1|count[14] ; clk        ; clk      ; None                        ; None                      ; 4.929 ns                ;
+; N/A                                     ; 192.79 MHz ( period = 5.187 ns )                    ; LED_Processing_Unit:inst1|count[26] ; LED_Processing_Unit:inst1|count[0]  ; clk        ; clk      ; None                        ; None                      ; 4.955 ns                ;
+; N/A                                     ; 193.61 MHz ( period = 5.165 ns )                    ; LED_Processing_Unit:inst1|count[27] ; LED_Processing_Unit:inst1|count[19] ; clk        ; clk      ; None                        ; None                      ; 4.904 ns                ;
+; N/A                                     ; 193.65 MHz ( period = 5.164 ns )                    ; LED_Processing_Unit:inst1|count[27] ; LED_Processing_Unit:inst1|count[9]  ; clk        ; clk      ; None                        ; None                      ; 4.903 ns                ;
+; N/A                                     ; 193.84 MHz ( period = 5.159 ns )                    ; LED_Processing_Unit:inst1|count[0]  ; LED_Processing_Unit:inst1|count[17] ; clk        ; clk      ; None                        ; None                      ; 4.869 ns                ;
+; N/A                                     ; 193.87 MHz ( period = 5.158 ns )                    ; LED_Processing_Unit:inst1|count[0]  ; LED_Processing_Unit:inst1|count[6]  ; clk        ; clk      ; None                        ; None                      ; 4.868 ns                ;
+; N/A                                     ; 193.87 MHz ( period = 5.158 ns )                    ; LED_Processing_Unit:inst1|count[0]  ; LED_Processing_Unit:inst1|count[14] ; clk        ; clk      ; None                        ; None                      ; 4.868 ns                ;
+; N/A                                     ; 194.82 MHz ( period = 5.133 ns )                    ; LED_Processing_Unit:inst1|count[0]  ; LED_Processing_Unit:inst1|count[19] ; clk        ; clk      ; None                        ; None                      ; 4.843 ns                ;
+; N/A                                     ; 194.82 MHz ( period = 5.133 ns )                    ; LED_Processing_Unit:inst1|count[6]  ; LED_Processing_Unit:inst1|clk2      ; clk        ; clk      ; None                        ; None                      ; 4.872 ns                ;
+; N/A                                     ; 194.86 MHz ( period = 5.132 ns )                    ; LED_Processing_Unit:inst1|count[0]  ; LED_Processing_Unit:inst1|count[9]  ; clk        ; clk      ; None                        ; None                      ; 4.842 ns                ;
+; N/A                                     ; 194.86 MHz ( period = 5.132 ns )                    ; LED_Processing_Unit:inst1|count[6]  ; LED_Processing_Unit:inst1|count[18] ; clk        ; clk      ; None                        ; None                      ; 4.871 ns                ;
+; N/A                                     ; 194.97 MHz ( period = 5.129 ns )                    ; LED_Processing_Unit:inst1|count[5]  ; LED_Processing_Unit:inst1|count[18] ; clk        ; clk      ; None                        ; None                      ; 4.839 ns                ;
+; N/A                                     ; 195.01 MHz ( period = 5.128 ns )                    ; anti_shaking:inst4|KeyHigh[22]      ; anti_shaking:inst4|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.867 ns                ;
+; N/A                                     ; 195.77 MHz ( period = 5.108 ns )                    ; LED_Processing_Unit:inst1|count[2]  ; LED_Processing_Unit:inst1|count[16] ; clk        ; clk      ; None                        ; None                      ; 4.818 ns                ;
+; N/A                                     ; 196.43 MHz ( period = 5.091 ns )                    ; LED_Processing_Unit:inst1|count[11] ; LED_Processing_Unit:inst1|count[17] ; clk        ; clk      ; None                        ; None                      ; 4.801 ns                ;
+; N/A                                     ; 196.46 MHz ( period = 5.090 ns )                    ; LED_Processing_Unit:inst1|count[11] ; LED_Processing_Unit:inst1|count[6]  ; clk        ; clk      ; None                        ; None                      ; 4.800 ns                ;
+; N/A                                     ; 196.46 MHz ( period = 5.090 ns )                    ; LED_Processing_Unit:inst1|count[11] ; LED_Processing_Unit:inst1|count[14] ; clk        ; clk      ; None                        ; None                      ; 4.800 ns                ;
+; N/A                                     ; 196.81 MHz ( period = 5.081 ns )                    ; LED_Processing_Unit:inst1|count[6]  ; LED_Processing_Unit:inst1|count[0]  ; clk        ; clk      ; None                        ; None                      ; 4.849 ns                ;
+; N/A                                     ; 197.36 MHz ( period = 5.067 ns )                    ; LED_Processing_Unit:inst1|count[25] ; LED_Processing_Unit:inst1|clk2      ; clk        ; clk      ; None                        ; None                      ; 4.806 ns                ;
+; N/A                                     ; 197.39 MHz ( period = 5.066 ns )                    ; LED_Processing_Unit:inst1|count[25] ; LED_Processing_Unit:inst1|count[18] ; clk        ; clk      ; None                        ; None                      ; 4.805 ns                ;
+; N/A                                     ; 197.43 MHz ( period = 5.065 ns )                    ; LED_Processing_Unit:inst1|count[11] ; LED_Processing_Unit:inst1|count[19] ; clk        ; clk      ; None                        ; None                      ; 4.775 ns                ;
+; N/A                                     ; 197.47 MHz ( period = 5.064 ns )                    ; LED_Processing_Unit:inst1|count[11] ; LED_Processing_Unit:inst1|count[9]  ; clk        ; clk      ; None                        ; None                      ; 4.774 ns                ;
+; N/A                                     ; 197.55 MHz ( period = 5.062 ns )                    ; LED_Processing_Unit:inst1|count[7]  ; LED_Processing_Unit:inst1|count[17] ; clk        ; clk      ; None                        ; None                      ; 4.801 ns                ;
+; N/A                                     ; 197.59 MHz ( period = 5.061 ns )                    ; LED_Processing_Unit:inst1|count[7]  ; LED_Processing_Unit:inst1|count[6]  ; clk        ; clk      ; None                        ; None                      ; 4.800 ns                ;
+; N/A                                     ; 197.59 MHz ( period = 5.061 ns )                    ; LED_Processing_Unit:inst1|count[7]  ; LED_Processing_Unit:inst1|count[14] ; clk        ; clk      ; None                        ; None                      ; 4.800 ns                ;
+; N/A                                     ; 197.90 MHz ( period = 5.053 ns )                    ; LED_Processing_Unit:inst1|count[5]  ; LED_Processing_Unit:inst1|count[17] ; clk        ; clk      ; None                        ; None                      ; 4.763 ns                ;
+; N/A                                     ; 197.94 MHz ( period = 5.052 ns )                    ; LED_Processing_Unit:inst1|count[5]  ; LED_Processing_Unit:inst1|count[6]  ; clk        ; clk      ; None                        ; None                      ; 4.762 ns                ;
+; N/A                                     ; 197.94 MHz ( period = 5.052 ns )                    ; LED_Processing_Unit:inst1|count[5]  ; LED_Processing_Unit:inst1|count[14] ; clk        ; clk      ; None                        ; None                      ; 4.762 ns                ;
+; N/A                                     ; 198.33 MHz ( period = 5.042 ns )                    ; anti_shaking:inst4|KeyHigh[23]      ; anti_shaking:inst4|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.781 ns                ;
+; N/A                                     ; 198.57 MHz ( period = 5.036 ns )                    ; LED_Processing_Unit:inst1|count[7]  ; LED_Processing_Unit:inst1|count[19] ; clk        ; clk      ; None                        ; None                      ; 4.775 ns                ;
+; N/A                                     ; 198.61 MHz ( period = 5.035 ns )                    ; LED_Processing_Unit:inst1|count[7]  ; LED_Processing_Unit:inst1|count[9]  ; clk        ; clk      ; None                        ; None                      ; 4.774 ns                ;
+; N/A                                     ; 198.93 MHz ( period = 5.027 ns )                    ; LED_Processing_Unit:inst1|count[5]  ; LED_Processing_Unit:inst1|count[19] ; clk        ; clk      ; None                        ; None                      ; 4.737 ns                ;
+; N/A                                     ; 198.97 MHz ( period = 5.026 ns )                    ; LED_Processing_Unit:inst1|count[5]  ; LED_Processing_Unit:inst1|count[9]  ; clk        ; clk      ; None                        ; None                      ; 4.736 ns                ;
+; N/A                                     ; 199.24 MHz ( period = 5.019 ns )                    ; anti_shaking:inst4|KeyHigh[6]       ; anti_shaking:inst4|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.758 ns                ;
+; N/A                                     ; 199.36 MHz ( period = 5.016 ns )                    ; anti_shaking:inst5|KeyLow[19]       ; anti_shaking:inst5|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.755 ns                ;
+; N/A                                     ; 199.40 MHz ( period = 5.015 ns )                    ; LED_Processing_Unit:inst1|count[25] ; LED_Processing_Unit:inst1|count[0]  ; clk        ; clk      ; None                        ; None                      ; 4.783 ns                ;
+; N/A                                     ; 200.16 MHz ( period = 4.996 ns )                    ; LED_Processing_Unit:inst1|count[4]  ; LED_Processing_Unit:inst1|count[18] ; clk        ; clk      ; None                        ; None                      ; 4.706 ns                ;
+; N/A                                     ; 201.01 MHz ( period = 4.975 ns )                    ; LED_Processing_Unit:inst1|count[27] ; LED_Processing_Unit:inst1|clk2      ; clk        ; clk      ; None                        ; None                      ; 4.714 ns                ;
+; N/A                                     ; 201.05 MHz ( period = 4.974 ns )                    ; LED_Processing_Unit:inst1|count[27] ; LED_Processing_Unit:inst1|count[18] ; clk        ; clk      ; None                        ; None                      ; 4.713 ns                ;
+; N/A                                     ; 201.90 MHz ( period = 4.953 ns )                    ; anti_shaking:inst6|KeyLow[23]       ; anti_shaking:inst6|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.692 ns                ;
+; N/A                                     ; 202.22 MHz ( period = 4.945 ns )                    ; anti_shaking:inst5|KeyLow[20]       ; anti_shaking:inst5|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.684 ns                ;
+; N/A                                     ; 202.31 MHz ( period = 4.943 ns )                    ; LED_Processing_Unit:inst1|count[0]  ; LED_Processing_Unit:inst1|clk2      ; clk        ; clk      ; None                        ; None                      ; 4.653 ns                ;
+; N/A                                     ; 202.35 MHz ( period = 4.942 ns )                    ; anti_shaking:inst7|KeyLow[23]       ; anti_shaking:inst7|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.681 ns                ;
+; N/A                                     ; 202.35 MHz ( period = 4.942 ns )                    ; LED_Processing_Unit:inst1|count[0]  ; LED_Processing_Unit:inst1|count[18] ; clk        ; clk      ; None                        ; None                      ; 4.652 ns                ;
+; N/A                                     ; 203.13 MHz ( period = 4.923 ns )                    ; LED_Processing_Unit:inst1|count[27] ; LED_Processing_Unit:inst1|count[0]  ; clk        ; clk      ; None                        ; None                      ; 4.691 ns                ;
+; N/A                                     ; 203.13 MHz ( period = 4.923 ns )                    ; LED_Processing_Unit:inst1|count[3]  ; LED_Processing_Unit:inst1|count[16] ; clk        ; clk      ; None                        ; None                      ; 4.633 ns                ;
+; N/A                                     ; 203.87 MHz ( period = 4.905 ns )                    ; anti_shaking:inst6|KeyLow[21]       ; anti_shaking:inst6|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.644 ns                ;
+; N/A                                     ; 204.37 MHz ( period = 4.893 ns )                    ; anti_shaking:inst4|KeyHigh[5]       ; anti_shaking:inst4|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.632 ns                ;
+; N/A                                     ; 204.46 MHz ( period = 4.891 ns )                    ; LED_Processing_Unit:inst1|count[0]  ; LED_Processing_Unit:inst1|count[0]  ; clk        ; clk      ; None                        ; None                      ; 4.630 ns                ;
+; N/A                                     ; 204.88 MHz ( period = 4.881 ns )                    ; LED_Processing_Unit:inst1|count[1]  ; LED_Processing_Unit:inst1|count[17] ; clk        ; clk      ; None                        ; None                      ; 4.591 ns                ;
+; N/A                                     ; 204.92 MHz ( period = 4.880 ns )                    ; LED_Processing_Unit:inst1|count[1]  ; LED_Processing_Unit:inst1|count[6]  ; clk        ; clk      ; None                        ; None                      ; 4.590 ns                ;
+; N/A                                     ; 204.92 MHz ( period = 4.880 ns )                    ; LED_Processing_Unit:inst1|count[1]  ; LED_Processing_Unit:inst1|count[14] ; clk        ; clk      ; None                        ; None                      ; 4.590 ns                ;
+; N/A                                     ; 205.13 MHz ( period = 4.875 ns )                    ; LED_Processing_Unit:inst1|count[11] ; LED_Processing_Unit:inst1|clk2      ; clk        ; clk      ; None                        ; None                      ; 4.585 ns                ;
+; N/A                                     ; 205.17 MHz ( period = 4.874 ns )                    ; anti_shaking:inst5|KeyLow[23]       ; anti_shaking:inst5|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.613 ns                ;
+; N/A                                     ; 205.17 MHz ( period = 4.874 ns )                    ; LED_Processing_Unit:inst1|count[11] ; LED_Processing_Unit:inst1|count[18] ; clk        ; clk      ; None                        ; None                      ; 4.584 ns                ;
+; N/A                                     ; 205.47 MHz ( period = 4.867 ns )                    ; anti_shaking:inst4|KeyHigh[26]      ; anti_shaking:inst4|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.606 ns                ;
+; N/A                                     ; 205.47 MHz ( period = 4.867 ns )                    ; LED_Processing_Unit:inst1|count[9]  ; LED_Processing_Unit:inst1|count[17] ; clk        ; clk      ; None                        ; None                      ; 4.606 ns                ;
+; N/A                                     ; 205.51 MHz ( period = 4.866 ns )                    ; LED_Processing_Unit:inst1|count[9]  ; LED_Processing_Unit:inst1|count[6]  ; clk        ; clk      ; None                        ; None                      ; 4.605 ns                ;
+; N/A                                     ; 205.51 MHz ( period = 4.866 ns )                    ; LED_Processing_Unit:inst1|count[9]  ; LED_Processing_Unit:inst1|count[14] ; clk        ; clk      ; None                        ; None                      ; 4.605 ns                ;
+; N/A                                     ; 205.89 MHz ( period = 4.857 ns )                    ; LED_Processing_Unit:inst1|count[10] ; LED_Processing_Unit:inst1|count[17] ; clk        ; clk      ; None                        ; None                      ; 4.619 ns                ;
+; N/A                                     ; 205.93 MHz ( period = 4.856 ns )                    ; LED_Processing_Unit:inst1|count[10] ; LED_Processing_Unit:inst1|count[6]  ; clk        ; clk      ; None                        ; None                      ; 4.618 ns                ;
+; N/A                                     ; 205.93 MHz ( period = 4.856 ns )                    ; LED_Processing_Unit:inst1|count[10] ; LED_Processing_Unit:inst1|count[14] ; clk        ; clk      ; None                        ; None                      ; 4.618 ns                ;
+; N/A                                     ; 205.97 MHz ( period = 4.855 ns )                    ; LED_Processing_Unit:inst1|count[1]  ; LED_Processing_Unit:inst1|count[19] ; clk        ; clk      ; None                        ; None                      ; 4.565 ns                ;
+; N/A                                     ; 206.02 MHz ( period = 4.854 ns )                    ; LED_Processing_Unit:inst1|count[1]  ; LED_Processing_Unit:inst1|count[9]  ; clk        ; clk      ; None                        ; None                      ; 4.564 ns                ;
+; N/A                                     ; 206.06 MHz ( period = 4.853 ns )                    ; anti_shaking:inst6|KeyLow[20]       ; anti_shaking:inst6|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.592 ns                ;
+; N/A                                     ; 206.31 MHz ( period = 4.847 ns )                    ; LED_Processing_Unit:inst1|count[8]  ; LED_Processing_Unit:inst1|count[18] ; clk        ; clk      ; None                        ; None                      ; 4.586 ns                ;
+; N/A                                     ; 206.36 MHz ( period = 4.846 ns )                    ; LED_Processing_Unit:inst1|count[7]  ; LED_Processing_Unit:inst1|clk2      ; clk        ; clk      ; None                        ; None                      ; 4.585 ns                ;
+; N/A                                     ; 206.40 MHz ( period = 4.845 ns )                    ; LED_Processing_Unit:inst1|count[7]  ; LED_Processing_Unit:inst1|count[18] ; clk        ; clk      ; None                        ; None                      ; 4.584 ns                ;
+; N/A                                     ; 206.40 MHz ( period = 4.845 ns )                    ; LED_Processing_Unit:inst1|count[5]  ; LED_Processing_Unit:inst1|count[24] ; clk        ; clk      ; None                        ; None                      ; 4.555 ns                ;
+; N/A                                     ; 206.57 MHz ( period = 4.841 ns )                    ; LED_Processing_Unit:inst1|count[9]  ; LED_Processing_Unit:inst1|count[19] ; clk        ; clk      ; None                        ; None                      ; 4.580 ns                ;
+; N/A                                     ; 206.61 MHz ( period = 4.840 ns )                    ; LED_Processing_Unit:inst1|count[9]  ; LED_Processing_Unit:inst1|count[9]  ; clk        ; clk      ; None                        ; None                      ; 4.579 ns                ;
+; N/A                                     ; 206.74 MHz ( period = 4.837 ns )                    ; LED_Processing_Unit:inst1|count[5]  ; LED_Processing_Unit:inst1|clk2      ; clk        ; clk      ; None                        ; None                      ; 4.547 ns                ;
+; N/A                                     ; 207.00 MHz ( period = 4.831 ns )                    ; anti_shaking:inst4|KeyHigh[21]      ; anti_shaking:inst4|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.570 ns                ;
+; N/A                                     ; 207.00 MHz ( period = 4.831 ns )                    ; LED_Processing_Unit:inst1|count[10] ; LED_Processing_Unit:inst1|count[19] ; clk        ; clk      ; None                        ; None                      ; 4.593 ns                ;
+; N/A                                     ; 207.04 MHz ( period = 4.830 ns )                    ; anti_shaking:inst4|KeyLow[23]       ; anti_shaking:inst4|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.569 ns                ;
+; N/A                                     ; 207.04 MHz ( period = 4.830 ns )                    ; LED_Processing_Unit:inst1|count[10] ; LED_Processing_Unit:inst1|count[9]  ; clk        ; clk      ; None                        ; None                      ; 4.592 ns                ;
+; N/A                                     ; 207.34 MHz ( period = 4.823 ns )                    ; LED_Processing_Unit:inst1|count[11] ; LED_Processing_Unit:inst1|count[0]  ; clk        ; clk      ; None                        ; None                      ; 4.562 ns                ;
+; N/A                                     ; 207.60 MHz ( period = 4.817 ns )                    ; anti_shaking:inst5|KeyLow[13]       ; anti_shaking:inst5|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.556 ns                ;
+; N/A                                     ; 207.60 MHz ( period = 4.817 ns )                    ; LED_Processing_Unit:inst1|count[4]  ; LED_Processing_Unit:inst1|count[17] ; clk        ; clk      ; None                        ; None                      ; 4.527 ns                ;
+; N/A                                     ; 207.90 MHz ( period = 4.810 ns )                    ; LED_Processing_Unit:inst1|count[10] ; LED_Processing_Unit:inst1|count[18] ; clk        ; clk      ; None                        ; None                      ; 4.572 ns                ;
+; N/A                                     ; 208.46 MHz ( period = 4.797 ns )                    ; anti_shaking:inst6|KeyHigh[22]      ; anti_shaking:inst6|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.536 ns                ;
+; N/A                                     ; 208.46 MHz ( period = 4.797 ns )                    ; LED_Processing_Unit:inst1|count[4]  ; LED_Processing_Unit:inst1|count[19] ; clk        ; clk      ; None                        ; None                      ; 4.507 ns                ;
+; N/A                                     ; 208.59 MHz ( period = 4.794 ns )                    ; LED_Processing_Unit:inst1|count[7]  ; LED_Processing_Unit:inst1|count[0]  ; clk        ; clk      ; None                        ; None                      ; 4.562 ns                ;
+; N/A                                     ; 208.77 MHz ( period = 4.790 ns )                    ; LED_Processing_Unit:inst1|count[15] ; LED_Processing_Unit:inst1|count[17] ; clk        ; clk      ; None                        ; None                      ; 4.529 ns                ;
+; N/A                                     ; 208.81 MHz ( period = 4.789 ns )                    ; LED_Processing_Unit:inst1|count[15] ; LED_Processing_Unit:inst1|count[6]  ; clk        ; clk      ; None                        ; None                      ; 4.528 ns                ;
+; N/A                                     ; 208.81 MHz ( period = 4.789 ns )                    ; LED_Processing_Unit:inst1|count[15] ; LED_Processing_Unit:inst1|count[14] ; clk        ; clk      ; None                        ; None                      ; 4.528 ns                ;
+; N/A                                     ; 208.86 MHz ( period = 4.788 ns )                    ; anti_shaking:inst4|KeyLow[17]       ; anti_shaking:inst4|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.527 ns                ;
+; N/A                                     ; 208.86 MHz ( period = 4.788 ns )                    ; LED_Processing_Unit:inst1|count[5]  ; LED_Processing_Unit:inst1|count[16] ; clk        ; clk      ; None                        ; None                      ; 4.498 ns                ;
+; N/A                                     ; 208.99 MHz ( period = 4.785 ns )                    ; LED_Processing_Unit:inst1|count[5]  ; LED_Processing_Unit:inst1|count[0]  ; clk        ; clk      ; None                        ; None                      ; 4.524 ns                ;
+; N/A                                     ; 209.47 MHz ( period = 4.774 ns )                    ; LED_Processing_Unit:inst1|count[5]  ; LED_Processing_Unit:inst1|count[12] ; clk        ; clk      ; None                        ; None                      ; 4.484 ns                ;
+; N/A                                     ; 209.69 MHz ( period = 4.769 ns )                    ; LED_Processing_Unit:inst1|count[5]  ; LED_Processing_Unit:inst1|count[26] ; clk        ; clk      ; None                        ; None                      ; 4.479 ns                ;
+; N/A                                     ; 209.86 MHz ( period = 4.765 ns )                    ; anti_shaking:inst7|KeyHigh[26]      ; anti_shaking:inst7|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.504 ns                ;
+; N/A                                     ; 209.91 MHz ( period = 4.764 ns )                    ; anti_shaking:inst7|KeyHigh[21]      ; anti_shaking:inst7|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.503 ns                ;
+; N/A                                     ; 209.91 MHz ( period = 4.764 ns )                    ; LED_Processing_Unit:inst1|count[15] ; LED_Processing_Unit:inst1|count[19] ; clk        ; clk      ; None                        ; None                      ; 4.503 ns                ;
+; N/A                                     ; 209.95 MHz ( period = 4.763 ns )                    ; LED_Processing_Unit:inst1|count[15] ; LED_Processing_Unit:inst1|count[9]  ; clk        ; clk      ; None                        ; None                      ; 4.502 ns                ;
+; N/A                                     ; 210.00 MHz ( period = 4.762 ns )                    ; anti_shaking:inst7|KeyLow[19]       ; anti_shaking:inst7|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.501 ns                ;
+; N/A                                     ; 210.39 MHz ( period = 4.753 ns )                    ; anti_shaking:inst4|KeyHigh[1]       ; anti_shaking:inst4|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.492 ns                ;
+; N/A                                     ; 211.01 MHz ( period = 4.739 ns )                    ; LED_Processing_Unit:inst1|count[13] ; LED_Processing_Unit:inst1|count[17] ; clk        ; clk      ; None                        ; None                      ; 4.478 ns                ;
+; N/A                                     ; 211.06 MHz ( period = 4.738 ns )                    ; LED_Processing_Unit:inst1|count[13] ; LED_Processing_Unit:inst1|count[6]  ; clk        ; clk      ; None                        ; None                      ; 4.477 ns                ;
+; N/A                                     ; 211.06 MHz ( period = 4.738 ns )                    ; LED_Processing_Unit:inst1|count[5]  ; LED_Processing_Unit:inst1|count[10] ; clk        ; clk      ; None                        ; None                      ; 4.425 ns                ;
+; N/A                                     ; 211.06 MHz ( period = 4.738 ns )                    ; LED_Processing_Unit:inst1|count[13] ; LED_Processing_Unit:inst1|count[14] ; clk        ; clk      ; None                        ; None                      ; 4.477 ns                ;
+; N/A                                     ; 211.86 MHz ( period = 4.720 ns )                    ; LED_Processing_Unit:inst1|count[24] ; LED_Processing_Unit:inst1|count[17] ; clk        ; clk      ; None                        ; None                      ; 4.459 ns                ;
+; N/A                                     ; 211.91 MHz ( period = 4.719 ns )                    ; LED_Processing_Unit:inst1|count[24] ; LED_Processing_Unit:inst1|count[6]  ; clk        ; clk      ; None                        ; None                      ; 4.458 ns                ;
+; N/A                                     ; 211.91 MHz ( period = 4.719 ns )                    ; LED_Processing_Unit:inst1|count[24] ; LED_Processing_Unit:inst1|count[14] ; clk        ; clk      ; None                        ; None                      ; 4.458 ns                ;
+; N/A                                     ; 212.13 MHz ( period = 4.714 ns )                    ; anti_shaking:inst4|KeyHigh[28]      ; anti_shaking:inst4|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.453 ns                ;
+; N/A                                     ; 212.18 MHz ( period = 4.713 ns )                    ; LED_Processing_Unit:inst1|count[13] ; LED_Processing_Unit:inst1|count[19] ; clk        ; clk      ; None                        ; None                      ; 4.452 ns                ;
+; N/A                                     ; 212.22 MHz ( period = 4.712 ns )                    ; LED_Processing_Unit:inst1|count[13] ; LED_Processing_Unit:inst1|count[9]  ; clk        ; clk      ; None                        ; None                      ; 4.451 ns                ;
+; N/A                                     ; 212.22 MHz ( period = 4.712 ns )                    ; LED_Processing_Unit:inst1|count[26] ; LED_Processing_Unit:inst1|count[16] ; clk        ; clk      ; None                        ; None                      ; 4.451 ns                ;
+; N/A                                     ; 212.22 MHz ( period = 4.712 ns )                    ; LED_Processing_Unit:inst1|count[4]  ; LED_Processing_Unit:inst1|count[24] ; clk        ; clk      ; None                        ; None                      ; 4.422 ns                ;
+; N/A                                     ; 212.36 MHz ( period = 4.709 ns )                    ; LED_Processing_Unit:inst1|count[30] ; LED_Processing_Unit:inst1|count[17] ; clk        ; clk      ; None                        ; None                      ; 4.448 ns                ;
+; N/A                                     ; 212.40 MHz ( period = 4.708 ns )                    ; LED_Processing_Unit:inst1|count[30] ; LED_Processing_Unit:inst1|count[6]  ; clk        ; clk      ; None                        ; None                      ; 4.447 ns                ;
+; N/A                                     ; 212.40 MHz ( period = 4.708 ns )                    ; LED_Processing_Unit:inst1|count[30] ; LED_Processing_Unit:inst1|count[14] ; clk        ; clk      ; None                        ; None                      ; 4.447 ns                ;
+; N/A                                     ; 212.59 MHz ( period = 4.704 ns )                    ; LED_Processing_Unit:inst1|count[5]  ; LED_Processing_Unit:inst1|count[20] ; clk        ; clk      ; None                        ; None                      ; 4.414 ns                ;
+; N/A                                     ; 212.59 MHz ( period = 4.704 ns )                    ; LED_Processing_Unit:inst1|count[5]  ; LED_Processing_Unit:inst1|count[21] ; clk        ; clk      ; None                        ; None                      ; 4.414 ns                ;
+; N/A                                     ; 212.68 MHz ( period = 4.702 ns )                    ; anti_shaking:inst4|KeyLow[21]       ; anti_shaking:inst4|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.441 ns                ;
+; N/A                                     ; 213.04 MHz ( period = 4.694 ns )                    ; LED_Processing_Unit:inst1|count[24] ; LED_Processing_Unit:inst1|count[19] ; clk        ; clk      ; None                        ; None                      ; 4.433 ns                ;
+; N/A                                     ; 213.08 MHz ( period = 4.693 ns )                    ; LED_Processing_Unit:inst1|count[24] ; LED_Processing_Unit:inst1|count[9]  ; clk        ; clk      ; None                        ; None                      ; 4.432 ns                ;
+; N/A                                     ; 213.54 MHz ( period = 4.683 ns )                    ; anti_shaking:inst5|KeyOut           ; anti_shaking:inst5|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.422 ns                ;
+; N/A                                     ; 213.54 MHz ( period = 4.683 ns )                    ; anti_shaking:inst7|KeyLow[22]       ; anti_shaking:inst7|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.422 ns                ;
+; N/A                                     ; 213.54 MHz ( period = 4.683 ns )                    ; LED_Processing_Unit:inst1|count[30] ; LED_Processing_Unit:inst1|count[19] ; clk        ; clk      ; None                        ; None                      ; 4.422 ns                ;
+; N/A                                     ; 213.58 MHz ( period = 4.682 ns )                    ; LED_Processing_Unit:inst1|count[30] ; LED_Processing_Unit:inst1|count[9]  ; clk        ; clk      ; None                        ; None                      ; 4.421 ns                ;
+; N/A                                     ; 213.68 MHz ( period = 4.680 ns )                    ; LED_Processing_Unit:inst1|count[29] ; LED_Processing_Unit:inst1|count[17] ; clk        ; clk      ; None                        ; None                      ; 4.419 ns                ;
+; N/A                                     ; 213.72 MHz ( period = 4.679 ns )                    ; LED_Processing_Unit:inst1|count[29] ; LED_Processing_Unit:inst1|count[6]  ; clk        ; clk      ; None                        ; None                      ; 4.418 ns                ;
+; N/A                                     ; 213.72 MHz ( period = 4.679 ns )                    ; LED_Processing_Unit:inst1|count[29] ; LED_Processing_Unit:inst1|count[14] ; clk        ; clk      ; None                        ; None                      ; 4.418 ns                ;
+; N/A                                     ; 213.77 MHz ( period = 4.678 ns )                    ; anti_shaking:inst4|KeyLow[13]       ; anti_shaking:inst4|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.417 ns                ;
+; N/A                                     ; 214.09 MHz ( period = 4.671 ns )                    ; anti_shaking:inst7|KeyLow[15]       ; anti_shaking:inst7|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.410 ns                ;
+; N/A                                     ; 214.22 MHz ( period = 4.668 ns )                    ; LED_Processing_Unit:inst1|count[8]  ; LED_Processing_Unit:inst1|count[17] ; clk        ; clk      ; None                        ; None                      ; 4.407 ns                ;
+; N/A                                     ; 214.36 MHz ( period = 4.665 ns )                    ; LED_Processing_Unit:inst1|count[1]  ; LED_Processing_Unit:inst1|clk2      ; clk        ; clk      ; None                        ; None                      ; 4.375 ns                ;
+; N/A                                     ; 214.41 MHz ( period = 4.664 ns )                    ; LED_Processing_Unit:inst1|count[1]  ; LED_Processing_Unit:inst1|count[18] ; clk        ; clk      ; None                        ; None                      ; 4.374 ns                ;
+; N/A                                     ; 214.82 MHz ( period = 4.655 ns )                    ; LED_Processing_Unit:inst1|count[4]  ; LED_Processing_Unit:inst1|count[16] ; clk        ; clk      ; None                        ; None                      ; 4.365 ns                ;
+; N/A                                     ; 214.87 MHz ( period = 4.654 ns )                    ; LED_Processing_Unit:inst1|count[29] ; LED_Processing_Unit:inst1|count[19] ; clk        ; clk      ; None                        ; None                      ; 4.393 ns                ;
+; N/A                                     ; 214.92 MHz ( period = 4.653 ns )                    ; LED_Processing_Unit:inst1|count[29] ; LED_Processing_Unit:inst1|count[9]  ; clk        ; clk      ; None                        ; None                      ; 4.392 ns                ;
+; N/A                                     ; 215.01 MHz ( period = 4.651 ns )                    ; LED_Processing_Unit:inst1|count[9]  ; LED_Processing_Unit:inst1|clk2      ; clk        ; clk      ; None                        ; None                      ; 4.390 ns                ;
+; N/A                                     ; 215.05 MHz ( period = 4.650 ns )                    ; LED_Processing_Unit:inst1|count[9]  ; LED_Processing_Unit:inst1|count[18] ; clk        ; clk      ; None                        ; None                      ; 4.389 ns                ;
+; N/A                                     ; 215.05 MHz ( period = 4.650 ns )                    ; LED_Processing_Unit:inst1|count[12] ; LED_Processing_Unit:inst1|count[18] ; clk        ; clk      ; None                        ; None                      ; 4.389 ns                ;
+; N/A                                     ; 215.15 MHz ( period = 4.648 ns )                    ; anti_shaking:inst6|KeyLow[5]        ; anti_shaking:inst6|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.387 ns                ;
+; N/A                                     ; 215.15 MHz ( period = 4.648 ns )                    ; LED_Processing_Unit:inst1|count[8]  ; LED_Processing_Unit:inst1|count[19] ; clk        ; clk      ; None                        ; None                      ; 4.387 ns                ;
+; N/A                                     ; 215.33 MHz ( period = 4.644 ns )                    ; anti_shaking:inst5|KeyLow[14]       ; anti_shaking:inst5|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.383 ns                ;
+; N/A                                     ; 215.47 MHz ( period = 4.641 ns )                    ; anti_shaking:inst4|KeyHigh[15]      ; anti_shaking:inst4|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.380 ns                ;
+; N/A                                     ; 215.47 MHz ( period = 4.641 ns )                    ; anti_shaking:inst4|KeyHigh[16]      ; anti_shaking:inst4|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.380 ns                ;
+; N/A                                     ; 215.47 MHz ( period = 4.641 ns )                    ; LED_Processing_Unit:inst1|count[4]  ; LED_Processing_Unit:inst1|count[12] ; clk        ; clk      ; None                        ; None                      ; 4.351 ns                ;
+; N/A                                     ; 215.47 MHz ( period = 4.641 ns )                    ; LED_Processing_Unit:inst1|count[10] ; LED_Processing_Unit:inst1|clk2      ; clk        ; clk      ; None                        ; None                      ; 4.403 ns                ;
+; N/A                                     ; 215.61 MHz ( period = 4.638 ns )                    ; anti_shaking:inst5|KeyLow[24]       ; anti_shaking:inst5|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.377 ns                ;
+; N/A                                     ; 215.66 MHz ( period = 4.637 ns )                    ; anti_shaking:inst6|KeyLow[24]       ; anti_shaking:inst6|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.376 ns                ;
+; N/A                                     ; 215.70 MHz ( period = 4.636 ns )                    ; LED_Processing_Unit:inst1|count[4]  ; LED_Processing_Unit:inst1|count[26] ; clk        ; clk      ; None                        ; None                      ; 4.346 ns                ;
+; N/A                                     ; 216.03 MHz ( period = 4.629 ns )                    ; anti_shaking:inst6|KeyLow[19]       ; anti_shaking:inst6|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.368 ns                ;
+; N/A                                     ; 216.31 MHz ( period = 4.623 ns )                    ; anti_shaking:inst6|KeyHigh[24]      ; anti_shaking:inst6|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.362 ns                ;
+; N/A                                     ; 216.73 MHz ( period = 4.614 ns )                    ; anti_shaking:inst5|KeyLow[16]       ; anti_shaking:inst5|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.353 ns                ;
+; N/A                                     ; 216.78 MHz ( period = 4.613 ns )                    ; LED_Processing_Unit:inst1|count[1]  ; LED_Processing_Unit:inst1|count[0]  ; clk        ; clk      ; None                        ; None                      ; 4.352 ns                ;
+; N/A                                     ; 216.92 MHz ( period = 4.610 ns )                    ; anti_shaking:inst7|KeyHigh[25]      ; anti_shaking:inst7|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.349 ns                ;
+; N/A                                     ; 217.11 MHz ( period = 4.606 ns )                    ; LED_Processing_Unit:inst1|count[6]  ; LED_Processing_Unit:inst1|count[16] ; clk        ; clk      ; None                        ; None                      ; 4.345 ns                ;
+; N/A                                     ; 217.16 MHz ( period = 4.605 ns )                    ; LED_Processing_Unit:inst1|count[4]  ; LED_Processing_Unit:inst1|count[10] ; clk        ; clk      ; None                        ; None                      ; 4.292 ns                ;
+; N/A                                     ; 217.44 MHz ( period = 4.599 ns )                    ; LED_Processing_Unit:inst1|count[9]  ; LED_Processing_Unit:inst1|count[0]  ; clk        ; clk      ; None                        ; None                      ; 4.367 ns                ;
+; N/A                                     ; 217.58 MHz ( period = 4.596 ns )                    ; LED_Processing_Unit:inst1|count[5]  ; LED_Processing_Unit:inst1|count[28] ; clk        ; clk      ; None                        ; None                      ; 4.306 ns                ;
+; N/A                                     ; 217.77 MHz ( period = 4.592 ns )                    ; LED_Processing_Unit:inst1|count[5]  ; LED_Processing_Unit:inst1|count[25] ; clk        ; clk      ; None                        ; None                      ; 4.302 ns                ;
+; N/A                                     ; 217.91 MHz ( period = 4.589 ns )                    ; LED_Processing_Unit:inst1|count[10] ; LED_Processing_Unit:inst1|count[0]  ; clk        ; clk      ; None                        ; None                      ; 4.380 ns                ;
+; N/A                                     ; 218.01 MHz ( period = 4.587 ns )                    ; anti_shaking:inst4|KeyHigh[27]      ; anti_shaking:inst4|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.326 ns                ;
+; N/A                                     ; 218.01 MHz ( period = 4.587 ns )                    ; anti_shaking:inst7|KeyLow[12]       ; anti_shaking:inst7|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.326 ns                ;
+; N/A                                     ; 218.25 MHz ( period = 4.582 ns )                    ; anti_shaking:inst6|KeyLow[15]       ; anti_shaking:inst6|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.321 ns                ;
+; N/A                                     ; 218.53 MHz ( period = 4.576 ns )                    ; anti_shaking:inst4|KeyHigh[3]       ; anti_shaking:inst4|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.315 ns                ;
+; N/A                                     ; 218.53 MHz ( period = 4.576 ns )                    ; anti_shaking:inst5|KeyLow[22]       ; anti_shaking:inst5|KeyOut           ; clk        ; clk      ; None                        ; None                      ; 4.315 ns                ;
+; N/A                                     ; 218.58 MHz ( period = 4.575 ns )                    ; LED_Processing_Unit:inst1|count[18] ; LED_Processing_Unit:inst1|count[17] ; clk        ; clk      ; None                        ; None                      ; 4.314 ns                ;
+; N/A                                     ; 218.63 MHz ( period = 4.574 ns )                    ; LED_Processing_Unit:inst1|count[18] ; LED_Processing_Unit:inst1|count[6]  ; clk        ; clk      ; None                        ; None                      ; 4.313 ns                ;
+; N/A                                     ; 218.63 MHz ( period = 4.574 ns )                    ; LED_Processing_Unit:inst1|count[18] ; LED_Processing_Unit:inst1|count[14] ; clk        ; clk      ; None                        ; None                      ; 4.313 ns                ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                                     ;                                     ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+-------------------------------------+-------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; tsu                                                                                                                                                           ;
++-----------------------------------------+-----------------------------------------------------+------------+------+--------------------------------+----------+
+; Slack                                   ; Required tsu                                        ; Actual tsu ; From ; To                             ; To Clock ;
++-----------------------------------------+-----------------------------------------------------+------------+------+--------------------------------+----------+
+; N/A                                     ; None                                                ; 7.733 ns   ; MINS ; anti_shaking:inst6|KeyLow[4]   ; clk      ;
+; N/A                                     ; None                                                ; 7.733 ns   ; MINS ; anti_shaking:inst6|KeyLow[0]   ; clk      ;
+; N/A                                     ; None                                                ; 7.733 ns   ; MINS ; anti_shaking:inst6|KeyLow[1]   ; clk      ;
+; N/A                                     ; None                                                ; 7.733 ns   ; MINS ; anti_shaking:inst6|KeyLow[2]   ; clk      ;
+; N/A                                     ; None                                                ; 7.733 ns   ; MINS ; anti_shaking:inst6|KeyLow[3]   ; clk      ;
+; N/A                                     ; None                                                ; 7.581 ns   ; MINS ; anti_shaking:inst6|KeyLow[25]  ; clk      ;
+; N/A                                     ; None                                                ; 7.581 ns   ; MINS ; anti_shaking:inst6|KeyLow[26]  ; clk      ;
+; N/A                                     ; None                                                ; 7.581 ns   ; MINS ; anti_shaking:inst6|KeyLow[27]  ; clk      ;
+; N/A                                     ; None                                                ; 7.581 ns   ; MINS ; anti_shaking:inst6|KeyLow[28]  ; clk      ;
+; N/A                                     ; None                                                ; 7.581 ns   ; MINS ; anti_shaking:inst6|KeyLow[29]  ; clk      ;
+; N/A                                     ; None                                                ; 7.581 ns   ; MINS ; anti_shaking:inst6|KeyLow[30]  ; clk      ;
+; N/A                                     ; None                                                ; 7.345 ns   ; RST  ; anti_shaking:inst5|KeyLow[25]  ; clk      ;
+; N/A                                     ; None                                                ; 7.345 ns   ; RST  ; anti_shaking:inst5|KeyLow[26]  ; clk      ;
+; N/A                                     ; None                                                ; 7.345 ns   ; RST  ; anti_shaking:inst5|KeyLow[27]  ; clk      ;
+; N/A                                     ; None                                                ; 7.345 ns   ; RST  ; anti_shaking:inst5|KeyLow[28]  ; clk      ;
+; N/A                                     ; None                                                ; 7.345 ns   ; RST  ; anti_shaking:inst5|KeyLow[29]  ; clk      ;
+; N/A                                     ; None                                                ; 7.345 ns   ; RST  ; anti_shaking:inst5|KeyLow[30]  ; clk      ;
+; N/A                                     ; None                                                ; 7.283 ns   ; MINS ; anti_shaking:inst6|KeyLow[23]  ; clk      ;
+; N/A                                     ; None                                                ; 7.283 ns   ; MINS ; anti_shaking:inst6|KeyLow[22]  ; clk      ;
+; N/A                                     ; None                                                ; 7.283 ns   ; MINS ; anti_shaking:inst6|KeyLow[19]  ; clk      ;
+; N/A                                     ; None                                                ; 7.283 ns   ; MINS ; anti_shaking:inst6|KeyLow[21]  ; clk      ;
+; N/A                                     ; None                                                ; 7.283 ns   ; MINS ; anti_shaking:inst6|KeyLow[20]  ; clk      ;
+; N/A                                     ; None                                                ; 7.283 ns   ; MINS ; anti_shaking:inst6|KeyLow[24]  ; clk      ;
+; N/A                                     ; None                                                ; 7.283 ns   ; MINS ; anti_shaking:inst6|KeyLow[18]  ; clk      ;
+; N/A                                     ; None                                                ; 7.283 ns   ; MINS ; anti_shaking:inst6|KeyLow[17]  ; clk      ;
+; N/A                                     ; None                                                ; 7.283 ns   ; MINS ; anti_shaking:inst6|KeyLow[16]  ; clk      ;
+; N/A                                     ; None                                                ; 7.283 ns   ; MINS ; anti_shaking:inst6|KeyLow[15]  ; clk      ;
+; N/A                                     ; None                                                ; 7.274 ns   ; MINS ; anti_shaking:inst6|KeyHigh[4]  ; clk      ;
+; N/A                                     ; None                                                ; 7.274 ns   ; MINS ; anti_shaking:inst6|KeyHigh[0]  ; clk      ;
+; N/A                                     ; None                                                ; 7.274 ns   ; MINS ; anti_shaking:inst6|KeyHigh[1]  ; clk      ;
+; N/A                                     ; None                                                ; 7.274 ns   ; MINS ; anti_shaking:inst6|KeyHigh[2]  ; clk      ;
+; N/A                                     ; None                                                ; 7.274 ns   ; MINS ; anti_shaking:inst6|KeyHigh[3]  ; clk      ;
+; N/A                                     ; None                                                ; 7.260 ns   ; MINS ; anti_shaking:inst6|KeyLow[14]  ; clk      ;
+; N/A                                     ; None                                                ; 7.260 ns   ; MINS ; anti_shaking:inst6|KeyLow[12]  ; clk      ;
+; N/A                                     ; None                                                ; 7.260 ns   ; MINS ; anti_shaking:inst6|KeyLow[9]   ; clk      ;
+; N/A                                     ; None                                                ; 7.260 ns   ; MINS ; anti_shaking:inst6|KeyLow[11]  ; clk      ;
+; N/A                                     ; None                                                ; 7.260 ns   ; MINS ; anti_shaking:inst6|KeyLow[10]  ; clk      ;
+; N/A                                     ; None                                                ; 7.260 ns   ; MINS ; anti_shaking:inst6|KeyLow[8]   ; clk      ;
+; N/A                                     ; None                                                ; 7.260 ns   ; MINS ; anti_shaking:inst6|KeyLow[7]   ; clk      ;
+; N/A                                     ; None                                                ; 7.260 ns   ; MINS ; anti_shaking:inst6|KeyLow[6]   ; clk      ;
+; N/A                                     ; None                                                ; 7.260 ns   ; MINS ; anti_shaking:inst6|KeyLow[5]   ; clk      ;
+; N/A                                     ; None                                                ; 7.260 ns   ; MINS ; anti_shaking:inst6|KeyLow[13]  ; clk      ;
+; N/A                                     ; None                                                ; 7.258 ns   ; MINS ; anti_shaking:inst6|KeyHigh[9]  ; clk      ;
+; N/A                                     ; None                                                ; 7.258 ns   ; MINS ; anti_shaking:inst6|KeyHigh[8]  ; clk      ;
+; N/A                                     ; None                                                ; 7.258 ns   ; MINS ; anti_shaking:inst6|KeyHigh[7]  ; clk      ;
+; N/A                                     ; None                                                ; 7.258 ns   ; MINS ; anti_shaking:inst6|KeyHigh[6]  ; clk      ;
+; N/A                                     ; None                                                ; 7.258 ns   ; MINS ; anti_shaking:inst6|KeyHigh[5]  ; clk      ;
+; N/A                                     ; None                                                ; 7.258 ns   ; MINS ; anti_shaking:inst6|KeyHigh[10] ; clk      ;
+; N/A                                     ; None                                                ; 7.258 ns   ; MINS ; anti_shaking:inst6|KeyHigh[12] ; clk      ;
+; N/A                                     ; None                                                ; 7.258 ns   ; MINS ; anti_shaking:inst6|KeyHigh[11] ; clk      ;
+; N/A                                     ; None                                                ; 7.258 ns   ; MINS ; anti_shaking:inst6|KeyHigh[14] ; clk      ;
+; N/A                                     ; None                                                ; 7.258 ns   ; MINS ; anti_shaking:inst6|KeyHigh[13] ; clk      ;
+; N/A                                     ; None                                                ; 7.245 ns   ; MINS ; anti_shaking:inst6|KeyHigh[21] ; clk      ;
+; N/A                                     ; None                                                ; 7.245 ns   ; MINS ; anti_shaking:inst6|KeyHigh[20] ; clk      ;
+; N/A                                     ; None                                                ; 7.245 ns   ; MINS ; anti_shaking:inst6|KeyHigh[19] ; clk      ;
+; N/A                                     ; None                                                ; 7.245 ns   ; MINS ; anti_shaking:inst6|KeyHigh[22] ; clk      ;
+; N/A                                     ; None                                                ; 7.245 ns   ; MINS ; anti_shaking:inst6|KeyHigh[23] ; clk      ;
+; N/A                                     ; None                                                ; 7.245 ns   ; MINS ; anti_shaking:inst6|KeyHigh[24] ; clk      ;
+; N/A                                     ; None                                                ; 7.245 ns   ; MINS ; anti_shaking:inst6|KeyHigh[15] ; clk      ;
+; N/A                                     ; None                                                ; 7.245 ns   ; MINS ; anti_shaking:inst6|KeyHigh[16] ; clk      ;
+; N/A                                     ; None                                                ; 7.245 ns   ; MINS ; anti_shaking:inst6|KeyHigh[17] ; clk      ;
+; N/A                                     ; None                                                ; 7.245 ns   ; MINS ; anti_shaking:inst6|KeyHigh[18] ; clk      ;
+; N/A                                     ; None                                                ; 6.953 ns   ; RST  ; anti_shaking:inst5|KeyHigh[25] ; clk      ;
+; N/A                                     ; None                                                ; 6.953 ns   ; RST  ; anti_shaking:inst5|KeyHigh[26] ; clk      ;
+; N/A                                     ; None                                                ; 6.953 ns   ; RST  ; anti_shaking:inst5|KeyHigh[27] ; clk      ;
+; N/A                                     ; None                                                ; 6.953 ns   ; RST  ; anti_shaking:inst5|KeyHigh[28] ; clk      ;
+; N/A                                     ; None                                                ; 6.953 ns   ; RST  ; anti_shaking:inst5|KeyHigh[29] ; clk      ;
+; N/A                                     ; None                                                ; 6.953 ns   ; RST  ; anti_shaking:inst5|KeyHigh[30] ; clk      ;
+; N/A                                     ; None                                                ; 6.908 ns   ; RST  ; anti_shaking:inst5|KeyLow[23]  ; clk      ;
+; N/A                                     ; None                                                ; 6.908 ns   ; RST  ; anti_shaking:inst5|KeyLow[22]  ; clk      ;
+; N/A                                     ; None                                                ; 6.908 ns   ; RST  ; anti_shaking:inst5|KeyLow[19]  ; clk      ;
+; N/A                                     ; None                                                ; 6.908 ns   ; RST  ; anti_shaking:inst5|KeyLow[21]  ; clk      ;
+; N/A                                     ; None                                                ; 6.908 ns   ; RST  ; anti_shaking:inst5|KeyLow[20]  ; clk      ;
+; N/A                                     ; None                                                ; 6.908 ns   ; RST  ; anti_shaking:inst5|KeyLow[24]  ; clk      ;
+; N/A                                     ; None                                                ; 6.908 ns   ; RST  ; anti_shaking:inst5|KeyLow[18]  ; clk      ;
+; N/A                                     ; None                                                ; 6.908 ns   ; RST  ; anti_shaking:inst5|KeyLow[17]  ; clk      ;
+; N/A                                     ; None                                                ; 6.908 ns   ; RST  ; anti_shaking:inst5|KeyLow[16]  ; clk      ;
+; N/A                                     ; None                                                ; 6.908 ns   ; RST  ; anti_shaking:inst5|KeyLow[15]  ; clk      ;
+; N/A                                     ; None                                                ; 6.821 ns   ; MINS ; anti_shaking:inst6|KeyHigh[25] ; clk      ;
+; N/A                                     ; None                                                ; 6.821 ns   ; MINS ; anti_shaking:inst6|KeyHigh[26] ; clk      ;
+; N/A                                     ; None                                                ; 6.821 ns   ; MINS ; anti_shaking:inst6|KeyHigh[27] ; clk      ;
+; N/A                                     ; None                                                ; 6.821 ns   ; MINS ; anti_shaking:inst6|KeyHigh[28] ; clk      ;
+; N/A                                     ; None                                                ; 6.821 ns   ; MINS ; anti_shaking:inst6|KeyHigh[29] ; clk      ;
+; N/A                                     ; None                                                ; 6.821 ns   ; MINS ; anti_shaking:inst6|KeyHigh[30] ; clk      ;
+; N/A                                     ; None                                                ; 6.585 ns   ; EN   ; anti_shaking:inst4|KeyHigh[4]  ; clk      ;
+; N/A                                     ; None                                                ; 6.585 ns   ; EN   ; anti_shaking:inst4|KeyHigh[0]  ; clk      ;
+; N/A                                     ; None                                                ; 6.585 ns   ; EN   ; anti_shaking:inst4|KeyHigh[1]  ; clk      ;
+; N/A                                     ; None                                                ; 6.585 ns   ; EN   ; anti_shaking:inst4|KeyHigh[2]  ; clk      ;
+; N/A                                     ; None                                                ; 6.585 ns   ; EN   ; anti_shaking:inst4|KeyHigh[3]  ; clk      ;
+; N/A                                     ; None                                                ; 6.578 ns   ; EN   ; anti_shaking:inst4|KeyLow[4]   ; clk      ;
+; N/A                                     ; None                                                ; 6.578 ns   ; EN   ; anti_shaking:inst4|KeyLow[0]   ; clk      ;
+; N/A                                     ; None                                                ; 6.578 ns   ; EN   ; anti_shaking:inst4|KeyLow[1]   ; clk      ;
+; N/A                                     ; None                                                ; 6.578 ns   ; EN   ; anti_shaking:inst4|KeyLow[2]   ; clk      ;
+; N/A                                     ; None                                                ; 6.578 ns   ; EN   ; anti_shaking:inst4|KeyLow[3]   ; clk      ;
+; N/A                                     ; None                                                ; 6.574 ns   ; RST  ; anti_shaking:inst5|KeyHigh[21] ; clk      ;
+; N/A                                     ; None                                                ; 6.574 ns   ; RST  ; anti_shaking:inst5|KeyHigh[20] ; clk      ;
+; N/A                                     ; None                                                ; 6.574 ns   ; RST  ; anti_shaking:inst5|KeyHigh[19] ; clk      ;
+; N/A                                     ; None                                                ; 6.574 ns   ; RST  ; anti_shaking:inst5|KeyHigh[22] ; clk      ;
+; N/A                                     ; None                                                ; 6.574 ns   ; RST  ; anti_shaking:inst5|KeyHigh[23] ; clk      ;
+; N/A                                     ; None                                                ; 6.574 ns   ; RST  ; anti_shaking:inst5|KeyHigh[24] ; clk      ;
+; N/A                                     ; None                                                ; 6.574 ns   ; RST  ; anti_shaking:inst5|KeyHigh[15] ; clk      ;
+; N/A                                     ; None                                                ; 6.574 ns   ; RST  ; anti_shaking:inst5|KeyHigh[16] ; clk      ;
+; N/A                                     ; None                                                ; 6.574 ns   ; RST  ; anti_shaking:inst5|KeyHigh[17] ; clk      ;
+; N/A                                     ; None                                                ; 6.574 ns   ; RST  ; anti_shaking:inst5|KeyHigh[18] ; clk      ;
+; N/A                                     ; None                                                ; 6.465 ns   ; RST  ; anti_shaking:inst5|KeyLow[4]   ; clk      ;
+; N/A                                     ; None                                                ; 6.465 ns   ; RST  ; anti_shaking:inst5|KeyLow[0]   ; clk      ;
+; N/A                                     ; None                                                ; 6.465 ns   ; RST  ; anti_shaking:inst5|KeyLow[1]   ; clk      ;
+; N/A                                     ; None                                                ; 6.465 ns   ; RST  ; anti_shaking:inst5|KeyLow[2]   ; clk      ;
+; N/A                                     ; None                                                ; 6.465 ns   ; RST  ; anti_shaking:inst5|KeyLow[3]   ; clk      ;
+; N/A                                     ; None                                                ; 6.433 ns   ; RST  ; anti_shaking:inst5|KeyLow[14]  ; clk      ;
+; N/A                                     ; None                                                ; 6.433 ns   ; RST  ; anti_shaking:inst5|KeyLow[12]  ; clk      ;
+; N/A                                     ; None                                                ; 6.433 ns   ; RST  ; anti_shaking:inst5|KeyLow[9]   ; clk      ;
+; N/A                                     ; None                                                ; 6.433 ns   ; RST  ; anti_shaking:inst5|KeyLow[11]  ; clk      ;
+; N/A                                     ; None                                                ; 6.433 ns   ; RST  ; anti_shaking:inst5|KeyLow[10]  ; clk      ;
+; N/A                                     ; None                                                ; 6.433 ns   ; RST  ; anti_shaking:inst5|KeyLow[8]   ; clk      ;
+; N/A                                     ; None                                                ; 6.433 ns   ; RST  ; anti_shaking:inst5|KeyLow[7]   ; clk      ;
+; N/A                                     ; None                                                ; 6.433 ns   ; RST  ; anti_shaking:inst5|KeyLow[6]   ; clk      ;
+; N/A                                     ; None                                                ; 6.433 ns   ; RST  ; anti_shaking:inst5|KeyLow[5]   ; clk      ;
+; N/A                                     ; None                                                ; 6.433 ns   ; RST  ; anti_shaking:inst5|KeyLow[13]  ; clk      ;
+; N/A                                     ; None                                                ; 6.269 ns   ; EN   ; anti_shaking:inst4|KeyHigh[25] ; clk      ;
+; N/A                                     ; None                                                ; 6.269 ns   ; EN   ; anti_shaking:inst4|KeyHigh[26] ; clk      ;
+; N/A                                     ; None                                                ; 6.269 ns   ; EN   ; anti_shaking:inst4|KeyHigh[27] ; clk      ;
+; N/A                                     ; None                                                ; 6.269 ns   ; EN   ; anti_shaking:inst4|KeyHigh[28] ; clk      ;
+; N/A                                     ; None                                                ; 6.269 ns   ; EN   ; anti_shaking:inst4|KeyHigh[29] ; clk      ;
+; N/A                                     ; None                                                ; 6.269 ns   ; EN   ; anti_shaking:inst4|KeyHigh[30] ; clk      ;
+; N/A                                     ; None                                                ; 6.268 ns   ; EN   ; anti_shaking:inst4|KeyLow[23]  ; clk      ;
+; N/A                                     ; None                                                ; 6.268 ns   ; EN   ; anti_shaking:inst4|KeyLow[22]  ; clk      ;
+; N/A                                     ; None                                                ; 6.268 ns   ; EN   ; anti_shaking:inst4|KeyLow[19]  ; clk      ;
+; N/A                                     ; None                                                ; 6.268 ns   ; EN   ; anti_shaking:inst4|KeyLow[21]  ; clk      ;
+; N/A                                     ; None                                                ; 6.268 ns   ; EN   ; anti_shaking:inst4|KeyLow[20]  ; clk      ;
+; N/A                                     ; None                                                ; 6.268 ns   ; EN   ; anti_shaking:inst4|KeyLow[24]  ; clk      ;
+; N/A                                     ; None                                                ; 6.268 ns   ; EN   ; anti_shaking:inst4|KeyLow[25]  ; clk      ;
+; N/A                                     ; None                                                ; 6.268 ns   ; EN   ; anti_shaking:inst4|KeyLow[26]  ; clk      ;
+; N/A                                     ; None                                                ; 6.268 ns   ; EN   ; anti_shaking:inst4|KeyLow[27]  ; clk      ;
+; N/A                                     ; None                                                ; 6.268 ns   ; EN   ; anti_shaking:inst4|KeyLow[28]  ; clk      ;
+; N/A                                     ; None                                                ; 6.268 ns   ; EN   ; anti_shaking:inst4|KeyLow[29]  ; clk      ;
+; N/A                                     ; None                                                ; 6.268 ns   ; EN   ; anti_shaking:inst4|KeyLow[30]  ; clk      ;
+; N/A                                     ; None                                                ; 6.268 ns   ; EN   ; anti_shaking:inst4|KeyLow[18]  ; clk      ;
+; N/A                                     ; None                                                ; 6.268 ns   ; EN   ; anti_shaking:inst4|KeyLow[17]  ; clk      ;
+; N/A                                     ; None                                                ; 6.268 ns   ; EN   ; anti_shaking:inst4|KeyLow[16]  ; clk      ;
+; N/A                                     ; None                                                ; 6.268 ns   ; EN   ; anti_shaking:inst4|KeyLow[15]  ; clk      ;
+; N/A                                     ; None                                                ; 6.261 ns   ; EN   ; anti_shaking:inst4|KeyHigh[21] ; clk      ;
+; N/A                                     ; None                                                ; 6.261 ns   ; EN   ; anti_shaking:inst4|KeyHigh[20] ; clk      ;
+; N/A                                     ; None                                                ; 6.261 ns   ; EN   ; anti_shaking:inst4|KeyHigh[19] ; clk      ;
+; N/A                                     ; None                                                ; 6.261 ns   ; EN   ; anti_shaking:inst4|KeyHigh[22] ; clk      ;
+; N/A                                     ; None                                                ; 6.261 ns   ; EN   ; anti_shaking:inst4|KeyHigh[23] ; clk      ;
+; N/A                                     ; None                                                ; 6.261 ns   ; EN   ; anti_shaking:inst4|KeyHigh[24] ; clk      ;
+; N/A                                     ; None                                                ; 6.261 ns   ; EN   ; anti_shaking:inst4|KeyHigh[15] ; clk      ;
+; N/A                                     ; None                                                ; 6.261 ns   ; EN   ; anti_shaking:inst4|KeyHigh[16] ; clk      ;
+; N/A                                     ; None                                                ; 6.261 ns   ; EN   ; anti_shaking:inst4|KeyHigh[17] ; clk      ;
+; N/A                                     ; None                                                ; 6.261 ns   ; EN   ; anti_shaking:inst4|KeyHigh[18] ; clk      ;
+; N/A                                     ; None                                                ; 6.152 ns   ; RST  ; anti_shaking:inst5|KeyHigh[9]  ; clk      ;
+; N/A                                     ; None                                                ; 6.152 ns   ; RST  ; anti_shaking:inst5|KeyHigh[8]  ; clk      ;
+; N/A                                     ; None                                                ; 6.152 ns   ; RST  ; anti_shaking:inst5|KeyHigh[7]  ; clk      ;
+; N/A                                     ; None                                                ; 6.152 ns   ; RST  ; anti_shaking:inst5|KeyHigh[6]  ; clk      ;
+; N/A                                     ; None                                                ; 6.152 ns   ; RST  ; anti_shaking:inst5|KeyHigh[5]  ; clk      ;
+; N/A                                     ; None                                                ; 6.152 ns   ; RST  ; anti_shaking:inst5|KeyHigh[10] ; clk      ;
+; N/A                                     ; None                                                ; 6.152 ns   ; RST  ; anti_shaking:inst5|KeyHigh[12] ; clk      ;
+; N/A                                     ; None                                                ; 6.152 ns   ; RST  ; anti_shaking:inst5|KeyHigh[11] ; clk      ;
+; N/A                                     ; None                                                ; 6.152 ns   ; RST  ; anti_shaking:inst5|KeyHigh[14] ; clk      ;
+; N/A                                     ; None                                                ; 6.152 ns   ; RST  ; anti_shaking:inst5|KeyHigh[13] ; clk      ;
+; N/A                                     ; None                                                ; 6.122 ns   ; RST  ; anti_shaking:inst5|KeyHigh[4]  ; clk      ;
+; N/A                                     ; None                                                ; 6.122 ns   ; RST  ; anti_shaking:inst5|KeyHigh[0]  ; clk      ;
+; N/A                                     ; None                                                ; 6.122 ns   ; RST  ; anti_shaking:inst5|KeyHigh[1]  ; clk      ;
+; N/A                                     ; None                                                ; 6.122 ns   ; RST  ; anti_shaking:inst5|KeyHigh[2]  ; clk      ;
+; N/A                                     ; None                                                ; 6.122 ns   ; RST  ; anti_shaking:inst5|KeyHigh[3]  ; clk      ;
+; N/A                                     ; None                                                ; 5.808 ns   ; EN   ; anti_shaking:inst4|KeyHigh[9]  ; clk      ;
+; N/A                                     ; None                                                ; 5.808 ns   ; EN   ; anti_shaking:inst4|KeyHigh[8]  ; clk      ;
+; N/A                                     ; None                                                ; 5.808 ns   ; EN   ; anti_shaking:inst4|KeyHigh[7]  ; clk      ;
+; N/A                                     ; None                                                ; 5.808 ns   ; EN   ; anti_shaking:inst4|KeyHigh[6]  ; clk      ;
+; N/A                                     ; None                                                ; 5.808 ns   ; EN   ; anti_shaking:inst4|KeyHigh[5]  ; clk      ;
+; N/A                                     ; None                                                ; 5.808 ns   ; EN   ; anti_shaking:inst4|KeyHigh[10] ; clk      ;
+; N/A                                     ; None                                                ; 5.808 ns   ; EN   ; anti_shaking:inst4|KeyHigh[12] ; clk      ;
+; N/A                                     ; None                                                ; 5.808 ns   ; EN   ; anti_shaking:inst4|KeyHigh[11] ; clk      ;
+; N/A                                     ; None                                                ; 5.808 ns   ; EN   ; anti_shaking:inst4|KeyHigh[14] ; clk      ;
+; N/A                                     ; None                                                ; 5.808 ns   ; EN   ; anti_shaking:inst4|KeyHigh[13] ; clk      ;
+; N/A                                     ; None                                                ; 5.799 ns   ; EN   ; anti_shaking:inst4|KeyLow[14]  ; clk      ;
+; N/A                                     ; None                                                ; 5.799 ns   ; EN   ; anti_shaking:inst4|KeyLow[12]  ; clk      ;
+; N/A                                     ; None                                                ; 5.799 ns   ; EN   ; anti_shaking:inst4|KeyLow[9]   ; clk      ;
+; N/A                                     ; None                                                ; 5.799 ns   ; EN   ; anti_shaking:inst4|KeyLow[11]  ; clk      ;
+; N/A                                     ; None                                                ; 5.799 ns   ; EN   ; anti_shaking:inst4|KeyLow[10]  ; clk      ;
+; N/A                                     ; None                                                ; 5.799 ns   ; EN   ; anti_shaking:inst4|KeyLow[8]   ; clk      ;
+; N/A                                     ; None                                                ; 5.799 ns   ; EN   ; anti_shaking:inst4|KeyLow[7]   ; clk      ;
+; N/A                                     ; None                                                ; 5.799 ns   ; EN   ; anti_shaking:inst4|KeyLow[6]   ; clk      ;
+; N/A                                     ; None                                                ; 5.799 ns   ; EN   ; anti_shaking:inst4|KeyLow[5]   ; clk      ;
+; N/A                                     ; None                                                ; 5.799 ns   ; EN   ; anti_shaking:inst4|KeyLow[13]  ; clk      ;
+; N/A                                     ; None                                                ; 5.287 ns   ; HRS  ; anti_shaking:inst7|KeyHigh[25] ; clk      ;
+; N/A                                     ; None                                                ; 5.287 ns   ; HRS  ; anti_shaking:inst7|KeyHigh[26] ; clk      ;
+; N/A                                     ; None                                                ; 5.287 ns   ; HRS  ; anti_shaking:inst7|KeyHigh[27] ; clk      ;
+; N/A                                     ; None                                                ; 5.287 ns   ; HRS  ; anti_shaking:inst7|KeyHigh[28] ; clk      ;
+; N/A                                     ; None                                                ; 5.287 ns   ; HRS  ; anti_shaking:inst7|KeyHigh[29] ; clk      ;
+; N/A                                     ; None                                                ; 5.287 ns   ; HRS  ; anti_shaking:inst7|KeyHigh[30] ; clk      ;
+; N/A                                     ; None                                                ; 5.262 ns   ; HRS  ; anti_shaking:inst7|KeyHigh[21] ; clk      ;
+; N/A                                     ; None                                                ; 5.262 ns   ; HRS  ; anti_shaking:inst7|KeyHigh[20] ; clk      ;
+; N/A                                     ; None                                                ; 5.262 ns   ; HRS  ; anti_shaking:inst7|KeyHigh[19] ; clk      ;
+; N/A                                     ; None                                                ; 5.262 ns   ; HRS  ; anti_shaking:inst7|KeyHigh[22] ; clk      ;
+; N/A                                     ; None                                                ; 5.262 ns   ; HRS  ; anti_shaking:inst7|KeyHigh[23] ; clk      ;
+; N/A                                     ; None                                                ; 5.262 ns   ; HRS  ; anti_shaking:inst7|KeyHigh[24] ; clk      ;
+; N/A                                     ; None                                                ; 5.262 ns   ; HRS  ; anti_shaking:inst7|KeyHigh[15] ; clk      ;
+; N/A                                     ; None                                                ; 5.262 ns   ; HRS  ; anti_shaking:inst7|KeyHigh[16] ; clk      ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;            ;      ;                                ;          ;
++-----------------------------------------+-----------------------------------------------------+------------+------+--------------------------------+----------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; tco                                                                                                     ;
++-------+--------------+------------+----------------------------------------+---------------+------------+
+; Slack ; Required tco ; Actual tco ; From                                   ; To            ; From Clock ;
++-------+--------------+------------+----------------------------------------+---------------+------------+
+; N/A   ; None         ; 13.907 ns  ; LED_Processing_Unit:inst1|LEDOut[7]    ; LED_OUT[7]    ; clk        ;
+; N/A   ; None         ; 13.884 ns  ; LED_Processing_Unit:inst1|LEDOut[3]    ; LED_OUT[3]    ; clk        ;
+; N/A   ; None         ; 13.493 ns  ; LED_Processing_Unit:inst1|LEDSelect[0] ; LED_SELECT[0] ; clk        ;
+; N/A   ; None         ; 13.474 ns  ; LED_Processing_Unit:inst1|LEDSelect[1] ; LED_SELECT[1] ; clk        ;
+; N/A   ; None         ; 13.474 ns  ; LED_Processing_Unit:inst1|LEDOut[0]    ; LED_OUT[0]    ; clk        ;
+; N/A   ; None         ; 12.490 ns  ; LED_Processing_Unit:inst1|LEDSelect[3] ; LED_SELECT[3] ; clk        ;
+; N/A   ; None         ; 12.391 ns  ; LED_Processing_Unit:inst1|LEDOut[6]    ; LED_OUT[6]    ; clk        ;
+; N/A   ; None         ; 12.310 ns  ; LED_Processing_Unit:inst1|LEDOut[2]    ; LED_OUT[2]    ; clk        ;
+; N/A   ; None         ; 12.034 ns  ; LED_Processing_Unit:inst1|LEDOut[1]    ; LED_OUT[1]    ; clk        ;
+; N/A   ; None         ; 12.002 ns  ; LED_Processing_Unit:inst1|LEDOut[4]    ; LED_OUT[4]    ; clk        ;
+; N/A   ; None         ; 11.995 ns  ; LED_Processing_Unit:inst1|LEDOut[5]    ; LED_OUT[5]    ; clk        ;
+; N/A   ; None         ; 11.710 ns  ; LED_Processing_Unit:inst1|LEDSelect[2] ; LED_SELECT[2] ; clk        ;
++-------+--------------+------------+----------------------------------------+---------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; th                                                                                                                                                           ;
++-----------------------------------------+-----------------------------------------------------+-----------+------+--------------------------------+----------+
+; Minimum Slack                           ; Required th                                         ; Actual th ; From ; To                             ; To Clock ;
++-----------------------------------------+-----------------------------------------------------+-----------+------+--------------------------------+----------+
+; N/A                                     ; None                                                ; -4.719 ns ; HRS  ; anti_shaking:inst7|KeyLow[14]  ; clk      ;
+; N/A                                     ; None                                                ; -4.719 ns ; HRS  ; anti_shaking:inst7|KeyLow[12]  ; clk      ;
+; N/A                                     ; None                                                ; -4.719 ns ; HRS  ; anti_shaking:inst7|KeyLow[9]   ; clk      ;
+; N/A                                     ; None                                                ; -4.719 ns ; HRS  ; anti_shaking:inst7|KeyLow[11]  ; clk      ;
+; N/A                                     ; None                                                ; -4.719 ns ; HRS  ; anti_shaking:inst7|KeyLow[10]  ; clk      ;
+; N/A                                     ; None                                                ; -4.719 ns ; HRS  ; anti_shaking:inst7|KeyLow[8]   ; clk      ;
+; N/A                                     ; None                                                ; -4.719 ns ; HRS  ; anti_shaking:inst7|KeyLow[7]   ; clk      ;
+; N/A                                     ; None                                                ; -4.719 ns ; HRS  ; anti_shaking:inst7|KeyLow[6]   ; clk      ;
+; N/A                                     ; None                                                ; -4.719 ns ; HRS  ; anti_shaking:inst7|KeyLow[5]   ; clk      ;
+; N/A                                     ; None                                                ; -4.719 ns ; HRS  ; anti_shaking:inst7|KeyLow[13]  ; clk      ;
+; N/A                                     ; None                                                ; -4.720 ns ; HRS  ; anti_shaking:inst7|KeyLow[23]  ; clk      ;
+; N/A                                     ; None                                                ; -4.720 ns ; HRS  ; anti_shaking:inst7|KeyLow[22]  ; clk      ;
+; N/A                                     ; None                                                ; -4.720 ns ; HRS  ; anti_shaking:inst7|KeyLow[19]  ; clk      ;
+; N/A                                     ; None                                                ; -4.720 ns ; HRS  ; anti_shaking:inst7|KeyLow[21]  ; clk      ;
+; N/A                                     ; None                                                ; -4.720 ns ; HRS  ; anti_shaking:inst7|KeyLow[20]  ; clk      ;
+; N/A                                     ; None                                                ; -4.720 ns ; HRS  ; anti_shaking:inst7|KeyLow[24]  ; clk      ;
+; N/A                                     ; None                                                ; -4.720 ns ; HRS  ; anti_shaking:inst7|KeyLow[18]  ; clk      ;
+; N/A                                     ; None                                                ; -4.720 ns ; HRS  ; anti_shaking:inst7|KeyLow[17]  ; clk      ;
+; N/A                                     ; None                                                ; -4.720 ns ; HRS  ; anti_shaking:inst7|KeyLow[16]  ; clk      ;
+; N/A                                     ; None                                                ; -4.720 ns ; HRS  ; anti_shaking:inst7|KeyLow[15]  ; clk      ;
+; N/A                                     ; None                                                ; -4.733 ns ; HRS  ; anti_shaking:inst7|KeyLow[4]   ; clk      ;
+; N/A                                     ; None                                                ; -4.733 ns ; HRS  ; anti_shaking:inst7|KeyLow[0]   ; clk      ;
+; N/A                                     ; None                                                ; -4.733 ns ; HRS  ; anti_shaking:inst7|KeyLow[1]   ; clk      ;
+; N/A                                     ; None                                                ; -4.733 ns ; HRS  ; anti_shaking:inst7|KeyLow[2]   ; clk      ;
+; N/A                                     ; None                                                ; -4.733 ns ; HRS  ; anti_shaking:inst7|KeyLow[3]   ; clk      ;
+; N/A                                     ; None                                                ; -4.758 ns ; HRS  ; anti_shaking:inst7|KeyLow[25]  ; clk      ;
+; N/A                                     ; None                                                ; -4.758 ns ; HRS  ; anti_shaking:inst7|KeyLow[26]  ; clk      ;
+; N/A                                     ; None                                                ; -4.758 ns ; HRS  ; anti_shaking:inst7|KeyLow[27]  ; clk      ;
+; N/A                                     ; None                                                ; -4.758 ns ; HRS  ; anti_shaking:inst7|KeyLow[28]  ; clk      ;
+; N/A                                     ; None                                                ; -4.758 ns ; HRS  ; anti_shaking:inst7|KeyLow[29]  ; clk      ;
+; N/A                                     ; None                                                ; -4.758 ns ; HRS  ; anti_shaking:inst7|KeyLow[30]  ; clk      ;
+; N/A                                     ; None                                                ; -4.771 ns ; HRS  ; anti_shaking:inst7|KeyHigh[9]  ; clk      ;
+; N/A                                     ; None                                                ; -4.771 ns ; HRS  ; anti_shaking:inst7|KeyHigh[8]  ; clk      ;
+; N/A                                     ; None                                                ; -4.771 ns ; HRS  ; anti_shaking:inst7|KeyHigh[7]  ; clk      ;
+; N/A                                     ; None                                                ; -4.771 ns ; HRS  ; anti_shaking:inst7|KeyHigh[6]  ; clk      ;
+; N/A                                     ; None                                                ; -4.771 ns ; HRS  ; anti_shaking:inst7|KeyHigh[5]  ; clk      ;
+; N/A                                     ; None                                                ; -4.771 ns ; HRS  ; anti_shaking:inst7|KeyHigh[10] ; clk      ;
+; N/A                                     ; None                                                ; -4.771 ns ; HRS  ; anti_shaking:inst7|KeyHigh[12] ; clk      ;
+; N/A                                     ; None                                                ; -4.771 ns ; HRS  ; anti_shaking:inst7|KeyHigh[11] ; clk      ;
+; N/A                                     ; None                                                ; -4.771 ns ; HRS  ; anti_shaking:inst7|KeyHigh[14] ; clk      ;
+; N/A                                     ; None                                                ; -4.771 ns ; HRS  ; anti_shaking:inst7|KeyHigh[13] ; clk      ;
+; N/A                                     ; None                                                ; -4.795 ns ; HRS  ; anti_shaking:inst7|KeyHigh[4]  ; clk      ;
+; N/A                                     ; None                                                ; -4.795 ns ; HRS  ; anti_shaking:inst7|KeyHigh[0]  ; clk      ;
+; N/A                                     ; None                                                ; -4.795 ns ; HRS  ; anti_shaking:inst7|KeyHigh[1]  ; clk      ;
+; N/A                                     ; None                                                ; -4.795 ns ; HRS  ; anti_shaking:inst7|KeyHigh[2]  ; clk      ;
+; N/A                                     ; None                                                ; -4.795 ns ; HRS  ; anti_shaking:inst7|KeyHigh[3]  ; clk      ;
+; N/A                                     ; None                                                ; -5.210 ns ; HRS  ; anti_shaking:inst7|KeyHigh[21] ; clk      ;
+; N/A                                     ; None                                                ; -5.210 ns ; HRS  ; anti_shaking:inst7|KeyHigh[20] ; clk      ;
+; N/A                                     ; None                                                ; -5.210 ns ; HRS  ; anti_shaking:inst7|KeyHigh[19] ; clk      ;
+; N/A                                     ; None                                                ; -5.210 ns ; HRS  ; anti_shaking:inst7|KeyHigh[22] ; clk      ;
+; N/A                                     ; None                                                ; -5.210 ns ; HRS  ; anti_shaking:inst7|KeyHigh[23] ; clk      ;
+; N/A                                     ; None                                                ; -5.210 ns ; HRS  ; anti_shaking:inst7|KeyHigh[24] ; clk      ;
+; N/A                                     ; None                                                ; -5.210 ns ; HRS  ; anti_shaking:inst7|KeyHigh[15] ; clk      ;
+; N/A                                     ; None                                                ; -5.210 ns ; HRS  ; anti_shaking:inst7|KeyHigh[16] ; clk      ;
+; N/A                                     ; None                                                ; -5.210 ns ; HRS  ; anti_shaking:inst7|KeyHigh[17] ; clk      ;
+; N/A                                     ; None                                                ; -5.210 ns ; HRS  ; anti_shaking:inst7|KeyHigh[18] ; clk      ;
+; N/A                                     ; None                                                ; -5.235 ns ; HRS  ; anti_shaking:inst7|KeyHigh[25] ; clk      ;
+; N/A                                     ; None                                                ; -5.235 ns ; HRS  ; anti_shaking:inst7|KeyHigh[26] ; clk      ;
+; N/A                                     ; None                                                ; -5.235 ns ; HRS  ; anti_shaking:inst7|KeyHigh[27] ; clk      ;
+; N/A                                     ; None                                                ; -5.235 ns ; HRS  ; anti_shaking:inst7|KeyHigh[28] ; clk      ;
+; N/A                                     ; None                                                ; -5.235 ns ; HRS  ; anti_shaking:inst7|KeyHigh[29] ; clk      ;
+; N/A                                     ; None                                                ; -5.235 ns ; HRS  ; anti_shaking:inst7|KeyHigh[30] ; clk      ;
+; N/A                                     ; None                                                ; -5.747 ns ; EN   ; anti_shaking:inst4|KeyLow[14]  ; clk      ;
+; N/A                                     ; None                                                ; -5.747 ns ; EN   ; anti_shaking:inst4|KeyLow[12]  ; clk      ;
+; N/A                                     ; None                                                ; -5.747 ns ; EN   ; anti_shaking:inst4|KeyLow[9]   ; clk      ;
+; N/A                                     ; None                                                ; -5.747 ns ; EN   ; anti_shaking:inst4|KeyLow[11]  ; clk      ;
+; N/A                                     ; None                                                ; -5.747 ns ; EN   ; anti_shaking:inst4|KeyLow[10]  ; clk      ;
+; N/A                                     ; None                                                ; -5.747 ns ; EN   ; anti_shaking:inst4|KeyLow[8]   ; clk      ;
+; N/A                                     ; None                                                ; -5.747 ns ; EN   ; anti_shaking:inst4|KeyLow[7]   ; clk      ;
+; N/A                                     ; None                                                ; -5.747 ns ; EN   ; anti_shaking:inst4|KeyLow[6]   ; clk      ;
+; N/A                                     ; None                                                ; -5.747 ns ; EN   ; anti_shaking:inst4|KeyLow[5]   ; clk      ;
+; N/A                                     ; None                                                ; -5.747 ns ; EN   ; anti_shaking:inst4|KeyLow[13]  ; clk      ;
+; N/A                                     ; None                                                ; -5.756 ns ; EN   ; anti_shaking:inst4|KeyHigh[9]  ; clk      ;
+; N/A                                     ; None                                                ; -5.756 ns ; EN   ; anti_shaking:inst4|KeyHigh[8]  ; clk      ;
+; N/A                                     ; None                                                ; -5.756 ns ; EN   ; anti_shaking:inst4|KeyHigh[7]  ; clk      ;
+; N/A                                     ; None                                                ; -5.756 ns ; EN   ; anti_shaking:inst4|KeyHigh[6]  ; clk      ;
+; N/A                                     ; None                                                ; -5.756 ns ; EN   ; anti_shaking:inst4|KeyHigh[5]  ; clk      ;
+; N/A                                     ; None                                                ; -5.756 ns ; EN   ; anti_shaking:inst4|KeyHigh[10] ; clk      ;
+; N/A                                     ; None                                                ; -5.756 ns ; EN   ; anti_shaking:inst4|KeyHigh[12] ; clk      ;
+; N/A                                     ; None                                                ; -5.756 ns ; EN   ; anti_shaking:inst4|KeyHigh[11] ; clk      ;
+; N/A                                     ; None                                                ; -5.756 ns ; EN   ; anti_shaking:inst4|KeyHigh[14] ; clk      ;
+; N/A                                     ; None                                                ; -5.756 ns ; EN   ; anti_shaking:inst4|KeyHigh[13] ; clk      ;
+; N/A                                     ; None                                                ; -6.070 ns ; RST  ; anti_shaking:inst5|KeyHigh[4]  ; clk      ;
+; N/A                                     ; None                                                ; -6.070 ns ; RST  ; anti_shaking:inst5|KeyHigh[0]  ; clk      ;
+; N/A                                     ; None                                                ; -6.070 ns ; RST  ; anti_shaking:inst5|KeyHigh[1]  ; clk      ;
+; N/A                                     ; None                                                ; -6.070 ns ; RST  ; anti_shaking:inst5|KeyHigh[2]  ; clk      ;
+; N/A                                     ; None                                                ; -6.070 ns ; RST  ; anti_shaking:inst5|KeyHigh[3]  ; clk      ;
+; N/A                                     ; None                                                ; -6.100 ns ; RST  ; anti_shaking:inst5|KeyHigh[9]  ; clk      ;
+; N/A                                     ; None                                                ; -6.100 ns ; RST  ; anti_shaking:inst5|KeyHigh[8]  ; clk      ;
+; N/A                                     ; None                                                ; -6.100 ns ; RST  ; anti_shaking:inst5|KeyHigh[7]  ; clk      ;
+; N/A                                     ; None                                                ; -6.100 ns ; RST  ; anti_shaking:inst5|KeyHigh[6]  ; clk      ;
+; N/A                                     ; None                                                ; -6.100 ns ; RST  ; anti_shaking:inst5|KeyHigh[5]  ; clk      ;
+; N/A                                     ; None                                                ; -6.100 ns ; RST  ; anti_shaking:inst5|KeyHigh[10] ; clk      ;
+; N/A                                     ; None                                                ; -6.100 ns ; RST  ; anti_shaking:inst5|KeyHigh[12] ; clk      ;
+; N/A                                     ; None                                                ; -6.100 ns ; RST  ; anti_shaking:inst5|KeyHigh[11] ; clk      ;
+; N/A                                     ; None                                                ; -6.100 ns ; RST  ; anti_shaking:inst5|KeyHigh[14] ; clk      ;
+; N/A                                     ; None                                                ; -6.100 ns ; RST  ; anti_shaking:inst5|KeyHigh[13] ; clk      ;
+; N/A                                     ; None                                                ; -6.209 ns ; EN   ; anti_shaking:inst4|KeyHigh[21] ; clk      ;
+; N/A                                     ; None                                                ; -6.209 ns ; EN   ; anti_shaking:inst4|KeyHigh[20] ; clk      ;
+; N/A                                     ; None                                                ; -6.209 ns ; EN   ; anti_shaking:inst4|KeyHigh[19] ; clk      ;
+; N/A                                     ; None                                                ; -6.209 ns ; EN   ; anti_shaking:inst4|KeyHigh[22] ; clk      ;
+; N/A                                     ; None                                                ; -6.209 ns ; EN   ; anti_shaking:inst4|KeyHigh[23] ; clk      ;
+; N/A                                     ; None                                                ; -6.209 ns ; EN   ; anti_shaking:inst4|KeyHigh[24] ; clk      ;
+; N/A                                     ; None                                                ; -6.209 ns ; EN   ; anti_shaking:inst4|KeyHigh[15] ; clk      ;
+; N/A                                     ; None                                                ; -6.209 ns ; EN   ; anti_shaking:inst4|KeyHigh[16] ; clk      ;
+; N/A                                     ; None                                                ; -6.209 ns ; EN   ; anti_shaking:inst4|KeyHigh[17] ; clk      ;
+; N/A                                     ; None                                                ; -6.209 ns ; EN   ; anti_shaking:inst4|KeyHigh[18] ; clk      ;
+; N/A                                     ; None                                                ; -6.216 ns ; EN   ; anti_shaking:inst4|KeyLow[23]  ; clk      ;
+; N/A                                     ; None                                                ; -6.216 ns ; EN   ; anti_shaking:inst4|KeyLow[22]  ; clk      ;
+; N/A                                     ; None                                                ; -6.216 ns ; EN   ; anti_shaking:inst4|KeyLow[19]  ; clk      ;
+; N/A                                     ; None                                                ; -6.216 ns ; EN   ; anti_shaking:inst4|KeyLow[21]  ; clk      ;
+; N/A                                     ; None                                                ; -6.216 ns ; EN   ; anti_shaking:inst4|KeyLow[20]  ; clk      ;
+; N/A                                     ; None                                                ; -6.216 ns ; EN   ; anti_shaking:inst4|KeyLow[24]  ; clk      ;
+; N/A                                     ; None                                                ; -6.216 ns ; EN   ; anti_shaking:inst4|KeyLow[25]  ; clk      ;
+; N/A                                     ; None                                                ; -6.216 ns ; EN   ; anti_shaking:inst4|KeyLow[26]  ; clk      ;
+; N/A                                     ; None                                                ; -6.216 ns ; EN   ; anti_shaking:inst4|KeyLow[27]  ; clk      ;
+; N/A                                     ; None                                                ; -6.216 ns ; EN   ; anti_shaking:inst4|KeyLow[28]  ; clk      ;
+; N/A                                     ; None                                                ; -6.216 ns ; EN   ; anti_shaking:inst4|KeyLow[29]  ; clk      ;
+; N/A                                     ; None                                                ; -6.216 ns ; EN   ; anti_shaking:inst4|KeyLow[30]  ; clk      ;
+; N/A                                     ; None                                                ; -6.216 ns ; EN   ; anti_shaking:inst4|KeyLow[18]  ; clk      ;
+; N/A                                     ; None                                                ; -6.216 ns ; EN   ; anti_shaking:inst4|KeyLow[17]  ; clk      ;
+; N/A                                     ; None                                                ; -6.216 ns ; EN   ; anti_shaking:inst4|KeyLow[16]  ; clk      ;
+; N/A                                     ; None                                                ; -6.216 ns ; EN   ; anti_shaking:inst4|KeyLow[15]  ; clk      ;
+; N/A                                     ; None                                                ; -6.217 ns ; EN   ; anti_shaking:inst4|KeyHigh[25] ; clk      ;
+; N/A                                     ; None                                                ; -6.217 ns ; EN   ; anti_shaking:inst4|KeyHigh[26] ; clk      ;
+; N/A                                     ; None                                                ; -6.217 ns ; EN   ; anti_shaking:inst4|KeyHigh[27] ; clk      ;
+; N/A                                     ; None                                                ; -6.217 ns ; EN   ; anti_shaking:inst4|KeyHigh[28] ; clk      ;
+; N/A                                     ; None                                                ; -6.217 ns ; EN   ; anti_shaking:inst4|KeyHigh[29] ; clk      ;
+; N/A                                     ; None                                                ; -6.217 ns ; EN   ; anti_shaking:inst4|KeyHigh[30] ; clk      ;
+; N/A                                     ; None                                                ; -6.381 ns ; RST  ; anti_shaking:inst5|KeyLow[14]  ; clk      ;
+; N/A                                     ; None                                                ; -6.381 ns ; RST  ; anti_shaking:inst5|KeyLow[12]  ; clk      ;
+; N/A                                     ; None                                                ; -6.381 ns ; RST  ; anti_shaking:inst5|KeyLow[9]   ; clk      ;
+; N/A                                     ; None                                                ; -6.381 ns ; RST  ; anti_shaking:inst5|KeyLow[11]  ; clk      ;
+; N/A                                     ; None                                                ; -6.381 ns ; RST  ; anti_shaking:inst5|KeyLow[10]  ; clk      ;
+; N/A                                     ; None                                                ; -6.381 ns ; RST  ; anti_shaking:inst5|KeyLow[8]   ; clk      ;
+; N/A                                     ; None                                                ; -6.381 ns ; RST  ; anti_shaking:inst5|KeyLow[7]   ; clk      ;
+; N/A                                     ; None                                                ; -6.381 ns ; RST  ; anti_shaking:inst5|KeyLow[6]   ; clk      ;
+; N/A                                     ; None                                                ; -6.381 ns ; RST  ; anti_shaking:inst5|KeyLow[5]   ; clk      ;
+; N/A                                     ; None                                                ; -6.381 ns ; RST  ; anti_shaking:inst5|KeyLow[13]  ; clk      ;
+; N/A                                     ; None                                                ; -6.413 ns ; RST  ; anti_shaking:inst5|KeyLow[4]   ; clk      ;
+; N/A                                     ; None                                                ; -6.413 ns ; RST  ; anti_shaking:inst5|KeyLow[0]   ; clk      ;
+; N/A                                     ; None                                                ; -6.413 ns ; RST  ; anti_shaking:inst5|KeyLow[1]   ; clk      ;
+; N/A                                     ; None                                                ; -6.413 ns ; RST  ; anti_shaking:inst5|KeyLow[2]   ; clk      ;
+; N/A                                     ; None                                                ; -6.413 ns ; RST  ; anti_shaking:inst5|KeyLow[3]   ; clk      ;
+; N/A                                     ; None                                                ; -6.522 ns ; RST  ; anti_shaking:inst5|KeyHigh[21] ; clk      ;
+; N/A                                     ; None                                                ; -6.522 ns ; RST  ; anti_shaking:inst5|KeyHigh[20] ; clk      ;
+; N/A                                     ; None                                                ; -6.522 ns ; RST  ; anti_shaking:inst5|KeyHigh[19] ; clk      ;
+; N/A                                     ; None                                                ; -6.522 ns ; RST  ; anti_shaking:inst5|KeyHigh[22] ; clk      ;
+; N/A                                     ; None                                                ; -6.522 ns ; RST  ; anti_shaking:inst5|KeyHigh[23] ; clk      ;
+; N/A                                     ; None                                                ; -6.522 ns ; RST  ; anti_shaking:inst5|KeyHigh[24] ; clk      ;
+; N/A                                     ; None                                                ; -6.522 ns ; RST  ; anti_shaking:inst5|KeyHigh[15] ; clk      ;
+; N/A                                     ; None                                                ; -6.522 ns ; RST  ; anti_shaking:inst5|KeyHigh[16] ; clk      ;
+; N/A                                     ; None                                                ; -6.522 ns ; RST  ; anti_shaking:inst5|KeyHigh[17] ; clk      ;
+; N/A                                     ; None                                                ; -6.522 ns ; RST  ; anti_shaking:inst5|KeyHigh[18] ; clk      ;
+; N/A                                     ; None                                                ; -6.526 ns ; EN   ; anti_shaking:inst4|KeyLow[4]   ; clk      ;
+; N/A                                     ; None                                                ; -6.526 ns ; EN   ; anti_shaking:inst4|KeyLow[0]   ; clk      ;
+; N/A                                     ; None                                                ; -6.526 ns ; EN   ; anti_shaking:inst4|KeyLow[1]   ; clk      ;
+; N/A                                     ; None                                                ; -6.526 ns ; EN   ; anti_shaking:inst4|KeyLow[2]   ; clk      ;
+; N/A                                     ; None                                                ; -6.526 ns ; EN   ; anti_shaking:inst4|KeyLow[3]   ; clk      ;
+; N/A                                     ; None                                                ; -6.533 ns ; EN   ; anti_shaking:inst4|KeyHigh[4]  ; clk      ;
+; N/A                                     ; None                                                ; -6.533 ns ; EN   ; anti_shaking:inst4|KeyHigh[0]  ; clk      ;
+; N/A                                     ; None                                                ; -6.533 ns ; EN   ; anti_shaking:inst4|KeyHigh[1]  ; clk      ;
+; N/A                                     ; None                                                ; -6.533 ns ; EN   ; anti_shaking:inst4|KeyHigh[2]  ; clk      ;
+; N/A                                     ; None                                                ; -6.533 ns ; EN   ; anti_shaking:inst4|KeyHigh[3]  ; clk      ;
+; N/A                                     ; None                                                ; -6.769 ns ; MINS ; anti_shaking:inst6|KeyHigh[25] ; clk      ;
+; N/A                                     ; None                                                ; -6.769 ns ; MINS ; anti_shaking:inst6|KeyHigh[26] ; clk      ;
+; N/A                                     ; None                                                ; -6.769 ns ; MINS ; anti_shaking:inst6|KeyHigh[27] ; clk      ;
+; N/A                                     ; None                                                ; -6.769 ns ; MINS ; anti_shaking:inst6|KeyHigh[28] ; clk      ;
+; N/A                                     ; None                                                ; -6.769 ns ; MINS ; anti_shaking:inst6|KeyHigh[29] ; clk      ;
+; N/A                                     ; None                                                ; -6.769 ns ; MINS ; anti_shaking:inst6|KeyHigh[30] ; clk      ;
+; N/A                                     ; None                                                ; -6.856 ns ; RST  ; anti_shaking:inst5|KeyLow[23]  ; clk      ;
+; N/A                                     ; None                                                ; -6.856 ns ; RST  ; anti_shaking:inst5|KeyLow[22]  ; clk      ;
+; N/A                                     ; None                                                ; -6.856 ns ; RST  ; anti_shaking:inst5|KeyLow[19]  ; clk      ;
+; N/A                                     ; None                                                ; -6.856 ns ; RST  ; anti_shaking:inst5|KeyLow[21]  ; clk      ;
+; N/A                                     ; None                                                ; -6.856 ns ; RST  ; anti_shaking:inst5|KeyLow[20]  ; clk      ;
+; N/A                                     ; None                                                ; -6.856 ns ; RST  ; anti_shaking:inst5|KeyLow[24]  ; clk      ;
+; N/A                                     ; None                                                ; -6.856 ns ; RST  ; anti_shaking:inst5|KeyLow[18]  ; clk      ;
+; N/A                                     ; None                                                ; -6.856 ns ; RST  ; anti_shaking:inst5|KeyLow[17]  ; clk      ;
+; N/A                                     ; None                                                ; -6.856 ns ; RST  ; anti_shaking:inst5|KeyLow[16]  ; clk      ;
+; N/A                                     ; None                                                ; -6.856 ns ; RST  ; anti_shaking:inst5|KeyLow[15]  ; clk      ;
+; N/A                                     ; None                                                ; -6.901 ns ; RST  ; anti_shaking:inst5|KeyHigh[25] ; clk      ;
+; N/A                                     ; None                                                ; -6.901 ns ; RST  ; anti_shaking:inst5|KeyHigh[26] ; clk      ;
+; N/A                                     ; None                                                ; -6.901 ns ; RST  ; anti_shaking:inst5|KeyHigh[27] ; clk      ;
+; N/A                                     ; None                                                ; -6.901 ns ; RST  ; anti_shaking:inst5|KeyHigh[28] ; clk      ;
+; N/A                                     ; None                                                ; -6.901 ns ; RST  ; anti_shaking:inst5|KeyHigh[29] ; clk      ;
+; N/A                                     ; None                                                ; -6.901 ns ; RST  ; anti_shaking:inst5|KeyHigh[30] ; clk      ;
+; N/A                                     ; None                                                ; -7.193 ns ; MINS ; anti_shaking:inst6|KeyHigh[21] ; clk      ;
+; N/A                                     ; None                                                ; -7.193 ns ; MINS ; anti_shaking:inst6|KeyHigh[20] ; clk      ;
+; N/A                                     ; None                                                ; -7.193 ns ; MINS ; anti_shaking:inst6|KeyHigh[19] ; clk      ;
+; N/A                                     ; None                                                ; -7.193 ns ; MINS ; anti_shaking:inst6|KeyHigh[22] ; clk      ;
+; N/A                                     ; None                                                ; -7.193 ns ; MINS ; anti_shaking:inst6|KeyHigh[23] ; clk      ;
+; N/A                                     ; None                                                ; -7.193 ns ; MINS ; anti_shaking:inst6|KeyHigh[24] ; clk      ;
+; N/A                                     ; None                                                ; -7.193 ns ; MINS ; anti_shaking:inst6|KeyHigh[15] ; clk      ;
+; N/A                                     ; None                                                ; -7.193 ns ; MINS ; anti_shaking:inst6|KeyHigh[16] ; clk      ;
+; N/A                                     ; None                                                ; -7.193 ns ; MINS ; anti_shaking:inst6|KeyHigh[17] ; clk      ;
+; N/A                                     ; None                                                ; -7.193 ns ; MINS ; anti_shaking:inst6|KeyHigh[18] ; clk      ;
+; N/A                                     ; None                                                ; -7.206 ns ; MINS ; anti_shaking:inst6|KeyHigh[9]  ; clk      ;
+; N/A                                     ; None                                                ; -7.206 ns ; MINS ; anti_shaking:inst6|KeyHigh[8]  ; clk      ;
+; N/A                                     ; None                                                ; -7.206 ns ; MINS ; anti_shaking:inst6|KeyHigh[7]  ; clk      ;
+; N/A                                     ; None                                                ; -7.206 ns ; MINS ; anti_shaking:inst6|KeyHigh[6]  ; clk      ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;           ;      ;                                ;          ;
++-----------------------------------------+-----------------------------------------------------+-----------+------+--------------------------------+----------+
+
+
 +--------------------------+
 ; Timing Analyzer Messages ;
 +--------------------------+
 Info: *******************************************************************
 Info: Running Quartus II Classic Timing Analyzer
     Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
-    Info: Processing started: Wed May 03 02:15:44 2017
+    Info: Processing started: Thu May 04 16:30:20 2017
 Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off Digital_clock -c Digital_clock --timing_analysis_only
 Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
-Warning: No paths found for timing analysis
-Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 194 megabytes
-    Info: Processing ended: Wed May 03 02:15:45 2017
-    Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:01
+Warning: Found combinational loop of 1 nodes
+    Warning: Node "freq_divider:inst12|clk_freq_div~0"
+Warning: Found combinational loop of 97 nodes
+    Warning: Node "freq_divider:inst12|Equal0~10"
+    Warning: Node "freq_divider:inst12|Equal0~0"
+    Warning: Node "freq_divider:inst12|Equal0~1"
+    Warning: Node "freq_divider:inst12|Add0~145"
+    Warning: Node "freq_divider:inst12|Add0~142COUT1_222"
+    Warning: Node "freq_divider:inst12|Add0~142"
+    Warning: Node "freq_divider:inst12|Add0~140"
+    Warning: Node "freq_divider:inst12|Equal0~8"
+    Warning: Node "freq_divider:inst12|Equal0~9"
+    Warning: Node "freq_divider:inst12|Add0~137COUT1_220"
+    Warning: Node "freq_divider:inst12|Add0~137"
+    Warning: Node "freq_divider:inst12|Add0~135"
+    Warning: Node "freq_divider:inst12|Add0~132COUT1_218"
+    Warning: Node "freq_divider:inst12|Add0~132"
+    Warning: Node "freq_divider:inst12|Add0~130"
+    Warning: Node "freq_divider:inst12|Add0~127COUT1_216"
+    Warning: Node "freq_divider:inst12|Add0~127"
+    Warning: Node "freq_divider:inst12|Add0~125"
+    Warning: Node "freq_divider:inst12|Add0~95"
+    Warning: Node "freq_divider:inst12|Equal0~6"
+    Warning: Node "freq_divider:inst12|Add0~97"
+    Warning: Node "freq_divider:inst12|Add0~105"
+    Warning: Node "freq_divider:inst12|Equal0~7"
+    Warning: Node "freq_divider:inst12|Add0~107COUT1_208"
+    Warning: Node "freq_divider:inst12|Add0~112COUT1_210"
+    Warning: Node "freq_divider:inst12|Add0~117COUT1_212"
+    Warning: Node "freq_divider:inst12|Add0~122COUT1_214"
+    Warning: Node "freq_divider:inst12|Add0~2"
+    Warning: Node "freq_divider:inst12|Add0~0"
+    Warning: Node "freq_divider:inst12|count[25]~1"
+    Warning: Node "freq_divider:inst12|Add0~120"
+    Warning: Node "freq_divider:inst12|Add0~122"
+    Warning: Node "freq_divider:inst12|Add0~115"
+    Warning: Node "freq_divider:inst12|Add0~117"
+    Warning: Node "freq_divider:inst12|Add0~110"
+    Warning: Node "freq_divider:inst12|Add0~112"
+    Warning: Node "freq_divider:inst12|Add0~107"
+    Warning: Node "freq_divider:inst12|Add0~100"
+    Warning: Node "freq_divider:inst12|Add0~102COUT1_204"
+    Warning: Node "freq_divider:inst12|Add0~92COUT1_206"
+    Warning: Node "freq_divider:inst12|Add0~90"
+    Warning: Node "freq_divider:inst12|Add0~92"
+    Warning: Node "freq_divider:inst12|Add0~102"
+    Warning: Node "freq_divider:inst12|Add0~87COUT1_202"
+    Warning: Node "freq_divider:inst12|Add0~87"
+    Warning: Node "freq_divider:inst12|Add0~85"
+    Warning: Node "freq_divider:inst12|Add0~82COUT1_200"
+    Warning: Node "freq_divider:inst12|Add0~82"
+    Warning: Node "freq_divider:inst12|Add0~80"
+    Warning: Node "freq_divider:inst12|Equal0~5"
+    Warning: Node "freq_divider:inst12|Add0~77"
+    Warning: Node "freq_divider:inst12|Add0~75"
+    Warning: Node "freq_divider:inst12|Add0~72COUT1_198"
+    Warning: Node "freq_divider:inst12|Add0~72"
+    Warning: Node "freq_divider:inst12|Add0~70"
+    Warning: Node "freq_divider:inst12|Add0~67COUT1_196"
+    Warning: Node "freq_divider:inst12|Add0~67"
+    Warning: Node "freq_divider:inst12|Add0~65"
+    Warning: Node "freq_divider:inst12|Add0~60"
+    Warning: Node "freq_divider:inst12|Equal0~4"
+    Warning: Node "freq_divider:inst12|Add0~62COUT1_192"
+    Warning: Node "freq_divider:inst12|Add0~57COUT1_194"
+    Warning: Node "freq_divider:inst12|Add0~55"
+    Warning: Node "freq_divider:inst12|Add0~57"
+    Warning: Node "freq_divider:inst12|Add0~62"
+    Warning: Node "freq_divider:inst12|Add0~52"
+    Warning: Node "freq_divider:inst12|Add0~50"
+    Warning: Node "freq_divider:inst12|Equal0~3"
+    Warning: Node "freq_divider:inst12|Add0~47COUT1_190"
+    Warning: Node "freq_divider:inst12|Add0~47"
+    Warning: Node "freq_divider:inst12|Add0~45"
+    Warning: Node "freq_divider:inst12|Add0~42COUT1_188"
+    Warning: Node "freq_divider:inst12|Add0~42"
+    Warning: Node "freq_divider:inst12|Add0~40"
+    Warning: Node "freq_divider:inst12|Equal0~2"
+    Warning: Node "freq_divider:inst12|Add0~30"
+    Warning: Node "freq_divider:inst12|Add0~32"
+    Warning: Node "freq_divider:inst12|Add0~35"
+    Warning: Node "freq_divider:inst12|Add0~37COUT1_184"
+    Warning: Node "freq_divider:inst12|Add0~27COUT1_186"
+    Warning: Node "freq_divider:inst12|Add0~25"
+    Warning: Node "freq_divider:inst12|Add0~27"
+    Warning: Node "freq_divider:inst12|Add0~37"
+    Warning: Node "freq_divider:inst12|Add0~17COUT1_182"
+    Warning: Node "freq_divider:inst12|Add0~17"
+    Warning: Node "freq_divider:inst12|Add0~15"
+    Warning: Node "freq_divider:inst12|Add0~12COUT1_180"
+    Warning: Node "freq_divider:inst12|Add0~12"
+    Warning: Node "freq_divider:inst12|Add0~10"
+    Warning: Node "freq_divider:inst12|count[0]~4"
+    Warning: Node "freq_divider:inst12|Add0~20"
+    Warning: Node "freq_divider:inst12|count[1]~2"
+    Warning: Node "freq_divider:inst12|Add0~22COUT1_176"
+    Warning: Node "freq_divider:inst12|Add0~7COUT1_178"
+    Warning: Node "freq_divider:inst12|Add0~5"
+    Warning: Node "freq_divider:inst12|Add0~7"
+    Warning: Node "freq_divider:inst12|Add0~22"
+Warning: Design contains combinational loop of 97 nodes. Estimating the delays through the loop.
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "clk" is an undefined clock
+Warning: Found 1 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected ripple clock "LED_Processing_Unit:inst1|clk2" as buffer
+Info: Clock "clk" has Internal fmax of 170.91 MHz between source register "LED_Processing_Unit:inst1|count[2]" and destination register "LED_Processing_Unit:inst1|count[17]" (period= 5.851 ns)
+    Info: + Longest register to register delay is 5.561 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X9_Y13_N0; Fanout = 4; REG Node = 'LED_Processing_Unit:inst1|count[2]'
+        Info: 2: + IC(0.758 ns) + CELL(0.590 ns) = 1.348 ns; Loc. = LC_X9_Y13_N4; Fanout = 1; COMB Node = 'LED_Processing_Unit:inst1|Equal0~0'
+        Info: 3: + IC(1.564 ns) + CELL(0.590 ns) = 3.502 ns; Loc. = LC_X8_Y11_N2; Fanout = 1; COMB Node = 'LED_Processing_Unit:inst1|Equal0~4'
+        Info: 4: + IC(0.182 ns) + CELL(0.114 ns) = 3.798 ns; Loc. = LC_X8_Y11_N3; Fanout = 9; COMB Node = 'LED_Processing_Unit:inst1|Equal0~9'
+        Info: 5: + IC(1.285 ns) + CELL(0.478 ns) = 5.561 ns; Loc. = LC_X8_Y12_N0; Fanout = 4; REG Node = 'LED_Processing_Unit:inst1|count[17]'
+        Info: Total cell delay = 1.772 ns ( 31.86 % )
+        Info: Total interconnect delay = 3.789 ns ( 68.14 % )
+    Info: - Smallest clock skew is -0.029 ns
+        Info: + Shortest clock path from clock "clk" to destination register is 2.925 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_29; Fanout = 284; CLK Node = 'clk'
+            Info: 2: + IC(0.745 ns) + CELL(0.711 ns) = 2.925 ns; Loc. = LC_X8_Y12_N0; Fanout = 4; REG Node = 'LED_Processing_Unit:inst1|count[17]'
+            Info: Total cell delay = 2.180 ns ( 74.53 % )
+            Info: Total interconnect delay = 0.745 ns ( 25.47 % )
+        Info: - Longest clock path from clock "clk" to source register is 2.954 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_29; Fanout = 284; CLK Node = 'clk'
+            Info: 2: + IC(0.774 ns) + CELL(0.711 ns) = 2.954 ns; Loc. = LC_X9_Y13_N0; Fanout = 4; REG Node = 'LED_Processing_Unit:inst1|count[2]'
+            Info: Total cell delay = 2.180 ns ( 73.80 % )
+            Info: Total interconnect delay = 0.774 ns ( 26.20 % )
+    Info: + Micro clock to output delay of source is 0.224 ns
+    Info: + Micro setup delay of destination is 0.037 ns
+Info: tsu for register "anti_shaking:inst6|KeyLow[4]" (data pin = "MINS", clock pin = "clk") is 7.733 ns
+    Info: + Longest pin to register delay is 10.598 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_121; Fanout = 62; PIN Node = 'MINS'
+        Info: 2: + IC(8.017 ns) + CELL(1.112 ns) = 10.598 ns; Loc. = LC_X8_Y6_N9; Fanout = 3; REG Node = 'anti_shaking:inst6|KeyLow[4]'
+        Info: Total cell delay = 2.581 ns ( 24.35 % )
+        Info: Total interconnect delay = 8.017 ns ( 75.65 % )
+    Info: + Micro setup delay of destination is 0.037 ns
+    Info: - Shortest clock path from clock "clk" to destination register is 2.902 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_29; Fanout = 284; CLK Node = 'clk'
+        Info: 2: + IC(0.722 ns) + CELL(0.711 ns) = 2.902 ns; Loc. = LC_X8_Y6_N9; Fanout = 3; REG Node = 'anti_shaking:inst6|KeyLow[4]'
+        Info: Total cell delay = 2.180 ns ( 75.12 % )
+        Info: Total interconnect delay = 0.722 ns ( 24.88 % )
+Info: tco from clock "clk" to destination pin "LED_OUT[7]" through register "LED_Processing_Unit:inst1|LEDOut[7]" is 13.907 ns
+    Info: + Longest clock path from clock "clk" to source register is 7.928 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_29; Fanout = 284; CLK Node = 'clk'
+        Info: 2: + IC(0.745 ns) + CELL(0.935 ns) = 3.149 ns; Loc. = LC_X8_Y12_N9; Fanout = 15; REG Node = 'LED_Processing_Unit:inst1|clk2'
+        Info: 3: + IC(4.068 ns) + CELL(0.711 ns) = 7.928 ns; Loc. = LC_X22_Y17_N1; Fanout = 1; REG Node = 'LED_Processing_Unit:inst1|LEDOut[7]'
+        Info: Total cell delay = 3.115 ns ( 39.29 % )
+        Info: Total interconnect delay = 4.813 ns ( 60.71 % )
+    Info: + Micro clock to output delay of source is 0.224 ns
+    Info: + Longest register to pin delay is 5.755 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X22_Y17_N1; Fanout = 1; REG Node = 'LED_Processing_Unit:inst1|LEDOut[7]'
+        Info: 2: + IC(3.631 ns) + CELL(2.124 ns) = 5.755 ns; Loc. = PIN_14; Fanout = 0; PIN Node = 'LED_OUT[7]'
+        Info: Total cell delay = 2.124 ns ( 36.91 % )
+        Info: Total interconnect delay = 3.631 ns ( 63.09 % )
+Info: th for register "anti_shaking:inst7|KeyLow[14]" (data pin = "HRS", clock pin = "clk") is -4.719 ns
+    Info: + Longest clock path from clock "clk" to destination register is 2.954 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_29; Fanout = 284; CLK Node = 'clk'
+        Info: 2: + IC(0.774 ns) + CELL(0.711 ns) = 2.954 ns; Loc. = LC_X9_Y19_N9; Fanout = 3; REG Node = 'anti_shaking:inst7|KeyLow[14]'
+        Info: Total cell delay = 2.180 ns ( 73.80 % )
+        Info: Total interconnect delay = 0.774 ns ( 26.20 % )
+    Info: + Micro hold delay of destination is 0.015 ns
+    Info: - Shortest pin to register delay is 7.688 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.475 ns) = 1.475 ns; Loc. = PIN_224; Fanout = 62; PIN Node = 'HRS'
+        Info: 2: + IC(5.101 ns) + CELL(1.112 ns) = 7.688 ns; Loc. = LC_X9_Y19_N9; Fanout = 3; REG Node = 'anti_shaking:inst7|KeyLow[14]'
+        Info: Total cell delay = 2.587 ns ( 33.65 % )
+        Info: Total interconnect delay = 5.101 ns ( 66.35 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 103 warnings
+    Info: Peak virtual memory: 197 megabytes
+    Info: Processing ended: Thu May 04 16:30:23 2017
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
 
 

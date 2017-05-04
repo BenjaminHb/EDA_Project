@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Digital_clock
-Wed May 03 02:15:37 2017
+Thu May 04 16:30:11 2017
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -13,11 +13,12 @@ Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. Removed Registers Triggering Further Register Optimizations
+  8. User-Specified and Inferred Latches
+  9. Logic Cells Representing Combinational Loops
  10. General Register Statistics
- 11. Analysis & Synthesis Messages
- 12. Analysis & Synthesis Suppressed Messages
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Analysis & Synthesis Messages
+ 13. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -43,12 +44,12 @@ applicable agreement for further details.
 +------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                           ;
 +-----------------------------+------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Wed May 03 02:15:37 2017    ;
+; Analysis & Synthesis Status ; Successful - Thu May 04 16:30:11 2017    ;
 ; Quartus II Version          ; 9.1 Build 222 10/21/2009 SJ Full Version ;
 ; Revision Name               ; Digital_clock                            ;
 ; Top-level Entity Name       ; Digital_clock                            ;
 ; Family                      ; Cyclone                                  ;
-; Total logic elements        ; 0                                        ;
+; Total logic elements        ; 642                                      ;
 ; Total pins                  ; 17                                       ;
 ; Total virtual pins          ; 0                                        ;
 ; Total memory bits           ; 0                                        ;
@@ -171,97 +172,111 @@ applicable agreement for further details.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Total logic elements                        ; 0     ;
-;     -- Combinational with no register       ; 0     ;
-;     -- Register only                        ; 0     ;
-;     -- Combinational with a register        ; 0     ;
+; Total logic elements                        ; 642   ;
+;     -- Combinational with no register       ; 309   ;
+;     -- Register only                        ; 41    ;
+;     -- Combinational with a register        ; 292   ;
 ;                                             ;       ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 0     ;
-;     -- 3 input functions                    ; 0     ;
-;     -- 2 input functions                    ; 0     ;
-;     -- 1 input functions                    ; 0     ;
+;     -- 4 input functions                    ; 184   ;
+;     -- 3 input functions                    ; 95    ;
+;     -- 2 input functions                    ; 312   ;
+;     -- 1 input functions                    ; 10    ;
 ;     -- 0 input functions                    ; 0     ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 0     ;
-;     -- arithmetic mode                      ; 0     ;
+;     -- normal mode                          ; 301   ;
+;     -- arithmetic mode                      ; 341   ;
 ;     -- qfbk mode                            ; 0     ;
 ;     -- register cascade mode                ; 0     ;
-;     -- synchronous clear/load mode          ; 0     ;
+;     -- synchronous clear/load mode          ; 256   ;
 ;     -- asynchronous clear/load mode         ; 0     ;
 ;                                             ;       ;
-; Total registers                             ; 0     ;
+; Total registers                             ; 333   ;
+; Total logic cells in carry chains           ; 357   ;
 ; I/O pins                                    ; 17    ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 284   ;
+; Total fan-out                               ; 2313  ;
+; Average fan-out                             ; 3.51  ;
 +---------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                   ;
-+----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
-; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
-; |Digital_clock             ; 0 (0)       ; 0            ; 0           ; 17   ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Digital_clock      ; work         ;
-+----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                            ;
++--------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+------------------------------------------+--------------+
+; Compilation Hierarchy Node     ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                      ; Library Name ;
++--------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+------------------------------------------+--------------+
+; |Digital_clock                 ; 642 (0)     ; 333          ; 0           ; 17   ; 0            ; 309 (0)      ; 41 (0)            ; 292 (0)          ; 357 (0)         ; 0 (0)      ; |Digital_clock                           ; work         ;
+;    |BinToLED:inst11|           ; 8 (8)       ; 0            ; 0           ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Digital_clock|BinToLED:inst11           ; work         ;
+;    |BinToLED:inst13|           ; 8 (8)       ; 0            ; 0           ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Digital_clock|BinToLED:inst13           ; work         ;
+;    |BinToLED:inst14|           ; 8 (8)       ; 0            ; 0           ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Digital_clock|BinToLED:inst14           ; work         ;
+;    |BinToLED:inst15|           ; 7 (7)       ; 0            ; 0           ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Digital_clock|BinToLED:inst15           ; work         ;
+;    |CNT10:inst|                ; 23 (23)     ; 9            ; 0           ; 0    ; 0            ; 14 (14)      ; 1 (1)             ; 8 (8)            ; 16 (16)         ; 0 (0)      ; |Digital_clock|CNT10:inst                ; work         ;
+;    |CNT2:inst9|                ; 18 (18)     ; 8            ; 0           ; 0    ; 0            ; 10 (10)      ; 6 (6)             ; 2 (2)            ; 8 (8)           ; 0 (0)      ; |Digital_clock|CNT2:inst9                ; work         ;
+;    |CNT4:inst3|                ; 44 (44)     ; 9            ; 0           ; 0    ; 0            ; 35 (35)      ; 2 (2)             ; 7 (7)            ; 16 (16)         ; 0 (0)      ; |Digital_clock|CNT4:inst3                ; work         ;
+;    |CNT6:inst2|                ; 20 (20)     ; 9            ; 0           ; 0    ; 0            ; 11 (11)      ; 7 (7)             ; 2 (2)            ; 8 (8)           ; 0 (0)      ; |Digital_clock|CNT6:inst2                ; work         ;
+;    |LED_Processing_Unit:inst1| ; 105 (105)   ; 46           ; 0           ; 0    ; 0            ; 59 (59)      ; 25 (25)           ; 21 (21)          ; 31 (31)         ; 0 (0)      ; |Digital_clock|LED_Processing_Unit:inst1 ;              ;
+;    |anti_shaking:inst4|        ; 89 (89)     ; 63           ; 0           ; 0    ; 0            ; 26 (26)      ; 0 (0)             ; 63 (63)          ; 62 (62)         ; 0 (0)      ; |Digital_clock|anti_shaking:inst4        ; work         ;
+;    |anti_shaking:inst5|        ; 89 (89)     ; 63           ; 0           ; 0    ; 0            ; 26 (26)      ; 0 (0)             ; 63 (63)          ; 62 (62)         ; 0 (0)      ; |Digital_clock|anti_shaking:inst5        ; work         ;
+;    |anti_shaking:inst6|        ; 89 (89)     ; 63           ; 0           ; 0    ; 0            ; 26 (26)      ; 0 (0)             ; 63 (63)          ; 62 (62)         ; 0 (0)      ; |Digital_clock|anti_shaking:inst6        ; work         ;
+;    |anti_shaking:inst7|        ; 89 (89)     ; 63           ; 0           ; 0    ; 0            ; 26 (26)      ; 0 (0)             ; 63 (63)          ; 62 (62)         ; 0 (0)      ; |Digital_clock|anti_shaking:inst7        ; work         ;
+;    |freq_divider:inst12|       ; 45 (45)     ; 0            ; 0           ; 0    ; 0            ; 45 (45)      ; 0 (0)             ; 0 (0)            ; 30 (30)         ; 0 (0)      ; |Digital_clock|freq_divider:inst12       ; work         ;
++--------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+---------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                    ;
-+----------------------------------------------+----------------------------------------+
-; Register name                                ; Reason for Removal                     ;
-+----------------------------------------------+----------------------------------------+
-; LED_Processing_Unit:inst1|clk2               ; Stuck at GND due to stuck port data_in ;
-; LED_Processing_Unit:inst1|LEDOut[0..7]       ; Stuck at GND due to stuck port clock   ;
-; CNT10:inst|carryout                          ; Lost fanout                            ;
-; LED_Processing_Unit:inst1|LEDSelect[0..3]    ; Stuck at GND due to stuck port clock   ;
-; LED_Processing_Unit:inst1|select_count[0..1] ; Stuck at GND due to stuck port clock   ;
-; anti_shaking:inst7|KeyLow[0]                 ; Lost fanout                            ;
-; anti_shaking:inst7|KeyHigh[0]                ; Lost fanout                            ;
-; anti_shaking:inst7|KeyOut                    ; Lost fanout                            ;
-; anti_shaking:inst7|KeyHigh[1..30]            ; Lost fanout                            ;
-; anti_shaking:inst7|KeyLow[1..30]             ; Lost fanout                            ;
-; anti_shaking:inst6|KeyLow[0]                 ; Lost fanout                            ;
-; anti_shaking:inst6|KeyHigh[0]                ; Lost fanout                            ;
-; anti_shaking:inst6|KeyOut                    ; Lost fanout                            ;
-; anti_shaking:inst6|KeyHigh[1..30]            ; Lost fanout                            ;
-; anti_shaking:inst6|KeyLow[1..30]             ; Lost fanout                            ;
-; anti_shaking:inst5|KeyLow[0]                 ; Lost fanout                            ;
-; anti_shaking:inst5|KeyHigh[0]                ; Lost fanout                            ;
-; anti_shaking:inst5|KeyOut                    ; Lost fanout                            ;
-; anti_shaking:inst5|KeyHigh[1..30]            ; Lost fanout                            ;
-; anti_shaking:inst5|KeyLow[1..30]             ; Lost fanout                            ;
-; anti_shaking:inst4|KeyLow[0]                 ; Lost fanout                            ;
-; anti_shaking:inst4|KeyHigh[0]                ; Lost fanout                            ;
-; anti_shaking:inst4|KeyOut                    ; Lost fanout                            ;
-; anti_shaking:inst4|KeyHigh[1..30]            ; Lost fanout                            ;
-; anti_shaking:inst4|KeyLow[1..30]             ; Lost fanout                            ;
-; CNT10:inst|out[0..7]                         ; Lost fanout                            ;
-; LED_Processing_Unit:inst1|count[0..30]       ; Lost fanout                            ;
-; Total Number of Removed Registers = 307      ;                                        ;
-+----------------------------------------------+----------------------------------------+
++-------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                         ;
++----------------------------------------------------+-------------------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal           ; Free of Timing Hazards ;
++----------------------------------------------------+-------------------------------+------------------------+
+; freq_divider:inst12|clk_freq_div                   ; freq_divider:inst12|count[30] ; yes                    ;
+; Number of user-specified and inferred latches = 1  ;                               ;                        ;
++----------------------------------------------------+-------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                   ;
-+--------------------------------+---------------------------+----------------------------------------------------------------------------------+
-; Register name                  ; Reason for Removal        ; Registers Removed due to This Register                                           ;
-+--------------------------------+---------------------------+----------------------------------------------------------------------------------+
-; LED_Processing_Unit:inst1|clk2 ; Stuck at GND              ; LED_Processing_Unit:inst1|LEDOut[7], LED_Processing_Unit:inst1|LEDOut[6],        ;
-;                                ; due to stuck port data_in ; LED_Processing_Unit:inst1|LEDOut[5], LED_Processing_Unit:inst1|LEDOut[4],        ;
-;                                ;                           ; LED_Processing_Unit:inst1|LEDOut[3], LED_Processing_Unit:inst1|LEDOut[2],        ;
-;                                ;                           ; LED_Processing_Unit:inst1|LEDOut[1], LED_Processing_Unit:inst1|LEDOut[0],        ;
-;                                ;                           ; LED_Processing_Unit:inst1|LEDSelect[3], LED_Processing_Unit:inst1|LEDSelect[2],  ;
-;                                ;                           ; LED_Processing_Unit:inst1|LEDSelect[1], LED_Processing_Unit:inst1|LEDSelect[0],  ;
-;                                ;                           ; LED_Processing_Unit:inst1|select_count[1],                                       ;
-;                                ;                           ; LED_Processing_Unit:inst1|select_count[0], CNT10:inst|out[5], CNT10:inst|out[4], ;
-;                                ;                           ; CNT10:inst|out[3], CNT10:inst|out[2], CNT10:inst|out[1], CNT10:inst|out[6],      ;
-;                                ;                           ; CNT10:inst|out[7], LED_Processing_Unit:inst1|count[6],                           ;
-;                                ;                           ; LED_Processing_Unit:inst1|count[9], LED_Processing_Unit:inst1|count[14],         ;
-;                                ;                           ; LED_Processing_Unit:inst1|count[16], LED_Processing_Unit:inst1|count[17],        ;
-;                                ;                           ; LED_Processing_Unit:inst1|count[18], LED_Processing_Unit:inst1|count[19],        ;
-;                                ;                           ; LED_Processing_Unit:inst1|count[30]                                              ;
-+--------------------------------+---------------------------+----------------------------------------------------------------------------------+
++-------------------------------------------------------------+
+; Logic Cells Representing Combinational Loops                ;
++--------------------------------------------------------+----+
+; Logic Cell Name                                        ;    ;
++--------------------------------------------------------+----+
+; freq_divider:inst12|count[30]                          ;    ;
+; freq_divider:inst12|Add0                               ;    ;
+; freq_divider:inst12|count[23]                          ;    ;
+; freq_divider:inst12|count[22]                          ;    ;
+; freq_divider:inst12|count[21]                          ;    ;
+; freq_divider:inst12|count[20]                          ;    ;
+; freq_divider:inst12|count[19]                          ;    ;
+; freq_divider:inst12|count[17]                          ;    ;
+; freq_divider:inst12|count[15]                          ;    ;
+; freq_divider:inst12|count[14]                          ;    ;
+; freq_divider:inst12|count[13]                          ;    ;
+; freq_divider:inst12|count[12]                          ;    ;
+; freq_divider:inst12|count[7]                           ;    ;
+; freq_divider:inst12|count[24]                          ;    ;
+; freq_divider:inst12|count[18]                          ;    ;
+; freq_divider:inst12|count[16]                          ;    ;
+; freq_divider:inst12|count[4]                           ;    ;
+; freq_divider:inst12|count[27]                          ;    ;
+; freq_divider:inst12|count[11]                          ;    ;
+; freq_divider:inst12|count[10]                          ;    ;
+; freq_divider:inst12|count[9]                           ;    ;
+; freq_divider:inst12|count[8]                           ;    ;
+; freq_divider:inst12|count[6]                           ;    ;
+; freq_divider:inst12|count[5]                           ;    ;
+; freq_divider:inst12|count[3]                           ;    ;
+; freq_divider:inst12|count[2]                           ;    ;
+; freq_divider:inst12|count[1]                           ;    ;
+; freq_divider:inst12|count[0]                           ;    ;
+; freq_divider:inst12|count[30]                          ;    ;
+; freq_divider:inst12|count[29]                          ;    ;
+; freq_divider:inst12|count[28]                          ;    ;
+; freq_divider:inst12|count[26]                          ;    ;
+; Number of logic cells representing combinational loops ; 32 ;
++--------------------------------------------------------+----+
+Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------+
@@ -269,14 +284,25 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Total registers                              ; 333   ;
+; Number of registers using Synchronous Clear  ; 256   ;
+; Number of registers using Synchronous Load   ; 8     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |Digital_clock|LED_Processing_Unit:inst1|LEDOut[3] ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |Digital_clock|CNT10:inst|out[1]                   ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |Digital_clock|CNT4:inst3|out                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
 
 
 +-------------------------------+
@@ -285,7 +311,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
-    Info: Processing started: Wed May 03 02:15:33 2017
+    Info: Processing started: Thu May 04 16:30:06 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Digital_clock -c Digital_clock
 Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info: Found 1 design units, including 1 entities, in source file freq_divider.v
@@ -312,167 +338,24 @@ Info: Elaborating entity "BinToLED" for hierarchy "BinToLED:inst11"
 Info: Elaborating entity "CNT10" for hierarchy "CNT10:inst"
 Info: Elaborating entity "freq_divider" for hierarchy "freq_divider:inst12"
 Warning (10235): Verilog HDL Always Construct warning at freq_divider.v(11): variable "count" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at freq_divider.v(12): variable "clk_freq_div" is read inside the Always Construct but isn't in the Always Construct's Event Control
 Warning (10235): Verilog HDL Always Construct warning at freq_divider.v(15): variable "count" is read inside the Always Construct but isn't in the Always Construct's Event Control
 Warning (10240): Verilog HDL Always Construct warning at freq_divider.v(10): inferring latch(es) for variable "clk_freq_div", which holds its previous value in one or more paths through the always construct
 Info (10041): Inferred latch for "clk_freq_div" at freq_divider.v(15)
 Info: Elaborating entity "anti_shaking" for hierarchy "anti_shaking:inst4"
-Info: Elaborating entity "CNT6" for hierarchy "CNT6:inst8"
-Info (10041): Inferred latch for "out[0]" at CNT6.v(8)
-Info (10041): Inferred latch for "out[1]" at CNT6.v(8)
-Info (10041): Inferred latch for "out[2]" at CNT6.v(8)
-Info (10041): Inferred latch for "out[3]" at CNT6.v(8)
-Info (10041): Inferred latch for "out[4]" at CNT6.v(8)
-Info (10041): Inferred latch for "out[5]" at CNT6.v(8)
-Info (10041): Inferred latch for "out[6]" at CNT6.v(8)
-Info (10041): Inferred latch for "out[7]" at CNT6.v(8)
-Info: Elaborating entity "CNT4" for hierarchy "CNT4:inst9"
-Info (10041): Inferred latch for "out[0]" at CNT4.v(15)
-Info (10041): Inferred latch for "out[1]" at CNT4.v(15)
-Info (10041): Inferred latch for "out[2]" at CNT4.v(15)
-Info (10041): Inferred latch for "out[3]" at CNT4.v(15)
-Info (10041): Inferred latch for "out[4]" at CNT4.v(15)
-Info (10041): Inferred latch for "out[5]" at CNT4.v(15)
-Info (10041): Inferred latch for "out[6]" at CNT4.v(15)
-Info (10041): Inferred latch for "out[7]" at CNT4.v(15)
-Info: Elaborating entity "CNT2" for hierarchy "CNT2:inst10"
-Info (10041): Inferred latch for "out[0]" at CNT2.v(7)
-Info (10041): Inferred latch for "out[1]" at CNT2.v(7)
-Info (10041): Inferred latch for "out[2]" at CNT2.v(7)
-Info (10041): Inferred latch for "out[3]" at CNT2.v(7)
-Info (10041): Inferred latch for "out[4]" at CNT2.v(7)
-Info (10041): Inferred latch for "out[5]" at CNT2.v(7)
-Info (10041): Inferred latch for "out[6]" at CNT2.v(7)
-Info (10041): Inferred latch for "out[7]" at CNT2.v(7)
-Warning: Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LED_OUT[7]" is stuck at GND
-    Warning (13410): Pin "LED_OUT[6]" is stuck at GND
-    Warning (13410): Pin "LED_OUT[5]" is stuck at GND
-    Warning (13410): Pin "LED_OUT[4]" is stuck at GND
-    Warning (13410): Pin "LED_OUT[3]" is stuck at GND
-    Warning (13410): Pin "LED_OUT[2]" is stuck at GND
-    Warning (13410): Pin "LED_OUT[1]" is stuck at GND
-    Warning (13410): Pin "LED_OUT[0]" is stuck at GND
-    Warning (13410): Pin "LED_SELECT[3]" is stuck at GND
-    Warning (13410): Pin "LED_SELECT[2]" is stuck at GND
-    Warning (13410): Pin "LED_SELECT[1]" is stuck at GND
-    Warning (13410): Pin "LED_SELECT[0]" is stuck at GND
-Info: 292 registers lost all their fanouts during netlist optimizations. The first 100 are displayed below.
-    Info: Register "CNT10:inst|carryout" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[0]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[0]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyOut" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[1]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[2]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[3]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[4]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[5]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[6]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[7]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[8]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[9]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[10]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[11]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[12]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[13]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[14]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[15]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[16]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[17]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[18]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[19]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[20]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[21]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[22]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[23]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[24]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[25]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[26]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[27]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[28]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[29]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyHigh[30]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[1]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[2]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[3]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[4]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[5]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[6]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[7]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[8]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[9]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[10]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[11]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[12]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[13]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[14]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[15]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[16]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[17]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[18]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[19]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[20]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[21]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[22]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[23]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[24]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[25]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[26]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[27]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[28]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[29]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst7|KeyLow[30]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyLow[0]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[0]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyOut" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[1]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[2]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[3]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[4]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[5]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[6]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[7]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[8]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[9]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[10]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[11]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[12]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[13]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[14]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[15]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[16]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[17]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[18]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[19]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[20]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[21]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[22]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[23]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[24]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[25]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[26]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[27]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[28]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[29]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyHigh[30]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyLow[1]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyLow[2]" lost all its fanouts during netlist optimizations.
-    Info: Register "anti_shaking:inst6|KeyLow[3]" lost all its fanouts during netlist optimizations.
-    Info: List truncated at 100 items
+Info: Elaborating entity "CNT6" for hierarchy "CNT6:inst2"
+Info: Elaborating entity "CNT4" for hierarchy "CNT4:inst3"
+Info: Elaborating entity "CNT2" for hierarchy "CNT2:inst9"
 Info: Generated suppressed messages file Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/Digital_clock/Digital_clock.map.smsg
-Warning: Design contains 5 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "clk"
-    Warning (15610): No output dependent on input pin "EN"
-    Warning (15610): No output dependent on input pin "RST"
-    Warning (15610): No output dependent on input pin "MINS"
-    Warning (15610): No output dependent on input pin "HRS"
-Info: Implemented 17 device resources after synthesis - the final resource count might be different
+Info: Implemented 659 device resources after synthesis - the final resource count might be different
     Info: Implemented 5 input pins
     Info: Implemented 12 output pins
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 22 warnings
-    Info: Peak virtual memory: 231 megabytes
-    Info: Processing ended: Wed May 03 02:15:37 2017
-    Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:05
+    Info: Implemented 642 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 237 megabytes
+    Info: Processing ended: Thu May 04 16:30:11 2017
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:06
 
 
 +------------------------------------------+

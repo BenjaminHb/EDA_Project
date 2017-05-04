@@ -20,46 +20,10 @@ VHSM_ON
 -- Start VHDL Libraries --
 -- End VHDL Libraries --
 # entity
-LED_Processing_Unit
-# storage
-db|Digital_clock.(1).cnf
-db|Digital_clock.(1).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-led_processing_unit.v
-1a2f64a8aa63e9eec1bb976723a9d9d3
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# hierarchies {
-LED_Processing_Unit:inst1
-}
-# macro_sequence
-
-# end
-# entity
 CNT10
 # storage
-db|Digital_clock.(2).cnf
-db|Digital_clock.(2).cnf
+db|Digital_clock.(3).cnf
+db|Digital_clock.(3).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -94,8 +58,8 @@ CNT10:inst
 # entity
 freq_divider
 # storage
-db|Digital_clock.(3).cnf
-db|Digital_clock.(3).cnf
+db|Digital_clock.(4).cnf
+db|Digital_clock.(4).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -103,7 +67,7 @@ ON
 # case_sensitive
 # source_file
 freq_divider.v
-8c4a559be0f9c3402230c2ccc5eb2cf5
+bfc347ac2d3993e3a32586b75b5bf83
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -128,177 +92,10 @@ freq_divider:inst12
 
 # end
 # entity
-CNT6
-# storage
-db|Digital_clock.(5).cnf
-db|Digital_clock.(5).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-cnt6.v
-21ed28e13e3c46e833aca1fd471338
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# hierarchies {
-CNT6:inst8
-}
-# macro_sequence
-
-# end
-# entity
-CNT4
-# storage
-db|Digital_clock.(6).cnf
-db|Digital_clock.(6).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-cnt4.v
-5a71cfd4a4eabc2d3bfdb5dbbd8a5c
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# hierarchies {
-CNT4:inst9
-}
-# macro_sequence
-
-# end
-# entity
-CNT2
-# storage
-db|Digital_clock.(7).cnf
-db|Digital_clock.(7).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-cnt2.v
-26d72c91621b9947ef218c69c48622a
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# hierarchies {
-CNT2:inst10
-}
-# macro_sequence
-
-# end
-# entity
-Digital_clock
-# storage
-db|Digital_clock.(0).cnf
-db|Digital_clock.(0).cnf
-# case_insensitive
-# source_file
-digital_clock.bdf
-90cc5dee487ecbaf5b933f43fb92574
-26
-# internal_option {
-BLOCK_DESIGN_NAMING
-AUTO
-}
-# hierarchies {
-|
-}
-# macro_sequence
-
-# end
-# entity
-BinToLED
-# storage
-db|Digital_clock.(8).cnf
-db|Digital_clock.(8).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-bintoled.v
-4325d54e97ddfbab2eef5bf897cdcfd
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# hierarchies {
-BinToLED:inst11
-BinToLED:inst13
-BinToLED:inst14
-BinToLED:inst15
-}
-# macro_sequence
-
-# end
-# entity
 anti_shaking
 # storage
-db|Digital_clock.(4).cnf
-db|Digital_clock.(4).cnf
+db|Digital_clock.(5).cnf
+db|Digital_clock.(5).cnf
 # logic_option {
 AUTO_RAM_RECOGNITION
 ON
@@ -329,6 +126,209 @@ anti_shaking:inst4
 anti_shaking:inst5
 anti_shaking:inst6
 anti_shaking:inst7
+}
+# macro_sequence
+
+# end
+# entity
+Digital_clock
+# storage
+db|Digital_clock.(0).cnf
+db|Digital_clock.(0).cnf
+# case_insensitive
+# source_file
+digital_clock.bdf
+6987b34fa5ec06680e851816ec91c9c
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# entity
+CNT6
+# storage
+db|Digital_clock.(6).cnf
+db|Digital_clock.(6).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+cnt6.v
+42b10bbca2fe81431750f33457b226
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+CNT6:inst2
+}
+# macro_sequence
+
+# end
+# entity
+CNT4
+# storage
+db|Digital_clock.(7).cnf
+db|Digital_clock.(7).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+cnt4.v
+9127beb1deeb47fd19f118ad0842cd8
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+CNT4:inst3
+}
+# macro_sequence
+
+# end
+# entity
+CNT2
+# storage
+db|Digital_clock.(8).cnf
+db|Digital_clock.(8).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+cnt2.v
+2683ae35577e6e47301dcdc5948af45
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+CNT2:inst9
+}
+# macro_sequence
+
+# end
+# entity
+LED_Processing_Unit
+# storage
+db|Digital_clock.(1).cnf
+db|Digital_clock.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+led_processing_unit.v
+e8f4a9dc2663a5d65e4d43938be0b4
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+LED_Processing_Unit:inst1
+}
+# macro_sequence
+
+# end
+# entity
+BinToLED
+# storage
+db|Digital_clock.(2).cnf
+db|Digital_clock.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+bintoled.v
+f24fd39070695d2d507bcc56041c924
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+BinToLED:inst11
+BinToLED:inst13
+BinToLED:inst14
+BinToLED:inst15
 }
 # macro_sequence
 

@@ -1,9 +1,10 @@
-module CNT2(rst, carry, out);
+module CNT2(clk, rst, carry, out);
+	input				clk;
 	input				rst;
 	input				carry;
 	output reg [7:0]	out;
 
-	always @(*) begin
+	always @(posedge clk) begin
 		if (rst) begin
 			out = 8'b00000000;
 		end

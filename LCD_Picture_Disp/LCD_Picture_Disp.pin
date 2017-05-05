@@ -128,7 +128,7 @@ GND*                         : 57        :        :                   :         
 GND*                         : 58        :        :                   :         : 1         :                
 GND*                         : 59        :        :                   :         : 1         :                
 GND*                         : 60        :        :                   :         : 1         :                
-rst_n                        : 61        : input  : 3.3-V LVTTL       :         : 4         : Y              
+rst                          : 61        : input  : 3.3-V LVTTL       :         : 4         : Y              
 GND*                         : 62        :        :                   :         : 4         :                
 GND*                         : 63        :        :                   :         : 4         :                
 GND*                         : 64        :        :                   :         : 4         :                

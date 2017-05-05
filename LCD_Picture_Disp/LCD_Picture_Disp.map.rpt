@@ -1,5 +1,5 @@
 Analysis & Synthesis report for LCD_Picture_Disp
-Fri May 05 15:19:35 2017
+Fri May 05 23:08:13 2017
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -49,12 +49,12 @@ applicable agreement for further details.
 +------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                           ;
 +-----------------------------+------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Fri May 05 15:19:35 2017    ;
+; Analysis & Synthesis Status ; Successful - Fri May 05 23:08:13 2017    ;
 ; Quartus II Version          ; 9.1 Build 222 10/21/2009 SJ Full Version ;
 ; Revision Name               ; LCD_Picture_Disp                         ;
 ; Top-level Entity Name       ; LCD_Picture_Disp                         ;
 ; Family                      ; Cyclone                                  ;
-; Total logic elements        ; 83                                       ;
+; Total logic elements        ; 86                                       ;
 ; Total pins                  ; 13                                       ;
 ; Total virtual pins          ; 0                                        ;
 ; Total memory bits           ; 8,192                                    ;
@@ -173,20 +173,20 @@ applicable agreement for further details.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Total logic elements                        ; 83    ;
-;     -- Combinational with no register       ; 33    ;
+; Total logic elements                        ; 86    ;
+;     -- Combinational with no register       ; 36    ;
 ;     -- Register only                        ; 20    ;
 ;     -- Combinational with a register        ; 30    ;
 ;                                             ;       ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 21    ;
-;     -- 3 input functions                    ; 6     ;
-;     -- 2 input functions                    ; 32    ;
+;     -- 4 input functions                    ; 23    ;
+;     -- 3 input functions                    ; 5     ;
+;     -- 2 input functions                    ; 34    ;
 ;     -- 1 input functions                    ; 3     ;
 ;     -- 0 input functions                    ; 1     ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 63    ;
+;     -- normal mode                          ; 66    ;
 ;     -- arithmetic mode                      ; 20    ;
 ;     -- qfbk mode                            ; 0     ;
 ;     -- register cascade mode                ; 0     ;
@@ -197,10 +197,10 @@ applicable agreement for further details.
 ; Total logic cells in carry chains           ; 22    ;
 ; I/O pins                                    ; 13    ;
 ; Total memory bits                           ; 8192  ;
-; Maximum fan-out node                        ; rst_n ;
+; Maximum fan-out node                        ; rst   ;
 ; Maximum fan-out                             ; 42    ;
-; Total fan-out                               ; 423   ;
-; Average fan-out                             ; 4.07  ;
+; Total fan-out                               ; 432   ;
+; Average fan-out                             ; 4.04  ;
 +---------------------------------------------+-------+
 
 
@@ -209,7 +209,7 @@ applicable agreement for further details.
 +-------------------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                                                           ; Library Name ;
 +-------------------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------------------------------------------------------------+--------------+
-; |LCD_Picture_Disp                         ; 83 (83)     ; 50           ; 8192        ; 13   ; 0            ; 33 (33)      ; 20 (20)           ; 30 (30)          ; 22 (22)         ; 0 (0)      ; |LCD_Picture_Disp                                                                             ; work         ;
+; |LCD_Picture_Disp                         ; 86 (86)     ; 50           ; 8192        ; 13   ; 0            ; 36 (36)      ; 20 (20)           ; 30 (30)          ; 22 (22)         ; 0 (0)      ; |LCD_Picture_Disp                                                                             ; work         ;
 ;    |lpm_rom0:rom|                         ; 0 (0)       ; 0            ; 8192        ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |LCD_Picture_Disp|lpm_rom0:rom                                                                ;              ;
 ;       |altsyncram:altsyncram_component|   ; 0 (0)       ; 0            ; 8192        ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |LCD_Picture_Disp|lpm_rom0:rom|altsyncram:altsyncram_component                                ;              ;
 ;          |altsyncram_3831:auto_generated| ; 0 (0)       ; 0            ; 8192        ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |LCD_Picture_Disp|lpm_rom0:rom|altsyncram:altsyncram_component|altsyncram_3831:auto_generated ;              ;
@@ -393,15 +393,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
-    Info: Processing started: Fri May 05 15:19:31 2017
+    Info: Processing started: Fri May 05 23:08:08 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off LCD_Picture_Disp -c LCD_Picture_Disp
 Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info: Found 1 design units, including 1 entities, in source file lpm_rom0.v
     Info: Found entity 1: lpm_rom0
 Info: Found 1 design units, including 1 entities, in source file lcd_picture_disp.v
     Info: Found entity 1: LCD_Picture_Disp
-Warning (10236): Verilog HDL Implicit Net warning at LCD_Picture_Disp.v(58): created implicit net for "line_done"
-Warning (10236): Verilog HDL Implicit Net warning at LCD_Picture_Disp.v(59): created implicit net for "frame_done"
 Info: Elaborating entity "LCD_Picture_Disp" for the top level hierarchy
 Info: Elaborating entity "lpm_rom0" for hierarchy "lpm_rom0:rom"
 Info: Elaborating entity "altsyncram" for hierarchy "lpm_rom0:rom|altsyncram:altsyncram_component"
@@ -430,16 +428,16 @@ Info: 3 registers lost all their fanouts during netlist optimizations. The first
     Info: Register "state~5" lost all its fanouts during netlist optimizations.
     Info: Register "state~6" lost all its fanouts during netlist optimizations.
 Info: Generated suppressed messages file Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/LCD_Picture_Disp/LCD_Picture_Disp.map.smsg
-Info: Implemented 104 device resources after synthesis - the final resource count might be different
+Info: Implemented 107 device resources after synthesis - the final resource count might be different
     Info: Implemented 2 input pins
     Info: Implemented 11 output pins
-    Info: Implemented 83 logic cells
+    Info: Implemented 86 logic cells
     Info: Implemented 8 RAM segments
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 4 warnings
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 2 warnings
     Info: Peak virtual memory: 242 megabytes
-    Info: Processing ended: Fri May 05 15:19:35 2017
-    Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:04
+    Info: Processing ended: Fri May 05 23:08:13 2017
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:05
 
 
 +------------------------------------------+

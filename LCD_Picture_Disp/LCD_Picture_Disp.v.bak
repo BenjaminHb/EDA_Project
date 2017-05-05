@@ -1,5 +1,10 @@
 module LCD_Picture_Disp(clk, rst_n, rs, rw, en, data);
-	input			clk;	//50MHz
+//	EDA_Project/LCD_Picture_Disp
+//	Version 1.2.0.040517
+//	Created by Benjamin Zhang on 04/05/17
+//	Copyright © 2017 Benjamin Zhang
+//
+	input			clk;	//50MHz, clock speed
 	input			rst_n;	//global reset, low level effective
 	output			rs;		//LCD Command or Data Select / 0 or 1
 	output			rw;		//LCD Read or Write / 1 or 0
@@ -8,32 +13,32 @@ module LCD_Picture_Disp(clk, rst_n, rs, rw, en, data);
 
 	assign	rw = 1'b0;
 
-//Produce 0.5KHz(2ms) clk
+//Produce 0.5KHz(2ms) clock speed
 	reg			LCD_clk;	//20KHz clk
-	reg [11:0]	LCD_cnt;	//count
+	reg [11:0]	LCD_count;	//count
 
 	always @(posedge clk or negedge rst_n) begin
 		if (!rst_n) begin
-			LCD_cnt <= 12'd0;
+			LCD_count <= 12'd0;
 			LCD_clk <= 1'b0;
 		end
-		else if (LCD_cnt == 12'd2499) begin	//50us
-			LCD_cnt <= 12'd0;
+		else if (LCD_count == 12'd2499) begin	//50us
+			LCD_count <= 12'd0;
 			LCD_clk <= ~LCD_clk;	//50us turn, 20KHz
 		end
-		else	LCD_cnt <= LCD_cnt + 1'b1;
+		else	LCD_count <= LCD_count + 1'b1;
 	end
 
 //Parameter
-	parameter IDLE = 4'd0;	//initialization
-	parameter SETMODE = 4'd1;	//entry mode set
-	parameter SWITCHMODE = 4'd2;	//display status
-	parameter SETFUNCTION0 = 4'd3;	//funtion set
-	parameter SETFUNCTION1 = 4'd4;	//funtion set
-	parameter DISPLAY0 = 4'd5;	//Y coord set
-	parameter DISPLAY1 = 4'd6;	//X coord set
-	parameter WRITERAM = 4'd7;	//write
-	parameter STOP = 4'd8;	//stop
+	parameter IDLE 			= 4'd0;	//initialization
+	parameter SETMODE 		= 4'd1;	//entry mode set
+	parameter SWITCHMODE 	= 4'd2;	//display status
+	parameter SETFUNCTION0 	= 4'd3;	//funtion set
+	parameter SETFUNCTION1 	= 4'd4;	//funtion set
+	parameter DISPLAY0 		= 4'd5;	//Y coord set
+	parameter DISPLAY1 		= 4'd6;	//X coord set
+	parameter WRITERAM 		= 4'd7;	//write
+	parameter STOP 			= 4'd8;	//stop
 
 //LCD Read or Write select
 	reg [3:0]	state;	//state
@@ -54,6 +59,12 @@ module LCD_Picture_Disp(clk, rst_n, rs, rw, en, data);
 	reg [9:0]	cnt;	//coord count
 	reg [7:0]	data;	//LCD data
 	wire [7:0]	data_disp;	//display data
+	//wire 		line_done;
+	//wire		frame_done;
+
+
+	assign	line_done = (cnt[3:0] == 4'hf);
+	assign	frame_done = (cnt[9:4] == 7'h3f);
 
 	always @(posedge LCD_clk or negedge rst_n) begin
 		if (!rst_n) begin
@@ -138,9 +149,6 @@ module LCD_Picture_Disp(clk, rst_n, rs, rw, en, data);
 			endcase
 		end
 	end
-
-	assign	line_done = (cnt[3:0] == 4'hf);
-	assign	frame_done = (cnt[9:4] == 7'h3f);
 
 //rom
 	lpm_rom0 rom(.address(cnt), .clock(clk), .q(data_disp));

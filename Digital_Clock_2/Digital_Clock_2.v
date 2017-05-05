@@ -1,4 +1,9 @@
 module Digital_Clock_2(clk, rst, en, min, hr, out_data, out_select);
+//	EDA_Project/Digital_Clock_2
+//	Version 1.2.0.040517
+//	Created by Benjamin Zhang on 04/05/17
+//	Copyright © 2017 Benjamin Zhang
+//
 	input				clk;
 	input				rst;
 	input				en;

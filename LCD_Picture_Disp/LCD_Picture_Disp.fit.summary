@@ -1,11 +1,11 @@
-Fitter Status : Successful - Fri May 05 15:19:40 2017
+Fitter Status : Successful - Fri May 05 23:08:16 2017
 Quartus II Version : 9.1 Build 222 10/21/2009 SJ Full Version
 Revision Name : LCD_Picture_Disp
 Top-level Entity Name : LCD_Picture_Disp
 Family : Cyclone
 Device : EP1C6Q240C8
 Timing Models : Final
-Total logic elements : 79 / 5,980 ( 1 % )
+Total logic elements : 81 / 5,980 ( 1 % )
 Total pins : 13 / 185 ( 7 % )
 Total virtual pins : 0
 Total memory bits : 8,192 / 92,160 ( 9 % )

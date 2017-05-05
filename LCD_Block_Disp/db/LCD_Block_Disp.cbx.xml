@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="LCD_Block_Disp">
+		<CBX_INST_ENTRY INSTANCE_NAME="|LCD_Block_Disp|lpm_rom0:rom|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_q131.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

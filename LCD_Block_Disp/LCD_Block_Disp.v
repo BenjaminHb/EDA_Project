@@ -1,11 +1,11 @@
-module LCD_Picture_Disp(clk, rst_n, rs, rw, en, data);
-//	EDA_Project/LCD_Picture_Disp
-//	Version 1.2.0.040517
+module LCD_Block_Disp(clk, rst, rs, rw, en, data);
+//	EDA_Project/LCD_Block_Disp
+//	Version 1.0.0.040517
 //	Created by Benjamin Zhang on 04/05/17
 //	Copyright © 2017 Benjamin Zhang
 //
 	input			clk;	//50MHz, clock speed
-	input			rst_n;	//global reset, low level effective
+	input			rst;	//global reset, low level effective
 	output			rs;		//LCD Command or Data Select / 0 or 1
 	output			rw;		//LCD Read or Write / 1 or 0
 	output			en;		//LCD Enable, fall edge effective
@@ -17,8 +17,8 @@ module LCD_Picture_Disp(clk, rst_n, rs, rw, en, data);
 	reg			LCD_clk;	//20KHz clk
 	reg [11:0]	LCD_count;	//count
 
-	always @(posedge clk or negedge rst_n) begin
-		if (!rst_n) begin
+	always @(posedge clk or negedge rst) begin
+		if (!rst) begin
 			LCD_count <= 12'd0;
 			LCD_clk <= 1'b0;
 		end
@@ -45,8 +45,8 @@ module LCD_Picture_Disp(clk, rst_n, rs, rw, en, data);
 	reg			rs;	//LCD Command or Data Select / 0 or 1
 
 	//only wrte data rs will be high level
-	always @(posedge LCD_clk or negedge rst_n) begin
-		if (!rst_n)	rs = 1'b0;	//reset, command mode
+	always @(posedge LCD_clk or negedge rst) begin
+		if (!rst)	rs = 1'b0;	//reset, command mode
 		else if (state == WRITERAM)	rs <= 1'b1;	//state write, data mode
 		else	rs <= 1'b0;	//finish write, command mode
 	end
@@ -56,22 +56,22 @@ module LCD_Picture_Disp(clk, rst_n, rs, rw, en, data);
 	assign en = (flag == 1)? LCD_clk:1'b0;
 
 //State machine
-	reg [9:0]	cnt;	//coord count
+	reg [9:0]	addr_rom;	//coord count
 	reg [7:0]	data;	//LCD data
-	wire [7:0]	data_disp;	//display data
-	//wire 		line_done;
-	//wire		frame_done;
+	wire [7:0]	data_rom_out;	//display data
+	wire 		line_done;
+	wire		frame_done;
 
 
-	assign	line_done = (cnt[3:0] == 4'hf);
-	assign	frame_done = (cnt[9:4] == 7'h3f);
+	assign	line_done = (addr_rom[3:0] == 4'hf);
+	assign	frame_done = (addr_rom[9:4] == 7'h3f);
 
-	always @(posedge LCD_clk or negedge rst_n) begin
-		if (!rst_n) begin
+	always @(posedge LCD_clk or negedge rst) begin
+		if (!rst) begin
 			state <= IDLE;
 			data <= 8'bzzzzzzzz;
 			flag <= 1'b1;
-			cnt <= 10'd0;
+			addr_rom <= 10'd0;
 		end
 		else begin
 			case (state)
@@ -81,7 +81,7 @@ module LCD_Picture_Disp(clk, rst_n, rs, rw, en, data);
 						data <= 8'bzzzzzzzz;
 						state <= SETFUNCTION0;
 						flag <= 1'b1;
-						cnt <= 10'd0;
+						addr_rom <= 10'd0;
 					end
 				
 				//funtion set
@@ -99,8 +99,8 @@ module LCD_Picture_Disp(clk, rst_n, rs, rw, en, data);
 					end
 
 				//switch mode
-				SWITCHMODE:	//display on
-					begin	//cursor display off
+				SWITCHMODE:				//display on
+					begin				//cursor display off
 						data <= 8'h0c;	//glint display off
 						state <= SETFUNCTION1;
 					end
@@ -109,28 +109,28 @@ module LCD_Picture_Disp(clk, rst_n, rs, rw, en, data);
 				SETFUNCTION1:
 					begin
 						data <= 8'h36;
-						state <= DISPLAY0;	//expanded instr set
+						state <= DISPLAY0;	//expanded instr
 					end
 
 				//Y coord set
 				DISPLAY0:
 					begin
-						data <= {3'b000,cnt[8:4]};
+						data <= {3'b100,addr_rom[8:4]};
 						state <= DISPLAY1;
 					end
 				
 				//X coord set
 				DISPLAY1:
 					begin
-						data <= {4'd8,cnt[9],3'b000};
+						data <= {4'b1000,addr_rom[9],addr_rom[3:1]};
 						state <= WRITERAM;
 					end
 				
 				//write ram
 				WRITERAM:
 					begin
-						data <= data_disp;
-						cnt <= cnt + 1'b1;
+						data <= data_rom_out;
+						addr_rom <= addr_rom + 1'b1;
 						if (line_done)	begin
 							if (frame_done)	state <= STOP;
 							else	state <= DISPLAY0;
@@ -151,6 +151,6 @@ module LCD_Picture_Disp(clk, rst_n, rs, rw, en, data);
 	end
 
 //rom
-	lpm_rom0 rom(.address(cnt), .clock(clk), .q(data_disp));
+	lpm_rom0 rom(.address(addr_rom), .clock(clk), .q(data_rom_out));
 
 endmodule

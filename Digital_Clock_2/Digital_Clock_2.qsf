@@ -52,4 +52,23 @@ set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
 set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
 set_global_assignment -name SIMULATION_MODE FUNCTIONAL
 set_global_assignment -name VECTOR_WAVEFORM_FILE Digital_Clock_2.vwf
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_location_assignment PIN_28 -to clk
+set_location_assignment PIN_124 -to en
+set_location_assignment PIN_61 -to rst
+set_location_assignment PIN_162 -to out_select[3]
+set_location_assignment PIN_161 -to out_select[2]
+set_location_assignment PIN_160 -to out_select[1]
+set_location_assignment PIN_159 -to out_select[0]
+set_location_assignment PIN_158 -to out_data[0]
+set_location_assignment PIN_144 -to out_data[1]
+set_location_assignment PIN_139 -to out_data[2]
+set_location_assignment PIN_141 -to out_data[3]
+set_location_assignment PIN_140 -to out_data[4]
+set_location_assignment PIN_156 -to out_data[5]
+set_location_assignment PIN_138 -to out_data[6]
+set_location_assignment PIN_143 -to out_data[7]
+set_location_assignment PIN_122 -to hr
+set_location_assignment PIN_123 -to min
+set_global_assignment -name MISC_FILE "Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/Digital_Clock_2/Digital_Clock_2.dpf"
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

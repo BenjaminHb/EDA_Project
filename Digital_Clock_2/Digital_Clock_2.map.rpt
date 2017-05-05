@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Digital_Clock_2
-Fri May 05 14:15:48 2017
+Sat May 06 01:17:09 2017
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -13,13 +13,11 @@ Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. User-Specified and Inferred Latches
-  9. Logic Cells Representing Combinational Loops
- 10. Registers Removed During Synthesis
- 11. General Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Analysis & Synthesis Messages
- 14. Analysis & Synthesis Suppressed Messages
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Analysis & Synthesis Messages
+ 12. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -45,12 +43,12 @@ applicable agreement for further details.
 +------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                           ;
 +-----------------------------+------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Fri May 05 14:15:48 2017    ;
+; Analysis & Synthesis Status ; Successful - Sat May 06 01:17:09 2017    ;
 ; Quartus II Version          ; 9.1 Build 222 10/21/2009 SJ Full Version ;
 ; Revision Name               ; Digital_Clock_2                          ;
 ; Top-level Entity Name       ; Digital_Clock_2                          ;
 ; Family                      ; Cyclone                                  ;
-; Total logic elements        ; 196                                      ;
+; Total logic elements        ; 204                                      ;
 ; Total pins                  ; 17                                       ;
 ; Total virtual pins          ; 0                                        ;
 ; Total memory bits           ; 0                                        ;
@@ -165,33 +163,33 @@ applicable agreement for further details.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Total logic elements                        ; 196   ;
-;     -- Combinational with no register       ; 96    ;
-;     -- Register only                        ; 0     ;
-;     -- Combinational with a register        ; 100   ;
+; Total logic elements                        ; 204   ;
+;     -- Combinational with no register       ; 72    ;
+;     -- Register only                        ; 22    ;
+;     -- Combinational with a register        ; 110   ;
 ;                                             ;       ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 48    ;
-;     -- 3 input functions                    ; 35    ;
-;     -- 2 input functions                    ; 104   ;
-;     -- 1 input functions                    ; 9     ;
+;     -- 4 input functions                    ; 33    ;
+;     -- 3 input functions                    ; 9     ;
+;     -- 2 input functions                    ; 127   ;
+;     -- 1 input functions                    ; 13    ;
 ;     -- 0 input functions                    ; 0     ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 93    ;
-;     -- arithmetic mode                      ; 103   ;
+;     -- normal mode                          ; 100   ;
+;     -- arithmetic mode                      ; 104   ;
 ;     -- qfbk mode                            ; 0     ;
 ;     -- register cascade mode                ; 0     ;
-;     -- synchronous clear/load mode          ; 77    ;
+;     -- synchronous clear/load mode          ; 82    ;
 ;     -- asynchronous clear/load mode         ; 0     ;
 ;                                             ;       ;
-; Total registers                             ; 100   ;
-; Total logic cells in carry chains           ; 112   ;
+; Total registers                             ; 132   ;
+; Total logic cells in carry chains           ; 113   ;
 ; I/O pins                                    ; 17    ;
 ; Maximum fan-out node                        ; clk   ;
-; Maximum fan-out                             ; 66    ;
-; Total fan-out                               ; 711   ;
-; Average fan-out                             ; 3.34  ;
+; Maximum fan-out                             ; 98    ;
+; Total fan-out                               ; 673   ;
+; Average fan-out                             ; 3.05  ;
 +---------------------------------------------+-------+
 
 
@@ -200,62 +198,9 @@ applicable agreement for further details.
 +----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
 ; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name ; Library Name ;
 +----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
-; |Digital_Clock_2           ; 196 (196)   ; 100          ; 0           ; 17   ; 0            ; 96 (96)      ; 0 (0)             ; 100 (100)        ; 112 (112)       ; 0 (0)      ; |Digital_Clock_2    ; work         ;
+; |Digital_Clock_2           ; 204 (204)   ; 132          ; 0           ; 17   ; 0            ; 72 (72)      ; 22 (22)           ; 110 (110)        ; 113 (113)       ; 0 (0)      ; |Digital_Clock_2    ; work         ;
 +----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+---------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                               ;
-+----------------------------------------------------+---------------------+------------------------+
-; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
-+----------------------------------------------------+---------------------+------------------------+
-; clk_freq_div                                       ; count[30]           ; yes                    ;
-; Number of user-specified and inferred latches = 1  ;                     ;                        ;
-+----------------------------------------------------+---------------------+------------------------+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
-
-
-+-------------------------------------------------------------+
-; Logic Cells Representing Combinational Loops                ;
-+--------------------------------------------------------+----+
-; Logic Cell Name                                        ;    ;
-+--------------------------------------------------------+----+
-; count[30]                                              ;    ;
-; Add3                                                   ;    ;
-; count[22]                                              ;    ;
-; count[19]                                              ;    ;
-; count[18]                                              ;    ;
-; count[14]                                              ;    ;
-; count[11]                                              ;    ;
-; count[9]                                               ;    ;
-; count[8]                                               ;    ;
-; count[6]                                               ;    ;
-; count[13]                                              ;    ;
-; count[26]                                              ;    ;
-; count[27]                                              ;    ;
-; count[28]                                              ;    ;
-; count[29]                                              ;    ;
-; count[1]                                               ;    ;
-; count[2]                                               ;    ;
-; count[3]                                               ;    ;
-; count[4]                                               ;    ;
-; count[5]                                               ;    ;
-; count[7]                                               ;    ;
-; count[10]                                              ;    ;
-; count[12]                                              ;    ;
-; count[0]                                               ;    ;
-; count[15]                                              ;    ;
-; count[16]                                              ;    ;
-; count[17]                                              ;    ;
-; count[20]                                              ;    ;
-; count[21]                                              ;    ;
-; count[23]                                              ;    ;
-; count[24]                                              ;    ;
-; count[25]                                              ;    ;
-; Number of logic cells representing combinational loops ; 32 ;
-+--------------------------------------------------------+----+
-Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +---------------------------------------------------------------------------------+
@@ -277,9 +222,9 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 100   ;
-; Number of registers using Synchronous Clear  ; 77    ;
-; Number of registers using Synchronous Load   ; 5     ;
+; Total registers                              ; 132   ;
+; Number of registers using Synchronous Clear  ; 82    ;
+; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 0     ;
@@ -293,11 +238,10 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output       ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
 ; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |Digital_Clock_2|LEDOut[0]       ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |Digital_Clock_2|hr_low_out[4]   ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |Digital_Clock_2|min_low_out[0]  ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |Digital_Clock_2|min_high_out[0] ;
 ; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |Digital_Clock_2|hr_high_out[4]  ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |Digital_Clock_2|min_high_out[4] ;
-; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |Digital_Clock_2|min_low_out[4]  ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |Digital_Clock_2|hr_low_out      ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |Digital_Clock_2|hr_low_out[0]   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
 
 
@@ -307,19 +251,18 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
-    Info: Processing started: Fri May 05 14:15:46 2017
+    Info: Processing started: Sat May 06 01:17:06 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Digital_Clock_2 -c Digital_Clock_2
 Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info: Found 1 design units, including 1 entities, in source file digital_clock_2.v
     Info: Found entity 1: Digital_Clock_2
 Info: Elaborating entity "Digital_Clock_2" for the top level hierarchy
-Warning (10235): Verilog HDL Always Construct warning at Digital_Clock_2.v(37): variable "count" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at Digital_Clock_2.v(38): variable "clk_freq_div" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at Digital_Clock_2.v(41): variable "count" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10240): Verilog HDL Always Construct warning at Digital_Clock_2.v(36): inferring latch(es) for variable "clk_freq_div", which holds its previous value in one or more paths through the always construct
-Info (10041): Inferred latch for "clk_freq_div" at Digital_Clock_2.v(41)
-Warning: Output pins are stuck at VCC or GND
-    Warning (13410): Pin "out_data[7]" is stuck at VCC
+Warning (10235): Verilog HDL Always Construct warning at Digital_Clock_2.v(65): variable "key_en" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Digital_Clock_2.v(101): variable "key_en" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at Digital_Clock_2.v(101): variable "min_high_carryout" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning: Clock multiplexers are found and protected
+    Warning: Found clock multiplexer min_low_carryin~synth
+    Warning: Found clock multiplexer hr_low_carryin~synth
 Info: 62 registers lost all their fanouts during netlist optimizations. The first 62 are displayed below.
     Info: Register "count1[20]" lost all its fanouts during netlist optimizations.
     Info: Register "count1[21]" lost all its fanouts during netlist optimizations.
@@ -384,14 +327,14 @@ Info: 62 registers lost all their fanouts during netlist optimizations. The firs
     Info: Register "key_low_hr[29]" lost all its fanouts during netlist optimizations.
     Info: Register "key_low_hr[30]" lost all its fanouts during netlist optimizations.
 Info: Generated suppressed messages file Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/Digital_Clock_2/Digital_Clock_2.map.smsg
-Info: Implemented 213 device resources after synthesis - the final resource count might be different
+Info: Implemented 221 device resources after synthesis - the final resource count might be different
     Info: Implemented 5 input pins
     Info: Implemented 12 output pins
-    Info: Implemented 196 logic cells
+    Info: Implemented 204 logic cells
 Info: Quartus II Analysis & Synthesis was successful. 0 errors, 6 warnings
     Info: Peak virtual memory: 235 megabytes
-    Info: Processing ended: Fri May 05 14:15:48 2017
-    Info: Elapsed time: 00:00:02
+    Info: Processing ended: Sat May 06 01:17:09 2017
+    Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 
 

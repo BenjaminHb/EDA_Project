@@ -31,7 +31,7 @@ ON
 # case_sensitive
 # source_file
 digital_clock_2.v
-908a19badff3dd644bbfad0e6875cd8
+53f89ac2cd6dc0bad09937265d89e881
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT

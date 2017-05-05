@@ -1,9 +1,14 @@
 module Digital_Clock_2(clk, rst, en, min, hr, out_data, out_select);
-	input			clk;
-	input			rst;
-	input			en;
-	input			min;
-	input			hr;
+//	EDA_Project/Digital_Clock_2
+//	Version 1.2.0.040517
+//	Created by Benjamin Zhang on 04/05/17
+//	Copyright © 2017 Benjamin Zhang
+//
+	input				clk;
+	input				rst;
+	input				en;
+	input				min;
+	input				hr;
 	output reg [7:0]	out_data;
 	output reg [3:0]	out_select;
 
@@ -33,7 +38,7 @@ module Digital_Clock_2(clk, rst, en, min, hr, out_data, out_select);
 	reg [30:0]	count;
 	reg			clk_freq_div;
 	
-	always @(clk) begin
+	always @(posedge clk) begin
 		if (count == 'd5000000) begin
 			clk_freq_div = ~clk_freq_div;
 			count <= 0;

@@ -1,6 +1,6 @@
 module Digital_Clock_2(clk, rst, en, min, hr, out_data, out_select);
 //	EDA_Project/Digital_Clock_2
-//	Version 1.2.0.040517
+//	Version 1.3.0.040517
 //	Created by Benjamin Zhang on 04/05/17
 //	Copyright © 2017 Benjamin Zhang
 //
@@ -38,7 +38,7 @@ module Digital_Clock_2(clk, rst, en, min, hr, out_data, out_select);
 	reg [30:0]	count;
 	reg			clk_freq_div;
 	
-	always @(clk) begin
+	always @(posedge clk) begin
 		if (count == 'd5000000) begin
 			clk_freq_div = ~clk_freq_div;
 			count <= 0;
@@ -47,102 +47,80 @@ module Digital_Clock_2(clk, rst, en, min, hr, out_data, out_select);
 	end
 
 //*********************       *********************//
+	reg			min_low_carryin;
 	reg [4:0]	min_low_out;
 	reg			min_low_carryout;
 
 	reg [4:0]	min_high_out;
 	reg			min_high_carryout;
 
+	reg			hr_low_carryin;
 	reg [4:0]	hr_low_out;
 	reg			hr_low_carryout;
 
 	reg [4:0]	hr_high_out;
 
 //********************* min_low *********************//
-	always @(posedge clk_freq_div) begin
+	always @(clk_freq_div or key_min) begin
+		min_low_carryin <= (~key_min && ~key_en) || (clk_freq_div && key_en);
+	end
+
+	always @(posedge min_low_carryin) begin
 		if (!rst) begin
 			min_low_out = 4'b0000;
 			min_low_carryout = 0;
 		end
-		else begin
-			if (!key_en) begin
-				if (min_low_out == 4'd9 && key_min == 1) begin
-					min_low_out = 4'b0000;
-					min_low_carryout = 1;
-				end // end else if if
-				else begin
-					min_low_out = min_low_out + key_min;
-					min_low_carryout = 0;
-				end // end else if else
-			end // end else if
-			else begin
-				min_low_out = min_low_out + 1'b1;
-				min_low_carryout = 0;
-				if (min_low_out == 4'd10) begin
-					min_low_out = 4'b0000;
-					min_low_carryout = 1;
-				end // end else else if
-			end // end else else
-		end // end else
-	end // end always
-
-//********************* min_high *********************//
-	always @(posedge clk_freq_div) begin
-		if (!rst) begin
-			min_high_out = 4'b0000;
-			min_high_carryout= 0;
+		else if (min_low_out == 4'd9) begin
+			min_low_out = 4'b0000;
+			min_low_carryout = 1;
 		end
 		else begin
-			if (min_high_out == 4'd5 && min_low_carryout == 1) begin
-				min_high_out = 4'b0000;
-				min_high_carryout = 1;
-			end // end else if
-			else begin
-				min_high_out = min_high_out + min_low_carryout;
-				min_high_carryout = 0;
-				if (min_high_out == 4'd6) begin
-					min_high_out = 4'b0000;
-					min_high_carryout = 1;
-				end // end else else if
-			end //end else else
-		end // end else
-	end // end always
+			min_low_out = min_low_out + 1'b1;
+			min_low_carryout = 0;
+		end
+	end
+
+//********************* min_high *********************//
+	always @(posedge min_low_carryout) begin
+		if (!rst) begin
+			min_high_out = 4'b0000;
+			min_high_carryout = 0;
+		end
+		else if (min_high_out == 4'd5) begin
+			min_high_out = 4'b0000;
+			min_high_carryout = 1;
+		end
+		else begin
+			min_high_out = min_high_out + 1'b1;
+			min_high_carryout = 0;
+		end
+	end
 
 //********************* hr_low *********************//
-	always @(posedge clk_freq_div) begin
+	always @(clk_freq_div or key_hr) begin
+		hr_low_carryin <= (~key_hr && ~key_en) || (min_high_carryout && key_en);
+	end
+
+	always @(posedge hr_low_carryin) begin
 		if (!rst) begin
 			hr_low_out = 4'b0000;
 			hr_low_carryout = 0;
 		end
+		else if (hr_low_out == 4'd9 && hr_high_out < 4'd2 || hr_low_out == 4'd3 && hr_high_out == 4'd2) begin
+			hr_low_out = 4'b0000;
+			hr_low_carryout = 1;
+		end
 		else begin
-			if (!key_en) begin
-				if ((hr_low_out == 4'd9 || hr_high_out == 4'd2 && hr_low_out == 4'd3) && key_hr == 1) begin
-					hr_low_out = 4'b0000;
-					hr_low_carryout = 1;
-				end // end else if if
-				else begin
-					hr_low_out = hr_low_out + key_hr;
-					hr_low_carryout = 0;
-				end // end else if else
-			end // end else if
-			if ((hr_low_out == 4'd9 || hr_high_out == 4'd2 && hr_low_out == 4'd3) && min_high_carryout == 1) begin
-				hr_low_out = 4'b0000;
-				hr_low_carryout = 1;
-			end // end else if
-			else begin
-				hr_low_out = hr_low_out + min_high_carryout;
-				hr_low_carryout = 0;
-			end // end else else
-		end // end else
-	end // end always
+			hr_low_out = hr_low_out + 1'b1;
+			hr_low_carryout = 0;
+		end
+	end
 
 //********************* hr_high *********************//
-	always @(posedge clk_freq_div) begin
+	always @(posedge hr_low_carryout) begin
 		if (!rst)	hr_high_out = 4'b0000;
-		else begin
-			if (hr_high_out == 4'd2 && hr_low_carryout == 1)	hr_high_out = 4'b0000;
-			else	hr_high_out = hr_high_out + hr_low_carryout;
-		end
+		else if (hr_high_out == 4'd2)	hr_high_out = 4'b0000;
+		else	hr_high_out = hr_high_out + 1'b1;
 	end
 
 //********************* LED_Processing_Unit *********************//
@@ -201,7 +179,20 @@ module Digital_Clock_2(clk, rst, en, min, hr, out_data, out_select);
 		  4'd7:	out_data = 8'b11111000;
 		  4'd8:	out_data = 8'b10000000;
 		  4'd9: out_data = 8'b10010000;
-		  default:	out_data = 8'b10000110;
+		  default:	out_data = 8'b01111111;
+/*
+		  4'd0:	out_data = 8'b00111111;
+		  4'd1:	out_data = 8'b00000110;
+		  4'd2:	out_data = 8'b01011011;
+		  4'd3:	out_data = 8'b01001111;
+		  4'd4:	out_data = 8'b01100110;
+		  4'd5:	out_data = 8'b01101101;
+		  4'd6:	out_data = 8'b01111101;
+		  4'd7:	out_data = 8'b00000111;
+		  4'd8:	out_data = 8'b01111111;
+		  4'd9: out_data = 8'b01101111;
+		  default:	out_data = 8'b10000000;
+*/
 		endcase
 	end
 

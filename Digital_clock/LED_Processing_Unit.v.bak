@@ -1,6 +1,6 @@
 module LED_Processing_Unit(clk, LED1In, LED2In, LED3In, LED4In, LEDOut, LEDSelect);
 //clk	50MHz
-//clk2	50Hz
+//clk2	
 	input				clk;
 	input [7:0]			LED1In;
 	input [7:0]			LED2In;
@@ -35,7 +35,7 @@ module LED_Processing_Unit(clk, LED1In, LED2In, LED3In, LED4In, LEDOut, LEDSelec
 						select_count = select_count + 1'b1;
 					end
 			2'b10:	begin
-						LEDOut = {1, LED3In[6:0]};
+						LEDOut = {1'b1, LED3In[6:0]};
 						LEDSelect = 4'b0100;
 						select_count = select_count + 1'b1;
 					end

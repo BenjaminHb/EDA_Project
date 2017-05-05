@@ -1,6 +1,6 @@
 module LED_Processing_Unit(clk, LED1In, LED2In, LED3In, LED4In, LEDOut, LEDSelect);
 //clk	50MHz
-//clk2	50Hz
+//clk2	
 	input				clk;
 	input [7:0]			LED1In;
 	input [7:0]			LED2In;
@@ -15,7 +15,7 @@ module LED_Processing_Unit(clk, LED1In, LED2In, LED3In, LED4In, LEDOut, LEDSelec
 
 
 	always @(posedge clk) begin 
-		if (count == 'd1000000) begin
+		if (count == 'd10000000) begin
             clk2 = ~clk2;
             count <= 0;
 		end

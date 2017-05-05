@@ -95,7 +95,7 @@ GND*                         : 23        :        :                   :         
 DATA0                        : 25        : input  :                   :         : 1         :                
 nCONFIG                      : 26        :        :                   :         : 1         :                
 VCCA_PLL1                    : 27        : power  :                   : 1.5V    :           :                
-clock                        : 28        : input  : 3.3-V LVTTL       :         : 1         : Y              
+clk                          : 28        : input  : 3.3-V LVTTL       :         : 1         : Y              
 GND+                         : 29        :        :                   :         : 1         :                
 GNDA_PLL1                    : 30        : gnd    :                   :         :           :                
 GNDG_PLL1                    : 31        : gnd    :                   :         :           :                

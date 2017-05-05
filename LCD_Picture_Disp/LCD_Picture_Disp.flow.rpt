@@ -1,5 +1,5 @@
 Flow report for LCD_Picture_Disp
-Thu May 04 22:14:19 2017
+Fri May 05 15:19:45 2017
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------+
 ; Flow Summary                                                       ;
 +-------------------------+------------------------------------------+
-; Flow Status             ; Successful - Thu May 04 22:14:19 2017    ;
+; Flow Status             ; Successful - Fri May 05 15:19:45 2017    ;
 ; Quartus II Version      ; 9.1 Build 222 10/21/2009 SJ Full Version ;
 ; Revision Name           ; LCD_Picture_Disp                         ;
 ; Top-level Entity Name   ; LCD_Picture_Disp                         ;
@@ -59,28 +59,29 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/04/2017 22:14:10 ;
+; Start date & time ; 05/05/2017 15:19:33 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; LCD_Picture_Disp    ;
 +-------------------+---------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                ;
-+------------------------------------+-----------------------------+---------------+-------------+----------------+
-; Assignment Name                    ; Value                       ; Default Value ; Entity Name ; Section Id     ;
-+------------------------------------+-----------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID              ; 52234966679.149390724906424 ; --            ; --          ; --             ;
-; IP_TOOL_NAME                       ; LPM_ROM                     ; --            ; --          ; --             ;
-; IP_TOOL_VERSION                    ; 9.1                         ; --            ; --          ; --             ;
-; MAX_CORE_JUNCTION_TEMP             ; 85                          ; --            ; --          ; --             ;
-; MIN_CORE_JUNCTION_TEMP             ; 0                           ; --            ; --          ; --             ;
-; MISC_FILE                          ; lpm_rom0.bsf                ; --            ; --          ; --             ;
-; MISC_FILE                          ; lpm_rom0_bb.v               ; --            ; --          ; --             ;
-; PARTITION_COLOR                    ; 16764057                    ; --            ; --          ; Top            ;
-; PARTITION_NETLIST_TYPE             ; SOURCE                      ; --            ; --          ; Top            ;
-; USE_GENERATED_PHYSICAL_CONSTRAINTS ; Off                         ; --            ; --          ; eda_blast_fpga ;
-+------------------------------------+-----------------------------+---------------+-------------+----------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                                                                                ;
++------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+---------------+-------------+----------------+
+; Assignment Name                    ; Value                                                                                                                       ; Default Value ; Entity Name ; Section Id     ;
++------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+---------------+-------------+----------------+
+; COMPILER_SIGNATURE_ID              ; 52234966679.149396877305428                                                                                                 ; --            ; --          ; --             ;
+; IP_TOOL_NAME                       ; LPM_ROM                                                                                                                     ; --            ; --          ; --             ;
+; IP_TOOL_VERSION                    ; 9.1                                                                                                                         ; --            ; --          ; --             ;
+; MAX_CORE_JUNCTION_TEMP             ; 85                                                                                                                          ; --            ; --          ; --             ;
+; MIN_CORE_JUNCTION_TEMP             ; 0                                                                                                                           ; --            ; --          ; --             ;
+; MISC_FILE                          ; lpm_rom0.bsf                                                                                                                ; --            ; --          ; --             ;
+; MISC_FILE                          ; lpm_rom0_bb.v                                                                                                               ; --            ; --          ; --             ;
+; MISC_FILE                          ; Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/LCD_Picture_Disp/LCD_Picture_Disp.dpf ; --            ; --          ; --             ;
+; PARTITION_COLOR                    ; 16764057                                                                                                                    ; --            ; --          ; Top            ;
+; PARTITION_NETLIST_TYPE             ; SOURCE                                                                                                                      ; --            ; --          ; Top            ;
+; USE_GENERATED_PHYSICAL_CONSTRAINTS ; Off                                                                                                                         ; --            ; --          ; eda_blast_fpga ;
++------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+---------------+-------------+----------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------+
@@ -89,7 +90,7 @@ applicable agreement for further details.
 ; Module Name             ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Analysis & Synthesis    ; 00:00:03     ; 1.0                     ; 242 MB              ; 00:00:03                           ;
-; Fitter                  ; 00:00:02     ; 2.0                     ; 266 MB              ; 00:00:02                           ;
+; Fitter                  ; 00:00:02     ; 1.0                     ; 266 MB              ; 00:00:02                           ;
 ; Assembler               ; 00:00:01     ; 1.0                     ; 221 MB              ; 00:00:01                           ;
 ; Classic Timing Analyzer ; 00:00:01     ; 1.0                     ; 180 MB              ; 00:00:02                           ;
 ; Total                   ; 00:00:07     ; --                      ; --                  ; 00:00:08                           ;

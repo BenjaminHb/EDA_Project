@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Digital_clock
-Thu May 04 16:30:11 2017
+Fri May 05 11:46:25 2017
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -44,12 +44,12 @@ applicable agreement for further details.
 +------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                           ;
 +-----------------------------+------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Thu May 04 16:30:11 2017    ;
+; Analysis & Synthesis Status ; Successful - Fri May 05 11:46:25 2017    ;
 ; Quartus II Version          ; 9.1 Build 222 10/21/2009 SJ Full Version ;
 ; Revision Name               ; Digital_clock                            ;
 ; Top-level Entity Name       ; Digital_clock                            ;
 ; Family                      ; Cyclone                                  ;
-; Total logic elements        ; 642                                      ;
+; Total logic elements        ; 263                                      ;
 ; Total pins                  ; 17                                       ;
 ; Total virtual pins          ; 0                                        ;
 ; Total memory bits           ; 0                                        ;
@@ -156,14 +156,13 @@ applicable agreement for further details.
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                                              ;
 +----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------------------------------------------------+
 ; freq_divider.v                   ; yes             ; User Verilog HDL File              ; Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/Digital_clock/freq_divider.v        ;
+; BinToLED.v                       ; yes             ; User Verilog HDL File              ; Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/Digital_clock/BinToLED.v            ;
 ; CNT2.v                           ; yes             ; User Verilog HDL File              ; Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/Digital_clock/CNT2.v                ;
 ; CNT4.v                           ; yes             ; User Verilog HDL File              ; Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/Digital_clock/CNT4.v                ;
 ; Digital_clock.bdf                ; yes             ; User Block Diagram/Schematic File  ; Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/Digital_clock/Digital_clock.bdf     ;
 ; CNT10.v                          ; yes             ; User Verilog HDL File              ; Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/Digital_clock/CNT10.v               ;
-; anti_shaking.v                   ; yes             ; User Verilog HDL File              ; Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/Digital_clock/anti_shaking.v        ;
 ; CNT6.v                           ; yes             ; User Verilog HDL File              ; Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/Digital_clock/CNT6.v                ;
 ; LED_Processing_Unit.v            ; yes             ; User Verilog HDL File              ; Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/Digital_clock/LED_Processing_Unit.v ;
-; BinToLED.v                       ; yes             ; User Verilog HDL File              ; Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/Digital_clock/BinToLED.v            ;
 +----------------------------------+-----------------+------------------------------------+---------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -172,33 +171,33 @@ applicable agreement for further details.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Total logic elements                        ; 642   ;
-;     -- Combinational with no register       ; 309   ;
-;     -- Register only                        ; 41    ;
-;     -- Combinational with a register        ; 292   ;
+; Total logic elements                        ; 263   ;
+;     -- Combinational with no register       ; 182   ;
+;     -- Register only                        ; 38    ;
+;     -- Combinational with a register        ; 43    ;
 ;                                             ;       ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 184   ;
-;     -- 3 input functions                    ; 95    ;
-;     -- 2 input functions                    ; 312   ;
-;     -- 1 input functions                    ; 10    ;
+;     -- 4 input functions                    ; 63    ;
+;     -- 3 input functions                    ; 80    ;
+;     -- 2 input functions                    ; 80    ;
+;     -- 1 input functions                    ; 2     ;
 ;     -- 0 input functions                    ; 0     ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 301   ;
-;     -- arithmetic mode                      ; 341   ;
+;     -- normal mode                          ; 162   ;
+;     -- arithmetic mode                      ; 101   ;
 ;     -- qfbk mode                            ; 0     ;
 ;     -- register cascade mode                ; 0     ;
-;     -- synchronous clear/load mode          ; 256   ;
+;     -- synchronous clear/load mode          ; 8     ;
 ;     -- asynchronous clear/load mode         ; 0     ;
 ;                                             ;       ;
-; Total registers                             ; 333   ;
-; Total logic cells in carry chains           ; 357   ;
+; Total registers                             ; 81    ;
+; Total logic cells in carry chains           ; 109   ;
 ; I/O pins                                    ; 17    ;
-; Maximum fan-out node                        ; clk   ;
-; Maximum fan-out                             ; 284   ;
-; Total fan-out                               ; 2313  ;
-; Average fan-out                             ; 3.51  ;
+; Maximum fan-out node                        ; RST   ;
+; Maximum fan-out                             ; 45    ;
+; Total fan-out                               ; 808   ;
+; Average fan-out                             ; 2.89  ;
 +---------------------------------------------+-------+
 
 
@@ -207,21 +206,14 @@ applicable agreement for further details.
 +--------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+------------------------------------------+--------------+
 ; Compilation Hierarchy Node     ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                      ; Library Name ;
 +--------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+------------------------------------------+--------------+
-; |Digital_clock                 ; 642 (0)     ; 333          ; 0           ; 17   ; 0            ; 309 (0)      ; 41 (0)            ; 292 (0)          ; 357 (0)         ; 0 (0)      ; |Digital_clock                           ; work         ;
-;    |BinToLED:inst11|           ; 8 (8)       ; 0            ; 0           ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Digital_clock|BinToLED:inst11           ; work         ;
-;    |BinToLED:inst13|           ; 8 (8)       ; 0            ; 0           ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Digital_clock|BinToLED:inst13           ; work         ;
-;    |BinToLED:inst14|           ; 8 (8)       ; 0            ; 0           ; 0    ; 0            ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Digital_clock|BinToLED:inst14           ; work         ;
-;    |BinToLED:inst15|           ; 7 (7)       ; 0            ; 0           ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Digital_clock|BinToLED:inst15           ; work         ;
-;    |CNT10:inst|                ; 23 (23)     ; 9            ; 0           ; 0    ; 0            ; 14 (14)      ; 1 (1)             ; 8 (8)            ; 16 (16)         ; 0 (0)      ; |Digital_clock|CNT10:inst                ; work         ;
-;    |CNT2:inst9|                ; 18 (18)     ; 8            ; 0           ; 0    ; 0            ; 10 (10)      ; 6 (6)             ; 2 (2)            ; 8 (8)           ; 0 (0)      ; |Digital_clock|CNT2:inst9                ; work         ;
-;    |CNT4:inst3|                ; 44 (44)     ; 9            ; 0           ; 0    ; 0            ; 35 (35)      ; 2 (2)             ; 7 (7)            ; 16 (16)         ; 0 (0)      ; |Digital_clock|CNT4:inst3                ; work         ;
-;    |CNT6:inst2|                ; 20 (20)     ; 9            ; 0           ; 0    ; 0            ; 11 (11)      ; 7 (7)             ; 2 (2)            ; 8 (8)           ; 0 (0)      ; |Digital_clock|CNT6:inst2                ; work         ;
-;    |LED_Processing_Unit:inst1| ; 105 (105)   ; 46           ; 0           ; 0    ; 0            ; 59 (59)      ; 25 (25)           ; 21 (21)          ; 31 (31)         ; 0 (0)      ; |Digital_clock|LED_Processing_Unit:inst1 ;              ;
-;    |anti_shaking:inst4|        ; 89 (89)     ; 63           ; 0           ; 0    ; 0            ; 26 (26)      ; 0 (0)             ; 63 (63)          ; 62 (62)         ; 0 (0)      ; |Digital_clock|anti_shaking:inst4        ; work         ;
-;    |anti_shaking:inst5|        ; 89 (89)     ; 63           ; 0           ; 0    ; 0            ; 26 (26)      ; 0 (0)             ; 63 (63)          ; 62 (62)         ; 0 (0)      ; |Digital_clock|anti_shaking:inst5        ; work         ;
-;    |anti_shaking:inst6|        ; 89 (89)     ; 63           ; 0           ; 0    ; 0            ; 26 (26)      ; 0 (0)             ; 63 (63)          ; 62 (62)         ; 0 (0)      ; |Digital_clock|anti_shaking:inst6        ; work         ;
-;    |anti_shaking:inst7|        ; 89 (89)     ; 63           ; 0           ; 0    ; 0            ; 26 (26)      ; 0 (0)             ; 63 (63)          ; 62 (62)         ; 0 (0)      ; |Digital_clock|anti_shaking:inst7        ; work         ;
-;    |freq_divider:inst12|       ; 45 (45)     ; 0            ; 0           ; 0    ; 0            ; 45 (45)      ; 0 (0)             ; 0 (0)            ; 30 (30)         ; 0 (0)      ; |Digital_clock|freq_divider:inst12       ; work         ;
+; |Digital_clock                 ; 263 (0)     ; 81           ; 0           ; 17   ; 0            ; 182 (0)      ; 38 (0)            ; 43 (0)           ; 109 (0)         ; 0 (0)      ; |Digital_clock                           ; work         ;
+;    |BinToLED:inst13|           ; 15 (15)     ; 0            ; 0           ; 0    ; 0            ; 15 (15)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Digital_clock|BinToLED:inst13           ;              ;
+;    |CNT10:inst|                ; 24 (24)     ; 9            ; 0           ; 0    ; 0            ; 15 (15)      ; 1 (1)             ; 8 (8)            ; 16 (16)         ; 0 (0)      ; |Digital_clock|CNT10:inst                ;              ;
+;    |CNT2:inst9|                ; 18 (18)     ; 8            ; 0           ; 0    ; 0            ; 10 (10)      ; 6 (6)             ; 2 (2)            ; 8 (8)           ; 0 (0)      ; |Digital_clock|CNT2:inst9                ;              ;
+;    |CNT4:inst10|               ; 45 (45)     ; 9            ; 0           ; 0    ; 0            ; 36 (36)      ; 2 (2)             ; 7 (7)            ; 16 (16)         ; 0 (0)      ; |Digital_clock|CNT4:inst10               ;              ;
+;    |CNT6:inst11|               ; 21 (21)     ; 9            ; 0           ; 0    ; 0            ; 12 (12)      ; 7 (7)             ; 2 (2)            ; 8 (8)           ; 0 (0)      ; |Digital_clock|CNT6:inst11               ;              ;
+;    |LED_Processing_Unit:inst1| ; 95 (95)     ; 46           ; 0           ; 0    ; 0            ; 49 (49)      ; 22 (22)           ; 24 (24)          ; 31 (31)         ; 0 (0)      ; |Digital_clock|LED_Processing_Unit:inst1 ;              ;
+;    |freq_divider:inst12|       ; 45 (45)     ; 0            ; 0           ; 0    ; 0            ; 45 (45)      ; 0 (0)             ; 0 (0)            ; 30 (30)         ; 0 (0)      ; |Digital_clock|freq_divider:inst12       ;              ;
 +--------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -244,36 +236,36 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------------------------------------------+----+
 ; freq_divider:inst12|count[30]                          ;    ;
 ; freq_divider:inst12|Add0                               ;    ;
-; freq_divider:inst12|count[23]                          ;    ;
-; freq_divider:inst12|count[22]                          ;    ;
-; freq_divider:inst12|count[21]                          ;    ;
-; freq_divider:inst12|count[20]                          ;    ;
 ; freq_divider:inst12|count[19]                          ;    ;
-; freq_divider:inst12|count[17]                          ;    ;
-; freq_divider:inst12|count[15]                          ;    ;
-; freq_divider:inst12|count[14]                          ;    ;
-; freq_divider:inst12|count[13]                          ;    ;
-; freq_divider:inst12|count[12]                          ;    ;
-; freq_divider:inst12|count[7]                           ;    ;
-; freq_divider:inst12|count[24]                          ;    ;
 ; freq_divider:inst12|count[18]                          ;    ;
-; freq_divider:inst12|count[16]                          ;    ;
-; freq_divider:inst12|count[4]                           ;    ;
-; freq_divider:inst12|count[27]                          ;    ;
+; freq_divider:inst12|count[14]                          ;    ;
 ; freq_divider:inst12|count[11]                          ;    ;
-; freq_divider:inst12|count[10]                          ;    ;
 ; freq_divider:inst12|count[9]                           ;    ;
 ; freq_divider:inst12|count[8]                           ;    ;
 ; freq_divider:inst12|count[6]                           ;    ;
+; freq_divider:inst12|count[28]                          ;    ;
+; freq_divider:inst12|count[27]                          ;    ;
+; freq_divider:inst12|count[26]                          ;    ;
+; freq_divider:inst12|count[25]                          ;    ;
+; freq_divider:inst12|count[24]                          ;    ;
+; freq_divider:inst12|count[21]                          ;    ;
+; freq_divider:inst12|count[20]                          ;    ;
+; freq_divider:inst12|count[17]                          ;    ;
+; freq_divider:inst12|count[16]                          ;    ;
+; freq_divider:inst12|count[15]                          ;    ;
+; freq_divider:inst12|count[13]                          ;    ;
+; freq_divider:inst12|count[12]                          ;    ;
+; freq_divider:inst12|count[10]                          ;    ;
+; freq_divider:inst12|count[23]                          ;    ;
+; freq_divider:inst12|count[7]                           ;    ;
 ; freq_divider:inst12|count[5]                           ;    ;
+; freq_divider:inst12|count[4]                           ;    ;
 ; freq_divider:inst12|count[3]                           ;    ;
 ; freq_divider:inst12|count[2]                           ;    ;
 ; freq_divider:inst12|count[1]                           ;    ;
 ; freq_divider:inst12|count[0]                           ;    ;
 ; freq_divider:inst12|count[30]                          ;    ;
 ; freq_divider:inst12|count[29]                          ;    ;
-; freq_divider:inst12|count[28]                          ;    ;
-; freq_divider:inst12|count[26]                          ;    ;
 ; Number of logic cells representing combinational loops ; 32 ;
 +--------------------------------------------------------+----+
 Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
@@ -284,8 +276,8 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 333   ;
-; Number of registers using Synchronous Clear  ; 256   ;
+; Total registers                              ; 81    ;
+; Number of registers using Synchronous Clear  ; 8     ;
 ; Number of registers using Synchronous Load   ; 8     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
@@ -299,9 +291,9 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |Digital_clock|LED_Processing_Unit:inst1|LEDOut[3] ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |Digital_clock|CNT10:inst|out[1]                   ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |Digital_clock|CNT4:inst3|out                      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |Digital_clock|LED_Processing_Unit:inst1|LEDOut[6] ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |Digital_clock|CNT10:inst|out[0]                   ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |Digital_clock|CNT4:inst10|out                     ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
 
 
@@ -311,11 +303,13 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
-    Info: Processing started: Thu May 04 16:30:06 2017
+    Info: Processing started: Fri May 05 11:46:22 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Digital_clock -c Digital_clock
 Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info: Found 1 design units, including 1 entities, in source file freq_divider.v
     Info: Found entity 1: freq_divider
+Info: Found 1 design units, including 1 entities, in source file bintoled.v
+    Info: Found entity 1: BinToLED
 Info: Found 1 design units, including 1 entities, in source file cnt2.v
     Info: Found entity 1: CNT2
 Info: Found 1 design units, including 1 entities, in source file cnt4.v
@@ -330,11 +324,9 @@ Info: Found 1 design units, including 1 entities, in source file cnt6.v
     Info: Found entity 1: CNT6
 Info: Found 1 design units, including 1 entities, in source file led_processing_unit.v
     Info: Found entity 1: LED_Processing_Unit
-Info: Found 1 design units, including 1 entities, in source file bintoled.v
-    Info: Found entity 1: BinToLED
 Info: Elaborating entity "Digital_clock" for the top level hierarchy
+Info: Elaborating entity "BinToLED" for hierarchy "BinToLED:inst13"
 Info: Elaborating entity "LED_Processing_Unit" for hierarchy "LED_Processing_Unit:inst1"
-Info: Elaborating entity "BinToLED" for hierarchy "BinToLED:inst11"
 Info: Elaborating entity "CNT10" for hierarchy "CNT10:inst"
 Info: Elaborating entity "freq_divider" for hierarchy "freq_divider:inst12"
 Warning (10235): Verilog HDL Always Construct warning at freq_divider.v(11): variable "count" is read inside the Always Construct but isn't in the Always Construct's Event Control
@@ -342,20 +334,21 @@ Warning (10235): Verilog HDL Always Construct warning at freq_divider.v(12): var
 Warning (10235): Verilog HDL Always Construct warning at freq_divider.v(15): variable "count" is read inside the Always Construct but isn't in the Always Construct's Event Control
 Warning (10240): Verilog HDL Always Construct warning at freq_divider.v(10): inferring latch(es) for variable "clk_freq_div", which holds its previous value in one or more paths through the always construct
 Info (10041): Inferred latch for "clk_freq_div" at freq_divider.v(15)
-Info: Elaborating entity "anti_shaking" for hierarchy "anti_shaking:inst4"
-Info: Elaborating entity "CNT6" for hierarchy "CNT6:inst2"
-Info: Elaborating entity "CNT4" for hierarchy "CNT4:inst3"
+Info: Elaborating entity "CNT6" for hierarchy "CNT6:inst11"
+Info: Elaborating entity "CNT4" for hierarchy "CNT4:inst10"
 Info: Elaborating entity "CNT2" for hierarchy "CNT2:inst9"
+Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LED_OUT[7]" is stuck at VCC
 Info: Generated suppressed messages file Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/Digital_clock/Digital_clock.map.smsg
-Info: Implemented 659 device resources after synthesis - the final resource count might be different
+Info: Implemented 280 device resources after synthesis - the final resource count might be different
     Info: Implemented 5 input pins
     Info: Implemented 12 output pins
-    Info: Implemented 642 logic cells
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 237 megabytes
-    Info: Processing ended: Thu May 04 16:30:11 2017
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:06
+    Info: Implemented 263 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 235 megabytes
+    Info: Processing ended: Fri May 05 11:46:25 2017
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:04
 
 
 +------------------------------------------+

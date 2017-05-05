@@ -6,7 +6,7 @@ module CNT6(clk, rst, carryin, out, carryout);
 	output reg			carryout;
 
 	always @(posedge clk) begin
-		if (rst) begin
+		if (!rst) begin
 			out = 8'b00000000;
 			carryout = 0;
 		end // end if

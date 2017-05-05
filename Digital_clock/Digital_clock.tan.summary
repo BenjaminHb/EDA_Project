@@ -2,42 +2,22 @@
 Timing Analyzer Summary
 --------------------------------------------------------------------------------------
 
-Type           : Worst-case tsu
-Slack          : N/A
-Required Time  : None
-Actual Time    : 7.733 ns
-From           : MINS
-To             : anti_shaking:inst6|KeyLow[3]
-From Clock     : --
-To Clock       : clk
-Failed Paths   : 0
-
 Type           : Worst-case tco
 Slack          : N/A
 Required Time  : None
-Actual Time    : 13.907 ns
-From           : LED_Processing_Unit:inst1|LEDOut[7]
-To             : LED_OUT[7]
+Actual Time    : 15.713 ns
+From           : LED_Processing_Unit:inst1|LEDOut[4]
+To             : LED_OUT[2]
 From Clock     : clk
 To Clock       : --
-Failed Paths   : 0
-
-Type           : Worst-case th
-Slack          : N/A
-Required Time  : None
-Actual Time    : -4.719 ns
-From           : HRS
-To             : anti_shaking:inst7|KeyLow[13]
-From Clock     : --
-To Clock       : clk
 Failed Paths   : 0
 
 Type           : Clock Setup: 'clk'
 Slack          : N/A
 Required Time  : None
-Actual Time    : 170.91 MHz ( period = 5.851 ns )
-From           : LED_Processing_Unit:inst1|count[2]
-To             : LED_Processing_Unit:inst1|count[17]
+Actual Time    : 174.00 MHz ( period = 5.747 ns )
+From           : LED_Processing_Unit:inst1|count[6]
+To             : LED_Processing_Unit:inst1|clk2
 From Clock     : clk
 To Clock       : clk
 Failed Paths   : 0

@@ -51,7 +51,6 @@ set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
 set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
 set_global_assignment -name QIP_FILE lpm_rom0.qip
 set_global_assignment -name VERILOG_FILE LCD_Picture_Disp.v
-set_location_assignment PIN_28 -to clock
 set_location_assignment PIN_174 -to data[0]
 set_location_assignment PIN_173 -to data[1]
 set_location_assignment PIN_170 -to data[2]
@@ -64,4 +63,6 @@ set_location_assignment PIN_175 -to en
 set_location_assignment PIN_177 -to rs
 set_location_assignment PIN_61 -to rst_n
 set_location_assignment PIN_176 -to rw
+set_global_assignment -name MISC_FILE "Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/LCD_Picture_Disp/LCD_Picture_Disp.dpf"
+set_location_assignment PIN_28 -to clk
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

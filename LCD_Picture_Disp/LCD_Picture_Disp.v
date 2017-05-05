@@ -1,32 +1,31 @@
-module LCD_Picture_Disp(clock, rst_n, rs, rw, en, data);
-	input			clock;	//system clock 50MHz
+module LCD_Picture_Disp(clk, rst_n, rs, rw, en, data);
+	input			clk;	//50MHz
 	input			rst_n;	//global reset, low level effective
 	output			rs;		//LCD Command or Data Select / 0 or 1
 	output			rw;		//LCD Read or Write / 1 or 0
 	output			en;		//LCD Enable, fall edge effective
 	output [7:0]	data;	//LCD Data
 
-	assign	light = 1'b1;
 	assign	rw = 1'b0;
 
-//Produce 0.5KHz(2ms) clock
-	reg			lcd_clock;	//20KHz clock
-	reg [11:0]	lcd_cnt;	//count
+//Produce 0.5KHz(2ms) clk
+	reg			LCD_clk;	//20KHz clk
+	reg [11:0]	LCD_cnt;	//count
 
-	always @(posedge clock or negedge rst_n) begin
+	always @(posedge clk or negedge rst_n) begin
 		if (!rst_n) begin
-			lcd_cnt <= 12'd0;
-			lcd_clock <= 1'b0;
+			LCD_cnt <= 12'd0;
+			LCD_clk <= 1'b0;
 		end
-		else if (lcd_cnt == 12'd2499) begin	//50us
-			lcd_cnt <= 12'd0;
-			lcd_clock <= ~lcd_clock;	//50us turn, 20KHz
+		else if (LCD_cnt == 12'd2499) begin	//50us
+			LCD_cnt <= 12'd0;
+			LCD_clk <= ~LCD_clk;	//50us turn, 20KHz
 		end
-		else	lcd_cnt <= lcd_cnt + 1'b1;
+		else	LCD_cnt <= LCD_cnt + 1'b1;
 	end
 
-//Parameter set
-	parameter IDLE = 4'd0;	//initial
+//Parameter
+	parameter IDLE = 4'd0;	//initialization
 	parameter SETMODE = 4'd1;	//entry mode set
 	parameter SWITCHMODE = 4'd2;	//display status
 	parameter SETFUNCTION0 = 4'd3;	//funtion set
@@ -41,7 +40,7 @@ module LCD_Picture_Disp(clock, rst_n, rs, rw, en, data);
 	reg			rs;	//LCD Command or Data Select / 0 or 1
 
 	//only wrte data rs will be high level
-	always @(posedge lcd_clock or negedge rst_n) begin
+	always @(posedge LCD_clk or negedge rst_n) begin
 		if (!rst_n)	rs = 1'b0;	//reset, command mode
 		else if (state == WRITERAM)	rs <= 1'b1;	//state write, data mode
 		else	rs <= 1'b0;	//finish write, command mode
@@ -49,14 +48,17 @@ module LCD_Picture_Disp(clock, rst_n, rs, rw, en, data);
 
 	reg	flag;	//LCD operate finish with low level
 	
-	assign en = (flag == 1)? lcd_clock:1'b0;
+	assign en = (flag == 1)? LCD_clk:1'b0;
 
 //State machine
 	reg [9:0]	cnt;	//coord count
 	reg [7:0]	data;	//LCD data
 	wire [7:0]	data_disp;	//display data
+	
+	assign	line_done = (cnt[3:0] == 4'hf);
+	assign	frame_done = (cnt[9:4] == 7'h3f);
 
-	always @(posedge lcd_clock or negedge rst_n) begin
+	always @(posedge LCD_clk or negedge rst_n) begin
 		if (!rst_n) begin
 			state <= IDLE;
 			data <= 8'bzzzzzzzz;
@@ -140,10 +142,7 @@ module LCD_Picture_Disp(clock, rst_n, rs, rw, en, data);
 		end
 	end
 
-	assign	line_done = (cnt[3:0] == 4'hf);
-	assign	frame_done = (cnt[9:4] == 7'h3f);
-
 //rom
-	lpm_rom0 rom(.address(cnt), .clock(clock), .q(data_disp));
+	lpm_rom0 rom(.address(cnt), .clock(clk), .q(data_disp));
 
 endmodule

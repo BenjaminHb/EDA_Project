@@ -4,14 +4,14 @@ module CNT10(clk, en, rst, carryin, out, carryout);
 	input				rst;
 	input				carryin;
 	output reg [7:0]	out;
-    output reg          carryout; 
+    output reg          carryout;
 
 	always @(posedge clk) begin
-		if (rst) begin
+		if (!rst) begin
 			out = 8'b00000000;
             carryout = 0;
 		end
-        if (en) begin
+        if (!en) begin
             if (out == 8'd9 && carryin == 1) begin
                 out = 8'b00000000;
                 carryout = 1;

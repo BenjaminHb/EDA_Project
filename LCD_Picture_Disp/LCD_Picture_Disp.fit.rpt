@@ -1,5 +1,5 @@
 Fitter report for LCD_Picture_Disp
-Thu May 04 22:14:14 2017
+Fri May 05 15:19:40 2017
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -62,7 +62,7 @@ applicable agreement for further details.
 +------------------------------------------------------------------+
 ; Fitter Summary                                                   ;
 +-----------------------+------------------------------------------+
-; Fitter Status         ; Successful - Thu May 04 22:14:14 2017    ;
+; Fitter Status         ; Successful - Fri May 05 15:19:40 2017    ;
 ; Quartus II Version    ; 9.1 Build 222 10/21/2009 SJ Full Version ;
 ; Revision Name         ; LCD_Picture_Disp                         ;
 ; Top-level Entity Name ; LCD_Picture_Disp                         ;
@@ -134,11 +134,12 @@ applicable agreement for further details.
 ; Number detected on machine ; 2           ;
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
-; Average used               ; 2.00        ;
+; Average used               ; 1.00        ;
 ; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
-;     1-2 processors         ; 100.0%      ;
+;     1 processor            ; 100.0%      ;
+;     2 processors           ; < 0.1%      ;
 +----------------------------+-------------+
 
 
@@ -238,7 +239,7 @@ The pin-out file can be found in Z:/benjaminzhang On My Mac/Study And Info/Colle
 +-------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 ; Name  ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination ; Location assigned by ;
 +-------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
-; clock ; 28    ; 1        ; 0            ; 12           ; 2           ; 15                    ; 0                  ; yes    ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; clk   ; 28    ; 1        ; 0            ; 12           ; 2           ; 15                    ; 0                  ; yes    ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 ; rst_n ; 61    ; 4        ; 2            ; 0            ; 2           ; 42                    ; 0                  ; yes    ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 +-------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 
@@ -306,7 +307,7 @@ The pin-out file can be found in Z:/benjaminzhang On My Mac/Study And Info/Colle
 ; 25       ; 21         ; 1        ; ^DATA0                                   ; input  ;              ;         ; --         ;                 ; --       ; --           ;
 ; 26       ; 22         ; 1        ; ^nCONFIG                                 ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; 27       ;            ;          ; VCCA_PLL1                                ; power  ;              ; 1.5V    ; --         ;                 ; --       ; --           ;
-; 28       ; 23         ; 1        ; clock                                    ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
+; 28       ; 23         ; 1        ; clk                                      ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; 29       ; 24         ; 1        ; GND+                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; 30       ;            ;          ; GNDA_PLL1                                ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; 31       ;            ;          ; GNDG_PLL1                                ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
@@ -575,7 +576,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; rw      ; Output   ; --            ; --            ; --                    ; --  ;
 ; en      ; Output   ; --            ; --            ; --                    ; --  ;
 ; rst_n   ; Input    ; OFF           ; OFF           ; --                    ; --  ;
-; clock   ; Input    ; OFF           ; OFF           ; --                    ; --  ;
+; clk     ; Input    ; OFF           ; OFF           ; --                    ; --  ;
 +---------+----------+---------------+---------------+-----------------------+-----+
 
 
@@ -585,7 +586,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Source Pin / Fanout       ; Pad To Core Index ; Setting ;
 +---------------------------+-------------------+---------+
 ; rst_n                     ;                   ;         ;
-;      - lcd_clock          ; 1                 ; OFF     ;
+;      - LCD_clk            ; 1                 ; OFF     ;
 ;      - rs~reg0            ; 1                 ; OFF     ;
 ;      - state.WRITERAM     ; 1                 ; OFF     ;
 ;      - cnt[0]             ; 1                 ; OFF     ;
@@ -599,15 +600,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - cnt[8]             ; 1                 ; OFF     ;
 ;      - cnt[9]             ; 1                 ; OFF     ;
 ;      - flag               ; 1                 ; OFF     ;
-;      - lcd_cnt[11]        ; 1                 ; OFF     ;
-;      - lcd_cnt[8]         ; 1                 ; OFF     ;
-;      - lcd_cnt[9]         ; 1                 ; OFF     ;
-;      - lcd_cnt[7]         ; 1                 ; OFF     ;
-;      - lcd_cnt[6]         ; 1                 ; OFF     ;
-;      - lcd_cnt[4]         ; 1                 ; OFF     ;
-;      - lcd_cnt[0]         ; 1                 ; OFF     ;
-;      - lcd_cnt[3]         ; 1                 ; OFF     ;
-;      - lcd_cnt[2]         ; 1                 ; OFF     ;
+;      - LCD_cnt[11]        ; 1                 ; OFF     ;
+;      - LCD_cnt[8]         ; 1                 ; OFF     ;
+;      - LCD_cnt[9]         ; 1                 ; OFF     ;
+;      - LCD_cnt[7]         ; 1                 ; OFF     ;
+;      - LCD_cnt[6]         ; 1                 ; OFF     ;
+;      - LCD_cnt[4]         ; 1                 ; OFF     ;
+;      - LCD_cnt[0]         ; 1                 ; OFF     ;
+;      - LCD_cnt[3]         ; 1                 ; OFF     ;
+;      - LCD_cnt[2]         ; 1                 ; OFF     ;
 ;      - state.STOP         ; 1                 ; OFF     ;
 ;      - state.IDLE         ; 1                 ; OFF     ;
 ;      - data[0]~en         ; 1                 ; OFF     ;
@@ -624,10 +625,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - state.SWITCHMODE   ; 1                 ; OFF     ;
 ;      - state.SETFUNCTION0 ; 1                 ; OFF     ;
 ;      - state.DISPLAY1     ; 1                 ; OFF     ;
-;      - lcd_cnt[10]        ; 1                 ; OFF     ;
-;      - lcd_cnt[1]         ; 1                 ; OFF     ;
-;      - lcd_cnt[5]         ; 1                 ; OFF     ;
-; clock                     ;                   ;         ;
+;      - LCD_cnt[10]        ; 1                 ; OFF     ;
+;      - LCD_cnt[1]         ; 1                 ; OFF     ;
+;      - LCD_cnt[5]         ; 1                 ; OFF     ;
+; clk                       ;                   ;         ;
 +---------------------------+-------------------+---------+
 
 
@@ -636,7 +637,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+---------------+---------+---------------+--------+----------------------+------------------+
 ; Name           ; Location      ; Fan-Out ; Usage         ; Global ; Global Resource Used ; Global Line Name ;
 +----------------+---------------+---------+---------------+--------+----------------------+------------------+
-; clock          ; PIN_28        ; 15      ; Clock         ; yes    ; Global Clock         ; GCLK2            ;
+; LCD_clk        ; LC_X7_Y8_N8   ; 39      ; Clock         ; yes    ; Global Clock         ; GCLK1            ;
+; clk            ; PIN_28        ; 15      ; Clock         ; yes    ; Global Clock         ; GCLK2            ;
 ; data[0]~en     ; LC_X30_Y15_N1 ; 1       ; Output enable ; no     ; --                   ; --               ;
 ; data[1]~en     ; LC_X27_Y16_N2 ; 1       ; Output enable ; no     ; --                   ; --               ;
 ; data[2]~en     ; LC_X30_Y15_N8 ; 1       ; Output enable ; no     ; --                   ; --               ;
@@ -645,22 +647,21 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; data[5]~en     ; LC_X30_Y15_N4 ; 1       ; Output enable ; no     ; --                   ; --               ;
 ; data[6]~en     ; LC_X19_Y13_N8 ; 1       ; Output enable ; no     ; --                   ; --               ;
 ; data[7]~en     ; LC_X19_Y13_N4 ; 1       ; Output enable ; no     ; --                   ; --               ;
-; lcd_clock      ; LC_X7_Y8_N8   ; 39      ; Clock         ; yes    ; Global Clock         ; GCLK1            ;
 ; rst_n          ; PIN_61        ; 42      ; Async. clear  ; yes    ; Global Clock         ; GCLK3            ;
 ; state.STOP     ; LC_X22_Y15_N8 ; 18      ; Clock enable  ; no     ; --                   ; --               ;
 ; state.WRITERAM ; LC_X22_Y15_N4 ; 22      ; Sync. load    ; no     ; --                   ; --               ;
 +----------------+---------------+---------+---------------+--------+----------------------+------------------+
 
 
-+-----------------------------------------------------------------------------+
-; Global & Other Fast Signals                                                 ;
-+-----------+-------------+---------+----------------------+------------------+
-; Name      ; Location    ; Fan-Out ; Global Resource Used ; Global Line Name ;
-+-----------+-------------+---------+----------------------+------------------+
-; clock     ; PIN_28      ; 15      ; Global Clock         ; GCLK2            ;
-; lcd_clock ; LC_X7_Y8_N8 ; 39      ; Global Clock         ; GCLK1            ;
-; rst_n     ; PIN_61      ; 42      ; Global Clock         ; GCLK3            ;
-+-----------+-------------+---------+----------------------+------------------+
++---------------------------------------------------------------------------+
+; Global & Other Fast Signals                                               ;
++---------+-------------+---------+----------------------+------------------+
+; Name    ; Location    ; Fan-Out ; Global Resource Used ; Global Line Name ;
++---------+-------------+---------+----------------------+------------------+
+; LCD_clk ; LC_X7_Y8_N8 ; 39      ; Global Clock         ; GCLK1            ;
+; clk     ; PIN_28      ; 15      ; Global Clock         ; GCLK2            ;
+; rst_n   ; PIN_61      ; 42      ; Global Clock         ; GCLK3            ;
++---------+-------------+---------+----------------------+------------------+
 
 
 +---------------------------------+
@@ -695,15 +696,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Equal1~0           ; 3          ;
 ; state.DISPLAY1     ; 2          ;
 ; Equal2~1           ; 2          ;
-; lcd_cnt[2]         ; 2          ;
-; lcd_cnt[3]         ; 2          ;
-; lcd_cnt[0]         ; 2          ;
-; lcd_cnt[4]         ; 2          ;
-; lcd_cnt[6]         ; 2          ;
-; lcd_cnt[7]         ; 2          ;
-; lcd_cnt[9]         ; 2          ;
-; lcd_cnt[8]         ; 2          ;
-; lcd_cnt[11]        ; 2          ;
+; LCD_cnt[2]         ; 2          ;
+; LCD_cnt[3]         ; 2          ;
+; LCD_cnt[0]         ; 2          ;
+; LCD_cnt[4]         ; 2          ;
+; LCD_cnt[6]         ; 2          ;
+; LCD_cnt[7]         ; 2          ;
+; LCD_cnt[9]         ; 2          ;
+; LCD_cnt[8]         ; 2          ;
+; LCD_cnt[11]        ; 2          ;
 ; flag               ; 2          ;
 ; Selector4~0        ; 1          ;
 ; Selector5~0        ; 1          ;
@@ -870,7 +871,7 @@ Note: Fitter may spread logical memories into multiple blocks to improve timing.
 Info: *******************************************************************
 Info: Running Quartus II Fitter
     Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
-    Info: Processing started: Thu May 04 22:14:13 2017
+    Info: Processing started: Fri May 05 15:19:38 2017
 Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off LCD_Picture_Disp -c LCD_Picture_Disp
 Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info: Selected device EP1C6Q240C8 for design "LCD_Picture_Disp"
@@ -884,9 +885,9 @@ Info: Timing-driven compilation is using the Classic Timing Analyzer
 Info: Timing requirements not specified -- quality metrics such as performance and power consumption may be sacrificed to reduce compilation time.
 Info: Completed User Assigned Global Signals Promotion Operation
 Info: DQS I/O pins require 0 global routing resources
-Info: Automatically promoted signal "clock" to use Global clock in PIN 28
-Info: Automatically promoted some destinations of signal "lcd_clock" to use Global clock
-    Info: Destination "lcd_clock" may be non-global or may not use global clock
+Info: Automatically promoted signal "clk" to use Global clock in PIN 28
+Info: Automatically promoted some destinations of signal "LCD_clk" to use Global clock
+    Info: Destination "LCD_clk" may be non-global or may not use global clock
     Info: Destination "en~0" may be non-global or may not use global clock
 Info: Automatically promoted signal "rst_n" to use Global clock
 Info: Pin "rst_n" drives global clock, but is not placed in a dedicated clock pin position
@@ -896,7 +897,7 @@ Info: Fitter is using Normal packing mode for logic elements with Auto setting f
 Info: Finished moving registers into I/O cells, LUTs, and RAM blocks
 Info: Finished register packing
 Info: Design uses memory blocks. Violating setup or hold times of memory block address registers for either read or write operations could cause memory contents to be corrupted. Make sure that all memory block address registers meet the setup and hold time requirements.
-Info: Fitter preparation operations ending: elapsed time is 00:00:01
+Info: Fitter preparation operations ending: elapsed time is 00:00:00
 Info: Fitter placement preparation operations beginning
 Info: Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info: Fitter placement operations beginning
@@ -923,8 +924,8 @@ Warning: The Reserve All Unused Pins setting has not been specified, and will de
 Info: Generated suppressed messages file Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/LCD_Picture_Disp/LCD_Picture_Disp.fit.smsg
 Info: Quartus II Fitter was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 273 megabytes
-    Info: Processing ended: Thu May 04 22:14:15 2017
-    Info: Elapsed time: 00:00:02
+    Info: Processing ended: Fri May 05 15:19:41 2017
+    Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 
 

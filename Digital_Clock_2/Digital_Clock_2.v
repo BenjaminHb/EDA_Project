@@ -1,6 +1,6 @@
 module Digital_Clock_2(clk, rst, en, min, hr, out_data, out_select);
 //	EDA_Project/Digital_Clock_2
-//	Version 1.3.0.040517
+//	Version 1.7.0.090517
 //	Created by Benjamin Zhang on 04/05/17
 //	Copyright © 2017 Benjamin Zhang
 //
@@ -26,11 +26,11 @@ module Digital_Clock_2(clk, rst, en, min, hr, out_data, out_select);
 	end
 
 	always @(posedge clk) begin
-		if (key_low_hr[13] == 1'b1) key_hr <= 1'b0;
+		if (key_low_hr[20] == 1'b1) key_hr <= 1'b0;
 		else    key_hr <= 1'b1;
-		if (key_low_min[13] == 1'b1) key_min <= 1'b0;
+		if (key_low_min[20] == 1'b1) key_min <= 1'b0;
 		else    key_min <= 1'b1;
-		if (key_low_en[13] == 1'b1) key_en <= 1'b0;
+		if (key_low_en[20] == 1'b1) key_en <= 1'b0;
 		else    key_en <= 1'b1;
 	end
 
@@ -39,7 +39,7 @@ module Digital_Clock_2(clk, rst, en, min, hr, out_data, out_select);
 	reg			clk_freq_div;
 	
 	always @(posedge clk) begin
-		if (count == 'd5000000) begin
+		if (count == 'd25000000) begin
 			clk_freq_div = ~clk_freq_div;
 			count <= 0;
 		end
@@ -47,25 +47,28 @@ module Digital_Clock_2(clk, rst, en, min, hr, out_data, out_select);
 	end
 
 //*********************       *********************//
-	reg			min_low_carryin;
+	wire		min_low_carryin;
 	reg [4:0]	min_low_out;
 	reg			min_low_carryout;
 
 	reg [4:0]	min_high_out;
 	reg			min_high_carryout;
 
-	reg			hr_low_carryin;
+	wire		hr_low_carryin;
 	reg [4:0]	hr_low_out;
 	reg			hr_low_carryout;
 
 	reg [4:0]	hr_high_out;
 
 //********************* min_low *********************//
-	always @(clk_freq_div or key_min) begin
-		min_low_carryin <= (~key_min && ~key_en) || (clk_freq_div && key_en);
-	end
+	/*always @(clk_freq_div or key_min) begin
+		if (!key_en)	min_low_carryin = ~key_min;
+		//else	min_low_carryin = clk_freq_div;
+	end*/
 
-	always @(posedge min_low_carryin) begin
+	assign	min_low_carryin = (key_en)?clk_freq_div:~key_min;
+
+	always @(posedge min_low_carryin or negedge rst) begin
 		if (!rst) begin
 			min_low_out = 4'b0000;
 			min_low_carryout = 0;
@@ -81,7 +84,7 @@ module Digital_Clock_2(clk, rst, en, min, hr, out_data, out_select);
 	end
 
 //********************* min_high *********************//
-	always @(posedge min_low_carryout) begin
+	always @(posedge min_low_carryout or negedge rst) begin
 		if (!rst) begin
 			min_high_out = 4'b0000;
 			min_high_carryout = 0;
@@ -97,11 +100,9 @@ module Digital_Clock_2(clk, rst, en, min, hr, out_data, out_select);
 	end
 
 //********************* hr_low *********************//
-	always @(clk_freq_div or key_hr) begin
-		hr_low_carryin <= (~key_hr && ~key_en) || (min_high_carryout && key_en);
-	end
+	assign	hr_low_carryin = ~key_hr | min_high_carryout;
 
-	always @(posedge hr_low_carryin) begin
+	always @(posedge hr_low_carryin or negedge rst) begin
 		if (!rst) begin
 			hr_low_out = 4'b0000;
 			hr_low_carryout = 0;
@@ -117,7 +118,7 @@ module Digital_Clock_2(clk, rst, en, min, hr, out_data, out_select);
 	end
 
 //********************* hr_high *********************//
-	always @(posedge hr_low_carryout) begin
+	always @(posedge hr_low_carryout or negedge rst) begin
 		if (!rst)	hr_high_out = 4'b0000;
 		else if (hr_high_out == 4'd2)	hr_high_out = 4'b0000;
 		else	hr_high_out = hr_high_out + 1'b1;
@@ -130,7 +131,7 @@ module Digital_Clock_2(clk, rst, en, min, hr, out_data, out_select);
 	reg [1:0]	select;
 
 	always @(posedge clk) begin 
-		if (count1[19] == 1'b1) begin
+		if (count1[17] == 1'b1) begin
             clk2 = ~clk2;
             count1 <= 0;
 		end
@@ -169,7 +170,7 @@ module Digital_Clock_2(clk, rst, en, min, hr, out_data, out_select);
 //********************* BinToLED *********************//
 	always @(*) begin
 		case (LEDOut)
-		  4'd0:	out_data = 8'b11000000;
+		  /*4'd0:	out_data = 8'b11000000;
 		  4'd1:	out_data = 8'b11111001;
 		  4'd2:	out_data = 8'b10100100;
 		  4'd3:	out_data = 8'b10110000;
@@ -180,7 +181,8 @@ module Digital_Clock_2(clk, rst, en, min, hr, out_data, out_select);
 		  4'd8:	out_data = 8'b10000000;
 		  4'd9: out_data = 8'b10010000;
 		  default:	out_data = 8'b01111111;
-/*
+		  */
+
 		  4'd0:	out_data = 8'b00111111;
 		  4'd1:	out_data = 8'b00000110;
 		  4'd2:	out_data = 8'b01011011;
@@ -192,7 +194,7 @@ module Digital_Clock_2(clk, rst, en, min, hr, out_data, out_select);
 		  4'd8:	out_data = 8'b01111111;
 		  4'd9: out_data = 8'b01101111;
 		  default:	out_data = 8'b10000000;
-*/
+
 		endcase
 	end
 

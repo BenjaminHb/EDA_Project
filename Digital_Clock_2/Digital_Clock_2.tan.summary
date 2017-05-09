@@ -5,9 +5,9 @@ Timing Analyzer Summary
 Type           : Worst-case tsu
 Slack          : N/A
 Required Time  : None
-Actual Time    : 5.171 ns
-From           : hr
-To             : key_low_hr[7]
+Actual Time    : 5.150 ns
+From           : min
+To             : key_low_min[10]
 From Clock     : --
 To Clock       : clk
 Failed Paths   : 0
@@ -15,9 +15,9 @@ Failed Paths   : 0
 Type           : Worst-case tco
 Slack          : N/A
 Required Time  : None
-Actual Time    : 16.669 ns
+Actual Time    : 24.824 ns
 From           : LEDOut[3]
-To             : out_data[5]
+To             : out_data[0]
 From Clock     : clk
 To Clock       : --
 Failed Paths   : 0
@@ -25,9 +25,9 @@ Failed Paths   : 0
 Type           : Worst-case th
 Slack          : N/A
 Required Time  : None
-Actual Time    : 14.648 ns
-From           : rst
-To             : hr_high_out[3]
+Actual Time    : -3.735 ns
+From           : en
+To             : key_low_en[0]
 From Clock     : --
 To Clock       : clk
 Failed Paths   : 0
@@ -35,9 +35,9 @@ Failed Paths   : 0
 Type           : Clock Setup: 'clk'
 Slack          : N/A
 Required Time  : None
-Actual Time    : 44.70 MHz ( period = 22.372 ns )
+Actual Time    : 69.86 MHz ( period = 14.314 ns )
 From           : hr_high_out[4]
-To             : LEDOut[4]
+To             : hr_low_carryout
 From Clock     : clk
 To Clock       : clk
 Failed Paths   : 0
@@ -46,11 +46,11 @@ Type           : Clock Hold: 'clk'
 Slack          : Not operational: Clock Skew > Data Delay
 Required Time  : None
 Actual Time    : N/A
-From           : hr_low_out[0]
-To             : hr_low_out[0]
+From           : min_low_out[2]
+To             : LEDOut[2]
 From Clock     : clk
 To Clock       : clk
-Failed Paths   : 85
+Failed Paths   : 93
 
 Type           : Total number of failed paths
 Slack          : 
@@ -60,7 +60,7 @@ From           :
 To             : 
 From Clock     : 
 To Clock       : 
-Failed Paths   : 85
+Failed Paths   : 93
 
 --------------------------------------------------------------------------------------
 

@@ -1,7 +1,7 @@
 Quartus II
 Version 9.1 Build 222 10/21/2009 SJ Full Version
-44
-3127
+11
+910
 OFF
 OFF
 OFF
@@ -19,6 +19,80 @@ VHSM_ON
 -- End Library Paths --
 -- Start VHDL Libraries --
 -- End VHDL Libraries --
+# entity
+LCD_Picture_Disp
+# storage
+db|LCD_Picture_Disp.(0).cnf
+db|LCD_Picture_Disp.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+lcd_picture_disp.v
+a686b8f64f163bd7f61968f8c95d58
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+IDLE
+0000
+PARAMETER_UNSIGNED_BIN
+DEF
+SETMODE
+0001
+PARAMETER_UNSIGNED_BIN
+DEF
+SWITCHMODE
+0010
+PARAMETER_UNSIGNED_BIN
+DEF
+SETFUNCTION0
+0011
+PARAMETER_UNSIGNED_BIN
+DEF
+SETFUNCTION1
+0100
+PARAMETER_UNSIGNED_BIN
+DEF
+DISPLAY0
+0101
+PARAMETER_UNSIGNED_BIN
+DEF
+DISPLAY1
+0110
+PARAMETER_UNSIGNED_BIN
+DEF
+WRITERAM
+0111
+PARAMETER_UNSIGNED_BIN
+DEF
+STOP
+1000
+PARAMETER_UNSIGNED_BIN
+DEF
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
 # entity
 lpm_rom0
 # storage
@@ -259,11 +333,11 @@ FALSE
 PARAMETER_UNKNOWN
 DEF
 DEVICE_FAMILY
-Cyclone
+Cyclone II
 PARAMETER_UNKNOWN
 USR
 CBXI_PARAMETER
-altsyncram_3831
+altsyncram_lf31
 PARAMETER_UNKNOWN
 USR
 }
@@ -339,88 +413,14 @@ lpm_rom0:rom|altsyncram:altsyncram_component
 
 # end
 # entity
-LCD_Picture_Disp
-# storage
-db|LCD_Picture_Disp.(0).cnf
-db|LCD_Picture_Disp.(0).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-lcd_picture_disp.v
-a686b8f64f163bd7f61968f8c95d58
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# user_parameter {
-IDLE
-0000
-PARAMETER_UNSIGNED_BIN
-DEF
-SETMODE
-0001
-PARAMETER_UNSIGNED_BIN
-DEF
-SWITCHMODE
-0010
-PARAMETER_UNSIGNED_BIN
-DEF
-SETFUNCTION0
-0011
-PARAMETER_UNSIGNED_BIN
-DEF
-SETFUNCTION1
-0100
-PARAMETER_UNSIGNED_BIN
-DEF
-DISPLAY0
-0101
-PARAMETER_UNSIGNED_BIN
-DEF
-DISPLAY1
-0110
-PARAMETER_UNSIGNED_BIN
-DEF
-WRITERAM
-0111
-PARAMETER_UNSIGNED_BIN
-DEF
-STOP
-1000
-PARAMETER_UNSIGNED_BIN
-DEF
-}
-# hierarchies {
-|
-}
-# macro_sequence
-
-# end
-# entity
-altsyncram_3831
+altsyncram_lf31
 # storage
 db|LCD_Picture_Disp.(3).cnf
 db|LCD_Picture_Disp.(3).cnf
 # case_insensitive
 # source_file
-db|altsyncram_3831.tdf
-2f66cdef22dbba1f9b46c816dff072bb
+db|altsyncram_lf31.tdf
+df1b87c6a1d9a81c8065782ec72fcf1c
 7
 # used_port {
 q_a7
@@ -486,7 +486,7 @@ pic_bin.hex
 18ebbcaaa1da7b24ea77dd96c41721ab
 }
 # hierarchies {
-lpm_rom0:rom|altsyncram:altsyncram_component|altsyncram_3831:auto_generated
+lpm_rom0:rom|altsyncram:altsyncram_component|altsyncram_lf31:auto_generated
 }
 # macro_sequence
 

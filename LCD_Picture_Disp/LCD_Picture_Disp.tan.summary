@@ -5,9 +5,9 @@ Timing Analyzer Summary
 Type           : Worst-case tco
 Slack          : N/A
 Required Time  : None
-Actual Time    : 13.473 ns
-From           : data[6]~en
-To             : data[6]
+Actual Time    : 12.887 ns
+From           : data[5]~en
+To             : data[5]
 From Clock     : clk
 To Clock       : --
 Failed Paths   : 0
@@ -15,9 +15,9 @@ Failed Paths   : 0
 Type           : Clock Setup: 'clk'
 Slack          : N/A
 Required Time  : None
-Actual Time    : 117.73 MHz ( period = 8.494 ns )
-From           : addr_rom[9]
-To             : lpm_rom0:rom|altsyncram:altsyncram_component|altsyncram_3831:auto_generated|ram_block1a4~porta_address_reg9
+Actual Time    : Restricted to 180.05 MHz ( period = 5.554 ns )
+From           : addr_rom[2]
+To             : lpm_rom0:rom|altsyncram:altsyncram_component|altsyncram_lf31:auto_generated|ram_block1a4~porta_address_reg2
 From Clock     : clk
 To Clock       : clk
 Failed Paths   : 0
@@ -26,11 +26,11 @@ Type           : Clock Hold: 'clk'
 Slack          : Not operational: Clock Skew > Data Delay
 Required Time  : None
 Actual Time    : N/A
-From           : lpm_rom0:rom|altsyncram:altsyncram_component|altsyncram_3831:auto_generated|q_a[6]
+From           : lpm_rom0:rom|altsyncram:altsyncram_component|altsyncram_lf31:auto_generated|q_a[6]
 To             : data[6]~reg0
 From Clock     : clk
 To Clock       : clk
-Failed Paths   : 8
+Failed Paths   : 4
 
 Type           : Total number of failed paths
 Slack          : 
@@ -40,7 +40,7 @@ From           :
 To             : 
 From Clock     : 
 To Clock       : 
-Failed Paths   : 8
+Failed Paths   : 4
 
 --------------------------------------------------------------------------------------
 

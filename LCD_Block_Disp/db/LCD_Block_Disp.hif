@@ -1,7 +1,7 @@
 Quartus II
 Version 9.1 Build 222 10/21/2009 SJ Full Version
-44
-3127
+11
+910
 OFF
 OFF
 OFF
@@ -333,11 +333,11 @@ FALSE
 PARAMETER_UNKNOWN
 DEF
 DEVICE_FAMILY
-Cyclone
+Cyclone II
 PARAMETER_UNKNOWN
 USR
 CBXI_PARAMETER
-altsyncram_q131
+altsyncram_c931
 PARAMETER_UNKNOWN
 USR
 }
@@ -413,14 +413,14 @@ lpm_rom0:rom|altsyncram:altsyncram_component
 
 # end
 # entity
-altsyncram_q131
+altsyncram_c931
 # storage
 db|LCD_Block_Disp.(3).cnf
 db|LCD_Block_Disp.(3).cnf
 # case_insensitive
 # source_file
-db|altsyncram_q131.tdf
-f9083fd4ac56278761daa143d765b4f
+db|altsyncram_c931.tdf
+3ad250f32ef18a9673cf9762f6c95a6d
 7
 # used_port {
 q_a7
@@ -486,7 +486,7 @@ block.hex
 ec78361d7fa0e6942cea142db5906b82
 }
 # hierarchies {
-lpm_rom0:rom|altsyncram:altsyncram_component|altsyncram_q131:auto_generated
+lpm_rom0:rom|altsyncram:altsyncram_component|altsyncram_c931:auto_generated
 }
 # macro_sequence
 

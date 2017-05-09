@@ -1,5 +1,5 @@
 Flow report for LCD_Block_Disp
-Tue May 09 09:36:39 2017
+Tue May 09 19:46:56 2017
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -38,21 +38,21 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +------------------------------------+------------------------------------------+
-; Flow Status                        ; Successful - Tue May 09 09:36:39 2017    ;
+; Flow Status                        ; Successful - Tue May 09 19:46:56 2017    ;
 ; Quartus II Version                 ; 9.1 Build 222 10/21/2009 SJ Full Version ;
 ; Revision Name                      ; LCD_Block_Disp                           ;
 ; Top-level Entity Name              ; LCD_Block_Disp                           ;
 ; Family                             ; Cyclone II                               ;
 ; Device                             ; EP2C5T144C8                              ;
 ; Timing Models                      ; Final                                    ;
-; Met timing requirements            ; No                                       ;
-; Total logic elements               ; 76 / 4,608 ( 2 % )                       ;
-;     Total combinational functions  ; 66 / 4,608 ( 1 % )                       ;
+; Met timing requirements            ; Yes                                      ;
+; Total logic elements               ; 78 / 4,608 ( 2 % )                       ;
+;     Total combinational functions  ; 67 / 4,608 ( 1 % )                       ;
 ;     Dedicated logic registers      ; 50 / 4,608 ( 1 % )                       ;
 ; Total registers                    ; 50                                       ;
 ; Total pins                         ; 13 / 89 ( 15 % )                         ;
 ; Total virtual pins                 ; 0                                        ;
-; Total memory bits                  ; 8,192 / 119,808 ( 7 % )                  ;
+; Total memory bits                  ; 0 / 119,808 ( 0 % )                      ;
 ; Embedded Multiplier 9-bit elements ; 0 / 26 ( 0 % )                           ;
 ; Total PLLs                         ; 0 / 2 ( 0 % )                            ;
 +------------------------------------+------------------------------------------+
@@ -63,7 +63,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/09/2017 09:36:31 ;
+; Start date & time ; 05/09/2017 19:46:46 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; LCD_Block_Disp      ;
 +-------------------+---------------------+
@@ -74,7 +74,7 @@ applicable agreement for further details.
 +------------------------------------+-------------------------------------------------------------------------------------------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                    ; Value                                                                                                                   ; Default Value ; Entity Name ; Section Id     ;
 +------------------------------------+-------------------------------------------------------------------------------------------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID              ; 52234966679.149429379106952                                                                                             ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID              ; 52234966679.149433040606832                                                                                             ; --            ; --          ; --             ;
 ; IP_TOOL_NAME                       ; LPM_ROM                                                                                                                 ; --            ; --          ; --             ;
 ; IP_TOOL_VERSION                    ; 9.1                                                                                                                     ; --            ; --          ; --             ;
 ; MAX_CORE_JUNCTION_TEMP             ; 85                                                                                                                      ; --            ; --          ; --             ;
@@ -93,11 +93,11 @@ applicable agreement for further details.
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name             ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis    ; 00:00:02     ; 1.0                     ; 249 MB              ; 00:00:03                           ;
-; Fitter                  ; 00:00:01     ; 1.0                     ; 273 MB              ; 00:00:02                           ;
+; Analysis & Synthesis    ; 00:00:03     ; 1.0                     ; 240 MB              ; 00:00:03                           ;
+; Fitter                  ; 00:00:02     ; 1.0                     ; 265 MB              ; 00:00:02                           ;
 ; Assembler               ; 00:00:01     ; 1.0                     ; 220 MB              ; 00:00:01                           ;
-; Classic Timing Analyzer ; 00:00:01     ; 1.0                     ; 182 MB              ; 00:00:01                           ;
-; Total                   ; 00:00:05     ; --                      ; --                  ; 00:00:07                           ;
+; Classic Timing Analyzer ; 00:00:01     ; 1.0                     ; 182 MB              ; 00:00:02                           ;
+; Total                   ; 00:00:07     ; --                      ; --                  ; 00:00:08                           ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

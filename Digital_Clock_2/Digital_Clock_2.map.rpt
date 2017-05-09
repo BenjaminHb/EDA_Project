@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Digital_Clock_2
-Tue May 09 11:33:24 2017
+Tue May 09 23:17:17 2017
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -43,7 +43,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +------------------------------------+------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue May 09 11:33:24 2017    ;
+; Analysis & Synthesis Status        ; Successful - Tue May 09 23:17:17 2017    ;
 ; Quartus II Version                 ; 9.1 Build 222 10/21/2009 SJ Full Version ;
 ; Revision Name                      ; Digital_Clock_2                          ;
 ; Top-level Entity Name              ; Digital_Clock_2                          ;
@@ -248,14 +248,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
-    Info: Processing started: Tue May 09 11:33:21 2017
+    Info: Processing started: Tue May 09 23:17:13 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Digital_Clock_2 -c Digital_Clock_2
 Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info: Found 1 design units, including 1 entities, in source file digital_clock_2.v
     Info: Found entity 1: Digital_Clock_2
 Info: Elaborating entity "Digital_Clock_2" for the top level hierarchy
+Warning (10235): Verilog HDL Always Construct warning at Digital_Clock_2.v(65): variable "key_en" is read inside the Always Construct but isn't in the Always Construct's Event Control
 Warning: Clock multiplexers are found and protected
-    Warning: Found clock multiplexer min_low_carryin
+    Warning: Found clock multiplexer min_low_carryin~synth
 Info: 43 registers lost all their fanouts during netlist optimizations. The first 43 are displayed below.
     Info: Register "count1[18]" lost all its fanouts during netlist optimizations.
     Info: Register "count1[19]" lost all its fanouts during netlist optimizations.
@@ -305,11 +306,11 @@ Info: Implemented 229 device resources after synthesis - the final resource coun
     Info: Implemented 5 input pins
     Info: Implemented 12 output pins
     Info: Implemented 212 logic cells
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 237 megabytes
-    Info: Processing ended: Tue May 09 11:33:24 2017
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:03
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 236 megabytes
+    Info: Processing ended: Tue May 09 23:17:17 2017
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:04
 
 
 +------------------------------------------+

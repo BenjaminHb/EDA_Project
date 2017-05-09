@@ -1,5 +1,5 @@
 Fitter report for LCD_Picture_Disp
-Tue May 09 11:54:35 2017
+Tue May 09 19:39:25 2017
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -63,7 +63,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Fitter Summary                                                                ;
 +------------------------------------+------------------------------------------+
-; Fitter Status                      ; Successful - Tue May 09 11:54:35 2017    ;
+; Fitter Status                      ; Successful - Tue May 09 19:39:25 2017    ;
 ; Quartus II Version                 ; 9.1 Build 222 10/21/2009 SJ Full Version ;
 ; Revision Name                      ; LCD_Picture_Disp                         ;
 ; Top-level Entity Name              ; LCD_Picture_Disp                         ;
@@ -144,12 +144,11 @@ applicable agreement for further details.
 ; Number detected on machine ; 2           ;
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
-; Average used               ; 1.67        ;
+; Average used               ; 2.00        ;
 ; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
-;     1 processor            ; 100.0%      ;
-;     2 processors           ;  50.0%      ;
+;     1-2 processors         ; 100.0%      ;
 +----------------------------+-------------+
 
 
@@ -250,7 +249,7 @@ The pin-out file can be found in Z:/benjaminzhang On My Mac/Study And Info/Colle
 ; Name ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination ; Location assigned by ;
 +------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 ; clk  ; 88    ; 3        ; 28           ; 7            ; 3           ; 2                     ; 0                  ; yes    ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
-; rst  ; 97    ; 3        ; 28           ; 9            ; 0           ; 42                    ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; rst  ; 99    ; 3        ; 28           ; 11           ; 2           ; 42                    ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
 +------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 
 
@@ -386,9 +385,9 @@ The pin-out file can be found in Z:/benjaminzhang On My Mac/Study And Info/Colle
 ; 94       ; 111        ; 3        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; 95       ;            ; 3        ; VCCIO3                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; 96       ; 112        ; 3        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; 97       ; 113        ; 3        ; rst                                      ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
+; 97       ; 113        ; 3        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; 98       ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; 99       ; 119        ; 3        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; 99       ; 119        ; 3        ; rst                                      ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; 100      ; 120        ; 3        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; 101      ; 121        ; 3        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; 102      ;            ; 3        ; VCCIO3                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
@@ -515,48 +514,48 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Source Pin / Fanout       ; Pad To Core Index ; Setting ;
 +---------------------------+-------------------+---------+
 ; rst                       ;                   ;         ;
-;      - LCD_clk            ; 1                 ; 6       ;
-;      - rs~reg0            ; 1                 ; 6       ;
-;      - state.WRITERAM     ; 1                 ; 6       ;
-;      - addr_rom[0]        ; 1                 ; 6       ;
-;      - addr_rom[1]        ; 1                 ; 6       ;
-;      - addr_rom[2]        ; 1                 ; 6       ;
-;      - addr_rom[3]        ; 1                 ; 6       ;
-;      - addr_rom[4]        ; 1                 ; 6       ;
-;      - addr_rom[5]        ; 1                 ; 6       ;
-;      - addr_rom[6]        ; 1                 ; 6       ;
-;      - addr_rom[7]        ; 1                 ; 6       ;
-;      - addr_rom[8]        ; 1                 ; 6       ;
-;      - addr_rom[9]        ; 1                 ; 6       ;
-;      - flag               ; 1                 ; 6       ;
-;      - LCD_count[11]      ; 1                 ; 6       ;
-;      - LCD_count[8]       ; 1                 ; 6       ;
-;      - LCD_count[10]      ; 1                 ; 6       ;
-;      - LCD_count[9]       ; 1                 ; 6       ;
-;      - LCD_count[7]       ; 1                 ; 6       ;
-;      - LCD_count[6]       ; 1                 ; 6       ;
-;      - LCD_count[5]       ; 1                 ; 6       ;
-;      - LCD_count[4]       ; 1                 ; 6       ;
-;      - LCD_count[1]       ; 1                 ; 6       ;
-;      - LCD_count[0]       ; 1                 ; 6       ;
-;      - LCD_count[3]       ; 1                 ; 6       ;
-;      - LCD_count[2]       ; 1                 ; 6       ;
-;      - state.STOP         ; 1                 ; 6       ;
-;      - state.IDLE         ; 1                 ; 6       ;
-;      - data[0]~en         ; 1                 ; 6       ;
-;      - data[1]~en         ; 1                 ; 6       ;
-;      - data[2]~en         ; 1                 ; 6       ;
-;      - data[3]~en         ; 1                 ; 6       ;
-;      - data[4]~en         ; 1                 ; 6       ;
-;      - data[5]~en         ; 1                 ; 6       ;
-;      - data[6]~en         ; 1                 ; 6       ;
-;      - data[7]~en         ; 1                 ; 6       ;
-;      - state.DISPLAY1     ; 1                 ; 6       ;
-;      - state.DISPLAY0     ; 1                 ; 6       ;
-;      - state.SETMODE      ; 1                 ; 6       ;
-;      - state.SETFUNCTION1 ; 1                 ; 6       ;
-;      - state.SWITCHMODE   ; 1                 ; 6       ;
-;      - state.SETFUNCTION0 ; 1                 ; 6       ;
+;      - LCD_clk            ; 0                 ; 6       ;
+;      - rs~reg0            ; 0                 ; 6       ;
+;      - state.WRITERAM     ; 0                 ; 6       ;
+;      - addr_rom[0]        ; 0                 ; 6       ;
+;      - addr_rom[1]        ; 0                 ; 6       ;
+;      - addr_rom[2]        ; 0                 ; 6       ;
+;      - addr_rom[3]        ; 0                 ; 6       ;
+;      - addr_rom[4]        ; 0                 ; 6       ;
+;      - addr_rom[5]        ; 0                 ; 6       ;
+;      - addr_rom[6]        ; 0                 ; 6       ;
+;      - addr_rom[7]        ; 0                 ; 6       ;
+;      - addr_rom[8]        ; 0                 ; 6       ;
+;      - addr_rom[9]        ; 0                 ; 6       ;
+;      - flag               ; 0                 ; 6       ;
+;      - LCD_count[11]      ; 0                 ; 6       ;
+;      - LCD_count[8]       ; 0                 ; 6       ;
+;      - LCD_count[10]      ; 0                 ; 6       ;
+;      - LCD_count[9]       ; 0                 ; 6       ;
+;      - LCD_count[7]       ; 0                 ; 6       ;
+;      - LCD_count[6]       ; 0                 ; 6       ;
+;      - LCD_count[5]       ; 0                 ; 6       ;
+;      - LCD_count[4]       ; 0                 ; 6       ;
+;      - LCD_count[1]       ; 0                 ; 6       ;
+;      - LCD_count[0]       ; 0                 ; 6       ;
+;      - LCD_count[3]       ; 0                 ; 6       ;
+;      - LCD_count[2]       ; 0                 ; 6       ;
+;      - state.STOP         ; 0                 ; 6       ;
+;      - state.IDLE         ; 0                 ; 6       ;
+;      - data[0]~en         ; 0                 ; 6       ;
+;      - data[1]~en         ; 0                 ; 6       ;
+;      - data[2]~en         ; 0                 ; 6       ;
+;      - data[3]~en         ; 0                 ; 6       ;
+;      - data[4]~en         ; 0                 ; 6       ;
+;      - data[5]~en         ; 0                 ; 6       ;
+;      - data[6]~en         ; 0                 ; 6       ;
+;      - data[7]~en         ; 0                 ; 6       ;
+;      - state.DISPLAY1     ; 0                 ; 6       ;
+;      - state.DISPLAY0     ; 0                 ; 6       ;
+;      - state.SETMODE      ; 0                 ; 6       ;
+;      - state.SETFUNCTION1 ; 0                 ; 6       ;
+;      - state.SWITCHMODE   ; 0                 ; 6       ;
+;      - state.SETFUNCTION0 ; 0                 ; 6       ;
 ; clk                       ;                   ;         ;
 +---------------------------+-------------------+---------+
 
@@ -577,7 +576,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; data[5]~en     ; LCFF_X24_Y7_N27 ; 1       ; Output enable ; no     ; --                   ; --               ; --                        ;
 ; data[6]~en     ; LCFF_X24_Y7_N23 ; 1       ; Output enable ; no     ; --                   ; --               ; --                        ;
 ; data[7]~en     ; LCFF_X12_Y5_N5  ; 1       ; Output enable ; no     ; --                   ; --               ; --                        ;
-; rst            ; PIN_97          ; 42      ; Async. clear  ; no     ; --                   ; --               ; --                        ;
+; rst            ; PIN_99          ; 42      ; Async. clear  ; no     ; --                   ; --               ; --                        ;
 ; state.STOP     ; LCFF_X24_Y9_N9  ; 18      ; Clock enable  ; no     ; --                   ; --               ; --                        ;
 ; state.WRITERAM ; LCFF_X24_Y7_N11 ; 22      ; Sync. load    ; no     ; --                   ; --               ; --                        ;
 +----------------+-----------------+---------+---------------+--------+----------------------+------------------+---------------------------+
@@ -666,14 +665,14 @@ Note: Fitter may spread logical memories into multiple blocks to improve timing.
 +----------------------------+------------------------+
 ; Interconnect Resource Type ; Usage                  ;
 +----------------------------+------------------------+
-; Block interconnects        ; 124 / 15,666 ( < 1 % ) ;
-; C16 interconnects          ; 0 / 812 ( 0 % )        ;
-; C4 interconnects           ; 72 / 11,424 ( < 1 % )  ;
+; Block interconnects        ; 122 / 15,666 ( < 1 % ) ;
+; C16 interconnects          ; 1 / 812 ( < 1 % )      ;
+; C4 interconnects           ; 70 / 11,424 ( < 1 % )  ;
 ; Direct links               ; 23 / 15,666 ( < 1 % )  ;
 ; Global clocks              ; 2 / 8 ( 25 % )         ;
-; Local interconnects        ; 43 / 4,608 ( < 1 % )   ;
-; R24 interconnects          ; 8 / 652 ( 1 % )        ;
-; R4 interconnects           ; 138 / 13,328 ( 1 % )   ;
+; Local interconnects        ; 42 / 4,608 ( < 1 % )   ;
+; R24 interconnects          ; 7 / 652 ( 1 % )        ;
+; R4 interconnects           ; 140 / 13,328 ( 1 % )   ;
 +----------------------------+------------------------+
 
 
@@ -846,7 +845,7 @@ Note: Fitter may spread logical memories into multiple blocks to improve timing.
 Info: *******************************************************************
 Info: Running Quartus II Fitter
     Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
-    Info: Processing started: Tue May 09 11:54:33 2017
+    Info: Processing started: Tue May 09 19:39:23 2017
 Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off LCD_Picture_Disp -c LCD_Picture_Disp
 Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info: Selected device EP2C5T144C8 for design "LCD_Picture_Disp"
@@ -915,8 +914,8 @@ Warning: The Reserve All Unused Pins setting has not been specified, and will de
 Info: Generated suppressed messages file Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/LCD_Picture_Disp/LCD_Picture_Disp.fit.smsg
 Info: Quartus II Fitter was successful. 0 errors, 2 warnings
     Info: Peak virtual memory: 273 megabytes
-    Info: Processing ended: Tue May 09 11:54:35 2017
-    Info: Elapsed time: 00:00:02
+    Info: Processing ended: Tue May 09 19:39:26 2017
+    Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 
 

@@ -107,9 +107,9 @@ GND_PLL1                     : 36        : gnd    :                   :         
 VCCA_PLL1                    : 37        : power  :                   : 1.2V    :           :                
 GNDA_PLL1                    : 38        : gnd    :                   :         :           :                
 GND                          : 39        : gnd    :                   :         :           :                
-en                           : 40        : output : 3.3-V LVTTL       :         : 4         : Y              
-rs                           : 41        : output : 3.3-V LVTTL       :         : 4         : Y              
-rw                           : 42        : output : 3.3-V LVTTL       :         : 4         : Y              
+GND*                         : 40        :        :                   :         : 4         :                
+GND*                         : 41        :        :                   :         : 4         :                
+GND*                         : 42        :        :                   :         : 4         :                
 GND*                         : 43        :        :                   :         : 4         :                
 GND*                         : 44        :        :                   :         : 4         :                
 GND*                         : 45        :        :                   :         : 4         :                
@@ -137,9 +137,9 @@ VCCIO4                       : 66        : power  :                   : 3.3V    
 GND*                         : 67        :        :                   :         : 4         :                
 GND                          : 68        : gnd    :                   :         :           :                
 GND*                         : 69        :        :                   :         : 4         :                
-GND*                         : 70        :        :                   :         : 4         :                
-GND*                         : 71        :        :                   :         : 4         :                
-GND*                         : 72        :        :                   :         : 4         :                
+en                           : 70        : output : 3.3-V LVTTL       :         : 4         : Y              
+rw                           : 71        : output : 3.3-V LVTTL       :         : 4         : Y              
+rs                           : 72        : output : 3.3-V LVTTL       :         : 4         : Y              
 GND*                         : 73        :        :                   :         : 3         :                
 GND*                         : 74        :        :                   :         : 3         :                
 GND*                         : 75        :        :                   :         : 3         :                

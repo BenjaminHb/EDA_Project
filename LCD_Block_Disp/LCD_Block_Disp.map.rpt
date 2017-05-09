@@ -1,5 +1,5 @@
 Analysis & Synthesis report for LCD_Block_Disp
-Tue May 09 09:36:33 2017
+Tue May 09 19:46:48 2017
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -13,17 +13,13 @@ Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Analysis & Synthesis RAM Summary
-  9. State Machine - |LCD_Block_Disp|state
- 10. Registers Removed During Synthesis
- 11. General Register Statistics
- 12. Inverted Register Statistics
- 13. Source assignments for lpm_rom0:rom|altsyncram:altsyncram_component|altsyncram_c931:auto_generated
- 14. Parameter Settings for User Entity Instance: Top-level Entity: |LCD_Block_Disp
- 15. Parameter Settings for User Entity Instance: lpm_rom0:rom|altsyncram:altsyncram_component
- 16. altsyncram Parameter Settings by Entity Instance
- 17. Analysis & Synthesis Messages
- 18. Analysis & Synthesis Suppressed Messages
+  8. State Machine - |LCD_Block_Disp|state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Parameter Settings for User Entity Instance: Top-level Entity: |LCD_Block_Disp
+ 13. Analysis & Synthesis Messages
+ 14. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -49,18 +45,18 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +------------------------------------+------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue May 09 09:36:33 2017    ;
+; Analysis & Synthesis Status        ; Successful - Tue May 09 19:46:48 2017    ;
 ; Quartus II Version                 ; 9.1 Build 222 10/21/2009 SJ Full Version ;
 ; Revision Name                      ; LCD_Block_Disp                           ;
 ; Top-level Entity Name              ; LCD_Block_Disp                           ;
 ; Family                             ; Cyclone II                               ;
-; Total logic elements               ; 79                                       ;
-;     Total combinational functions  ; 65                                       ;
+; Total logic elements               ; 80                                       ;
+;     Total combinational functions  ; 66                                       ;
 ;     Dedicated logic registers      ; 50                                       ;
 ; Total registers                    ; 50                                       ;
 ; Total pins                         ; 13                                       ;
 ; Total virtual pins                 ; 0                                        ;
-; Total memory bits                  ; 8,192                                    ;
+; Total memory bits                  ; 0                                        ;
 ; Embedded Multiplier 9-bit elements ; 0                                        ;
 ; Total PLLs                         ; 0                                        ;
 +------------------------------------+------------------------------------------+
@@ -162,17 +158,13 @@ applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                    ;
-+----------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                                                                ;
-+----------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
-; LCD_Block_Disp.v                 ; yes             ; User Verilog HDL File                  ; Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/LCD_Block_Disp/LCD_Block_Disp.v       ;
-; lpm_rom0.v                       ; yes             ; User Wizard-Generated File             ; Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/LCD_Block_Disp/lpm_rom0.v             ;
-; altsyncram.tdf                   ; yes             ; Megafunction                           ; c:/altera/91/quartus/libraries/megafunctions/altsyncram.tdf                                                                 ;
-; db/altsyncram_c931.tdf           ; yes             ; Auto-Generated Megafunction            ; Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/LCD_Block_Disp/db/altsyncram_c931.tdf ;
-; Block.Hex                        ; yes             ; Auto-Found Memory Initialization File  ; Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/LCD_Block_Disp/Block.Hex              ;
-+----------------------------------+-----------------+----------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                              ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                                          ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------------------------------------------------------------------------+
+; LCD_Block_Disp.v                 ; yes             ; User Verilog HDL File  ; Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/LCD_Block_Disp/LCD_Block_Disp.v ;
++----------------------------------+-----------------+------------------------+-----------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -180,16 +172,16 @@ applicable agreement for further details.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 79    ;
+; Estimated Total logic elements              ; 80    ;
 ;                                             ;       ;
-; Total combinational functions               ; 65    ;
+; Total combinational functions               ; 66    ;
 ; Logic element usage by number of LUT inputs ;       ;
 ;     -- 4 input functions                    ; 23    ;
-;     -- 3 input functions                    ; 6     ;
+;     -- 3 input functions                    ; 7     ;
 ;     -- <=2 input functions                  ; 36    ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 45    ;
+;     -- normal mode                          ; 46    ;
 ;     -- arithmetic mode                      ; 20    ;
 ;                                             ;       ;
 ; Total registers                             ; 50    ;
@@ -197,34 +189,21 @@ applicable agreement for further details.
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
 ; I/O pins                                    ; 13    ;
-; Total memory bits                           ; 8192  ;
 ; Maximum fan-out node                        ; rst   ;
 ; Maximum fan-out                             ; 42    ;
-; Total fan-out                               ; 462   ;
-; Average fan-out                             ; 3.40  ;
+; Total fan-out                               ; 377   ;
+; Average fan-out                             ; 2.92  ;
 +---------------------------------------------+-------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                ;
-+-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------+--------------+
-; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                         ; Library Name ;
-+-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------+--------------+
-; |LCD_Block_Disp                           ; 65 (65)           ; 50 (50)      ; 8192        ; 0            ; 0       ; 0         ; 13   ; 0            ; |LCD_Block_Disp                                                                             ; work         ;
-;    |lpm_rom0:rom|                         ; 0 (0)             ; 0 (0)        ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |LCD_Block_Disp|lpm_rom0:rom                                                                ;              ;
-;       |altsyncram:altsyncram_component|   ; 0 (0)             ; 0 (0)        ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |LCD_Block_Disp|lpm_rom0:rom|altsyncram:altsyncram_component                                ;              ;
-;          |altsyncram_c931:auto_generated| ; 0 (0)             ; 0 (0)        ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |LCD_Block_Disp|lpm_rom0:rom|altsyncram:altsyncram_component|altsyncram_c931:auto_generated ;              ;
-+-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; |LCD_Block_Disp            ; 66 (66)           ; 50 (50)      ; 0           ; 0            ; 0       ; 0         ; 13   ; 0            ; |LCD_Block_Disp     ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                    ;
-+----------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+-----------+
-; Name                                                                                   ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF       ;
-+----------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+-----------+
-; lpm_rom0:rom|altsyncram:altsyncram_component|altsyncram_c931:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 1024         ; 8            ; --           ; --           ; 8192 ; Block.Hex ;
-+----------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+-----------+
 
 
 Encoding Type:  One-Hot
@@ -282,15 +261,6 @@ Encoding Type:  One-Hot
 +----------------------------------------+---------+
 
 
-+----------------------------------------------------------------------------------------------------+
-; Source assignments for lpm_rom0:rom|altsyncram:altsyncram_component|altsyncram_c931:auto_generated ;
-+---------------------------------+--------------------+------+--------------------------------------+
-; Assignment                      ; Value              ; From ; To                                   ;
-+---------------------------------+--------------------+------+--------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                    ;
-+---------------------------------+--------------------+------+--------------------------------------+
-
-
 +--------------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: Top-level Entity: |LCD_Block_Disp ;
 +----------------+-------+-------------------------------------------------------+
@@ -309,92 +279,13 @@ Encoding Type:  One-Hot
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: lpm_rom0:rom|altsyncram:altsyncram_component ;
-+------------------------------------+----------------------+-------------------------------+
-; Parameter Name                     ; Value                ; Type                          ;
-+------------------------------------+----------------------+-------------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                       ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                    ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                  ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                  ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped                       ;
-; OPERATION_MODE                     ; ROM                  ; Untyped                       ;
-; WIDTH_A                            ; 8                    ; Signed Integer                ;
-; WIDTHAD_A                          ; 10                   ; Signed Integer                ;
-; NUMWORDS_A                         ; 1024                 ; Signed Integer                ;
-; OUTDATA_REG_A                      ; CLOCK0               ; Untyped                       ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                       ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                       ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                       ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped                       ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                       ;
-; WIDTH_B                            ; 1                    ; Untyped                       ;
-; WIDTHAD_B                          ; 1                    ; Untyped                       ;
-; NUMWORDS_B                         ; 1                    ; Untyped                       ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped                       ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                       ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                       ;
-; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                       ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                       ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                       ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped                       ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                       ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                       ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                       ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                       ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                       ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                       ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                       ;
-; BYTE_SIZE                          ; 8                    ; Untyped                       ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                       ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                       ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                       ;
-; INIT_FILE                          ; Block.Hex            ; Untyped                       ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                       ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped                       ;
-; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                       ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                       ;
-; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                       ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                       ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                       ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                       ;
-; ENABLE_ECC                         ; FALSE                ; Untyped                       ;
-; DEVICE_FAMILY                      ; Cyclone II           ; Untyped                       ;
-; CBXI_PARAMETER                     ; altsyncram_c931      ; Untyped                       ;
-+------------------------------------+----------------------+-------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------------+
-; altsyncram Parameter Settings by Entity Instance                                         ;
-+-------------------------------------------+----------------------------------------------+
-; Name                                      ; Value                                        ;
-+-------------------------------------------+----------------------------------------------+
-; Number of entity instances                ; 1                                            ;
-; Entity Instance                           ; lpm_rom0:rom|altsyncram:altsyncram_component ;
-;     -- OPERATION_MODE                     ; ROM                                          ;
-;     -- WIDTH_A                            ; 8                                            ;
-;     -- NUMWORDS_A                         ; 1024                                         ;
-;     -- OUTDATA_REG_A                      ; CLOCK0                                       ;
-;     -- WIDTH_B                            ; 1                                            ;
-;     -- NUMWORDS_B                         ; 1                                            ;
-;     -- ADDRESS_REG_B                      ; CLOCK1                                       ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                 ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                         ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                    ;
-+-------------------------------------------+----------------------------------------------+
-
-
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
-    Info: Processing started: Tue May 09 09:36:30 2017
+    Info: Processing started: Tue May 09 19:46:44 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off LCD_Block_Disp -c LCD_Block_Disp
 Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info: Found 1 design units, including 1 entities, in source file lcd_block_disp.v
@@ -402,37 +293,6 @@ Info: Found 1 design units, including 1 entities, in source file lcd_block_disp.
 Info: Found 1 design units, including 1 entities, in source file lpm_rom0.v
     Info: Found entity 1: lpm_rom0
 Info: Elaborating entity "LCD_Block_Disp" for the top level hierarchy
-Info: Elaborating entity "lpm_rom0" for hierarchy "lpm_rom0:rom"
-Info: Elaborating entity "altsyncram" for hierarchy "lpm_rom0:rom|altsyncram:altsyncram_component"
-Info: Elaborated megafunction instantiation "lpm_rom0:rom|altsyncram:altsyncram_component"
-Info: Instantiated megafunction "lpm_rom0:rom|altsyncram:altsyncram_component" with the following parameter:
-    Info: Parameter "address_aclr_a" = "NONE"
-    Info: Parameter "init_file" = "Block.Hex"
-    Info: Parameter "intended_device_family" = "Cyclone"
-    Info: Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
-    Info: Parameter "lpm_type" = "altsyncram"
-    Info: Parameter "numwords_a" = "1024"
-    Info: Parameter "operation_mode" = "ROM"
-    Info: Parameter "outdata_aclr_a" = "NONE"
-    Info: Parameter "outdata_reg_a" = "CLOCK0"
-    Info: Parameter "widthad_a" = "10"
-    Info: Parameter "width_a" = "8"
-    Info: Parameter "width_byteena_a" = "1"
-Info: Found 1 design units, including 1 entities, in source file db/altsyncram_c931.tdf
-    Info: Found entity 1: altsyncram_c931
-Info: Elaborating entity "altsyncram_c931" for hierarchy "lpm_rom0:rom|altsyncram:altsyncram_component|altsyncram_c931:auto_generated"
-Warning: Byte addressed memory initialization file "Block.Hex" was read in the word-addressed format
-Warning: Width of data items in "Block.Hex" is greater than the memory width. Wrapping data items to subsequent addresses. Found 64 warnings, reporting 10
-    Warning: Data at line (1) of memory initialization file "Block.Hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses.
-    Warning: Data at line (2) of memory initialization file "Block.Hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses.
-    Warning: Data at line (3) of memory initialization file "Block.Hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses.
-    Warning: Data at line (4) of memory initialization file "Block.Hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses.
-    Warning: Data at line (5) of memory initialization file "Block.Hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses.
-    Warning: Data at line (6) of memory initialization file "Block.Hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses.
-    Warning: Data at line (7) of memory initialization file "Block.Hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses.
-    Warning: Data at line (8) of memory initialization file "Block.Hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses.
-    Warning: Data at line (9) of memory initialization file "Block.Hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses.
-    Warning: Data at line (10) of memory initialization file "Block.Hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses.
 Info: Registers with preset signals will power-up high
 Info: DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning: Output pins are stuck at VCC or GND
@@ -442,16 +302,15 @@ Info: 3 registers lost all their fanouts during netlist optimizations. The first
     Info: Register "state~5" lost all its fanouts during netlist optimizations.
     Info: Register "state~6" lost all its fanouts during netlist optimizations.
 Info: Generated suppressed messages file Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/LCD_Block_Disp/LCD_Block_Disp.map.smsg
-Info: Implemented 100 device resources after synthesis - the final resource count might be different
+Info: Implemented 94 device resources after synthesis - the final resource count might be different
     Info: Implemented 2 input pins
     Info: Implemented 11 output pins
-    Info: Implemented 79 logic cells
-    Info: Implemented 8 RAM segments
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 14 warnings
-    Info: Peak virtual memory: 249 megabytes
-    Info: Processing ended: Tue May 09 09:36:33 2017
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Implemented 81 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 240 megabytes
+    Info: Processing ended: Tue May 09 19:46:48 2017
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:04
 
 
 +------------------------------------------+

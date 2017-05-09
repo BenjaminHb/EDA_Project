@@ -1,5 +1,5 @@
 Assembler report for LCD_Block_Disp
-Tue May 09 09:36:37 2017
+Tue May 09 19:46:54 2017
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Tue May 09 09:36:37 2017 ;
+; Assembler Status      ; Successful - Tue May 09 19:46:54 2017 ;
 ; Revision Name         ; LCD_Block_Disp                        ;
 ; Top-level Entity Name ; LCD_Block_Disp                        ;
 ; Family                ; Cyclone II                            ;
@@ -95,7 +95,7 @@ applicable agreement for further details.
 +----------------+----------------------------------------------------------------------------------------------------------------------------------+
 ; Device         ; EP2C5T144C8                                                                                                                      ;
 ; JTAG usercode  ; 0xFFFFFFFF                                                                                                                       ;
-; Checksum       ; 0x00083964                                                                                                                       ;
+; Checksum       ; 0x0008097A                                                                                                                       ;
 +----------------+----------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -106,7 +106,7 @@ applicable agreement for further details.
 +--------------------+------------------------------------------------------------------------------------------------------------------------------+
 ; Device             ; EPCS4                                                                                                                        ;
 ; JTAG usercode      ; 0x00000000                                                                                                                   ;
-; Checksum           ; 0x07511EDE                                                                                                                   ;
+; Checksum           ; 0x07518971                                                                                                                   ;
 ; Compression Ratio  ; 3                                                                                                                            ;
 +--------------------+------------------------------------------------------------------------------------------------------------------------------+
 
@@ -117,13 +117,13 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II Assembler
     Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
-    Info: Processing started: Tue May 09 09:36:36 2017
+    Info: Processing started: Tue May 09 19:46:53 2017
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off LCD_Block_Disp -c LCD_Block_Disp
 Info: Writing out detailed assembly data for power analysis
 Info: Assembler is generating device programming files
 Info: Quartus II Assembler was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 220 megabytes
-    Info: Processing ended: Tue May 09 09:36:37 2017
+    Info: Processing ended: Tue May 09 19:46:54 2017
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

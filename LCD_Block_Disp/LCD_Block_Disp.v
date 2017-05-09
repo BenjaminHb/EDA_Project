@@ -1,6 +1,6 @@
 module LCD_Block_Disp(clk, rst, rs, rw, en, data);
 //	EDA_Project/LCD_Block_Disp
-//	Version 1.0.0.040517
+//	Version 1.3.0.090517
 //	Created by Benjamin Zhang on 04/05/17
 //	Copyright © 2017 Benjamin Zhang
 //
@@ -56,22 +56,22 @@ module LCD_Block_Disp(clk, rst, rs, rw, en, data);
 	assign en = (flag == 1)? LCD_clk:1'b0;
 
 //State machine
-	reg [9:0]	addr_rom;	//coord count
+	reg [9:0]	addr;	//coord count
 	reg [7:0]	data;	//LCD data
 	wire [7:0]	data_rom_out;	//display data
 	wire 		line_done;
 	wire		frame_done;
 
 
-	assign	line_done = (addr_rom[3:0] == 4'hf);
-	assign	frame_done = (addr_rom[9:4] == 7'h3f);
+	assign	line_done = (addr[3:0] == 4'hf);
+	assign	frame_done = (addr[9:4] == 7'h3f);
 
 	always @(posedge LCD_clk or negedge rst) begin
 		if (!rst) begin
 			state <= IDLE;
 			data <= 8'bzzzzzzzz;
 			flag <= 1'b1;
-			addr_rom <= 10'd0;
+			addr <= 10'd0;
 		end
 		else begin
 			case (state)
@@ -81,7 +81,7 @@ module LCD_Block_Disp(clk, rst, rs, rw, en, data);
 						data <= 8'bzzzzzzzz;
 						state <= SETFUNCTION0;
 						flag <= 1'b1;
-						addr_rom <= 10'd0;
+						addr <= 10'd0;
 					end
 				
 				//funtion set
@@ -115,22 +115,28 @@ module LCD_Block_Disp(clk, rst, rs, rw, en, data);
 				//Y coord set
 				DISPLAY0:
 					begin
-						data <= {3'b100,addr_rom[8:4]};
+						data <= {3'b100,addr[8:4]};
 						state <= DISPLAY1;
 					end
 				
 				//X coord set
 				DISPLAY1:
 					begin
-						data <= {4'b1000,addr_rom[9],addr_rom[3:1]};
+						data <= {4'b1000,addr[9],addr[3:1]};
 						state <= WRITERAM;
 					end
 				
 				//write ram
 				WRITERAM:
 					begin
-						data <= data_rom_out;
-						addr_rom <= addr_rom + 1'b1;
+						if (addr[3:0] == 4'd7 || addr[3:0] == 4'd8) begin
+							if (addr[8:4] >= 5'h18 && addr[8:4] <= 5'h1F && addr[9] == 0)
+								data <= 8'b11111111;
+							if (addr[8:4] >= 5'h00 && addr[8:4] <= 5'h07 && addr[9] == 1)
+								data <= 8'b11111111;
+						end
+						else	data <= 8'b0;
+						addr <= addr + 1'b1;
 						if (line_done)	begin
 							if (frame_done)	state <= STOP;
 							else	state <= DISPLAY0;
@@ -149,8 +155,5 @@ module LCD_Block_Disp(clk, rst, rs, rw, en, data);
 			endcase
 		end
 	end
-
-//rom
-	lpm_rom0 rom(.address(addr_rom), .clock(clk), .q(data_rom_out));
 
 endmodule

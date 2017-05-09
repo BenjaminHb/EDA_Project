@@ -1,5 +1,5 @@
 Analysis & Synthesis report for LCD_Picture_Disp
-Tue May 09 11:54:32 2017
+Tue May 09 19:39:22 2017
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -49,7 +49,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +------------------------------------+------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue May 09 11:54:31 2017    ;
+; Analysis & Synthesis Status        ; Successful - Tue May 09 19:39:22 2017    ;
 ; Quartus II Version                 ; 9.1 Build 222 10/21/2009 SJ Full Version ;
 ; Revision Name                      ; LCD_Picture_Disp                         ;
 ; Top-level Entity Name              ; LCD_Picture_Disp                         ;
@@ -394,7 +394,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
-    Info: Processing started: Tue May 09 11:54:28 2017
+    Info: Processing started: Tue May 09 19:39:17 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off LCD_Picture_Disp -c LCD_Picture_Disp
 Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info: Found 1 design units, including 1 entities, in source file lpm_rom0.v
@@ -437,8 +437,8 @@ Info: Implemented 100 device resources after synthesis - the final resource coun
     Info: Implemented 8 RAM segments
 Info: Quartus II Analysis & Synthesis was successful. 0 errors, 2 warnings
     Info: Peak virtual memory: 243 megabytes
-    Info: Processing ended: Tue May 09 11:54:32 2017
-    Info: Elapsed time: 00:00:04
+    Info: Processing ended: Tue May 09 19:39:22 2017
+    Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:04
 
 

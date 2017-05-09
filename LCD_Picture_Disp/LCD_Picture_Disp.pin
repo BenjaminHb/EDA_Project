@@ -164,9 +164,9 @@ GND*                         : 93        :        :                   :         
 GND*                         : 94        :        :                   :         : 3         :                
 VCCIO3                       : 95        : power  :                   : 3.3V    : 3         :                
 GND*                         : 96        :        :                   :         : 3         :                
-rst                          : 97        : input  : 3.3-V LVTTL       :         : 3         : Y              
+GND*                         : 97        :        :                   :         : 3         :                
 GND                          : 98        : gnd    :                   :         :           :                
-GND*                         : 99        :        :                   :         : 3         :                
+rst                          : 99        : input  : 3.3-V LVTTL       :         : 3         : Y              
 GND*                         : 100       :        :                   :         : 3         :                
 GND*                         : 101       :        :                   :         : 3         :                
 VCCIO3                       : 102       : power  :                   : 3.3V    : 3         :                

@@ -1,12 +1,13 @@
 
 State Machine - |LCD_Block_Disp_Ctrl|state
-Name state.WRITERAM state.DISPLAY1 state.DISPLAY0 state.SETFUNCTION1 state.SETFUNCTION0 state.SWITCHMODE state.SETMODE state.IDLE state.STOP 
-state.IDLE 0 0 0 0 0 0 0 0 0 
-state.SETMODE 0 0 0 0 0 0 1 1 0 
-state.SWITCHMODE 0 0 0 0 0 1 0 1 0 
-state.SETFUNCTION0 0 0 0 0 1 0 0 1 0 
-state.SETFUNCTION1 0 0 0 1 0 0 0 1 0 
-state.DISPLAY0 0 0 1 0 0 0 0 1 0 
-state.DISPLAY1 0 1 0 0 0 0 0 1 0 
-state.WRITERAM 1 0 0 0 0 0 0 1 0 
-state.STOP 0 0 0 0 0 0 0 1 1 
+Name state.STOP state.WRITERAM state.DISPLAY1 state.DISPLAY0 state.PROCESSKEY state.SETFUNCTION1 state.SETFUNCTION0 state.SWITCHMODE state.SETMODE state.IDLE 
+state.IDLE 0 0 0 0 0 0 0 0 0 0 
+state.SETMODE 0 0 0 0 0 0 0 0 1 1 
+state.SWITCHMODE 0 0 0 0 0 0 0 1 0 1 
+state.SETFUNCTION0 0 0 0 0 0 0 1 0 0 1 
+state.SETFUNCTION1 0 0 0 0 0 1 0 0 0 1 
+state.PROCESSKEY 0 0 0 0 1 0 0 0 0 1 
+state.DISPLAY0 0 0 0 1 0 0 0 0 0 1 
+state.DISPLAY1 0 0 1 0 0 0 0 0 0 1 
+state.WRITERAM 0 1 0 0 0 0 0 0 0 1 
+state.STOP 1 0 0 0 0 0 0 0 0 1 

@@ -20,80 +20,6 @@ VHSM_ON
 -- Start VHDL Libraries --
 -- End VHDL Libraries --
 # entity
-LCD_Block_Disp
-# storage
-db|LCD_Block_Disp.(0).cnf
-db|LCD_Block_Disp.(0).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-lcd_block_disp.v
-7abe6969cfd1855a1f175d4c9543212
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# user_parameter {
-IDLE
-0000
-PARAMETER_UNSIGNED_BIN
-DEF
-SETMODE
-0001
-PARAMETER_UNSIGNED_BIN
-DEF
-SWITCHMODE
-0010
-PARAMETER_UNSIGNED_BIN
-DEF
-SETFUNCTION0
-0011
-PARAMETER_UNSIGNED_BIN
-DEF
-SETFUNCTION1
-0100
-PARAMETER_UNSIGNED_BIN
-DEF
-DISPLAY0
-0101
-PARAMETER_UNSIGNED_BIN
-DEF
-DISPLAY1
-0110
-PARAMETER_UNSIGNED_BIN
-DEF
-WRITERAM
-0111
-PARAMETER_UNSIGNED_BIN
-DEF
-STOP
-1000
-PARAMETER_UNSIGNED_BIN
-DEF
-}
-# hierarchies {
-|
-}
-# macro_sequence
-
-# end
-# entity
 lpm_rom0
 # storage
 db|LCD_Block_Disp.(1).cnf
@@ -122,9 +48,6 @@ VERILOG_CONSTANT_LOOP_LIMIT
 5000
 VERILOG_NON_CONSTANT_LOOP_LIMIT
 250
-}
-# hierarchies {
-lpm_rom0:rom
 }
 # macro_sequence
 
@@ -406,9 +329,6 @@ address_b
 -1
 2
 }
-# hierarchies {
-lpm_rom0:rom|altsyncram:altsyncram_component
-}
 # macro_sequence
 
 # end
@@ -485,8 +405,79 @@ address_a0
 block.hex
 ec78361d7fa0e6942cea142db5906b82
 }
+# macro_sequence
+
+# end
+# entity
+LCD_Block_Disp
+# storage
+db|LCD_Block_Disp.(0).cnf
+db|LCD_Block_Disp.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+lcd_block_disp.v
+99c1484152d134a342a77d9b2d0f5f
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+IDLE
+0000
+PARAMETER_UNSIGNED_BIN
+DEF
+SETMODE
+0001
+PARAMETER_UNSIGNED_BIN
+DEF
+SWITCHMODE
+0010
+PARAMETER_UNSIGNED_BIN
+DEF
+SETFUNCTION0
+0011
+PARAMETER_UNSIGNED_BIN
+DEF
+SETFUNCTION1
+0100
+PARAMETER_UNSIGNED_BIN
+DEF
+DISPLAY0
+0101
+PARAMETER_UNSIGNED_BIN
+DEF
+DISPLAY1
+0110
+PARAMETER_UNSIGNED_BIN
+DEF
+WRITERAM
+0111
+PARAMETER_UNSIGNED_BIN
+DEF
+STOP
+1000
+PARAMETER_UNSIGNED_BIN
+DEF
+}
 # hierarchies {
-lpm_rom0:rom|altsyncram:altsyncram_component|altsyncram_c931:auto_generated
+|
 }
 # macro_sequence
 

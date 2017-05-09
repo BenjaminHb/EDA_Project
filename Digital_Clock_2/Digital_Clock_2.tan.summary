@@ -35,7 +35,7 @@ Failed Paths   : 0
 Type           : Clock Setup: 'clk'
 Slack          : N/A
 Required Time  : None
-Actual Time    : 69.86 MHz ( period = 14.314 ns )
+Actual Time    : 69.84 MHz ( period = 14.318 ns )
 From           : hr_high_out[4]
 To             : hr_low_carryout
 From Clock     : clk

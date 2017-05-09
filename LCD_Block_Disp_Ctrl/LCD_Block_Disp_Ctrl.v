@@ -1,11 +1,15 @@
-module LCD_Block_Disp_Ctrl(clk, rst, rs, rw, en, data);
+module LCD_Block_Disp_Ctrl(clk, rst, up, down, left, right, rs, rw, en, data);
 //	EDA_Project/LCD_Block_Disp
-//	Version 1.0.1.080517
+//	Version 1.3.2.090517
 //	Created by Benjamin Zhang on 08/05/17
-//	Copyright ? 2017 Benjamin Zhang
+//	Copyright © 2017 Benjamin Zhang
 //
 	input			clk;	//50MHz, clock speed
 	input			rst;	//global reset, low level effective
+	input			up;
+	input			down;
+	input			left;
+	input			right;
 	output			rs;		//LCD Command or Data Select / 0 or 1
 	output			rw;		//LCD Read or Write / 1 or 0
 	output			en;		//LCD Enable, fall edge effective
@@ -13,12 +17,12 @@ module LCD_Block_Disp_Ctrl(clk, rst, rs, rw, en, data);
 
 	assign	rw = 1'b0;
 
-//Produce 0.5KHz(2ms) clock speed
+//Produce 0.5KHz(2ms) clock speed ********************************//
 	reg			LCD_clk;	//20KHz clk
 	reg [11:0]	LCD_count;	//count
 
-	always @(posedge clk or negedge rst) begin
-		if (!rst) begin
+	always @(posedge clk or negedge rst or negedge rst2) begin
+		if (!rst || !rst2) begin
 			LCD_count <= 12'd0;
 			LCD_clk <= 1'b0;
 		end
@@ -29,24 +33,58 @@ module LCD_Block_Disp_Ctrl(clk, rst, rs, rw, en, data);
 		else	LCD_count <= LCD_count + 1'b1;
 	end
 
-//Parameter
+//Anti_shaking ***************************************************//
+	reg [30:0]		key_in_up, key_in_down, key_in_left, key_in_right;
+	reg				key_up, key_down, key_left, key_right;
+
+	always @(posedge clk) begin
+		if (!up)	key_in_up <= key_in_up + 1'b1;
+		else key_in_up <= 0;
+		if (!down)	key_in_down <= key_in_down + 1'b1;
+		else key_in_down <= 0;
+		if (!left)	key_in_left <= key_in_left + 1'b1;
+		else key_in_left <= 0;
+		if (!right)	key_in_right <= key_in_right + 1'b1;
+		else key_in_right <= 0;
+	end
+
+	always @(posedge clk) begin
+		if (key_in_up[20] == 1'b1) key_up <= 1'b0;
+		else    key_up <= 1'b1;
+		if (key_in_down[20] == 1'b1) key_down <= 1'b0;
+		else    key_down <= 1'b1;
+		if (key_in_left[20] == 1'b1) key_left <= 1'b0;
+		else    key_left <= 1'b1;
+		if (key_in_right[20] == 1'b1) key_right <= 1'b0;
+		else    key_right <= 1'b1;
+	end
+
+//Key press reset ************************************************//
+	reg	rst2;
+	always @(up or down or left or right) begin
+		if (up==0 || down==0 || left==0 || right==0)	rst2 = 0;
+		else	rst2 = 1'b1;
+	end
+
+//Parameter ******************************************************//
 	parameter IDLE 			= 4'd0;	//initialization
 	parameter SETMODE 		= 4'd1;	//entry mode set
 	parameter SWITCHMODE 	= 4'd2;	//display status
 	parameter SETFUNCTION0 	= 4'd3;	//funtion set
 	parameter SETFUNCTION1 	= 4'd4;	//funtion set
-	parameter DISPLAY0 		= 4'd5;	//Y coord set
-	parameter DISPLAY1 		= 4'd6;	//X coord set
-	parameter WRITERAM 		= 4'd7;	//write
-	parameter STOP 			= 4'd8;	//stop
+	parameter PROCESSKEY	= 4'd5;	//process key press, move block
+	parameter DISPLAY0 		= 4'd6;	//Y coord set
+	parameter DISPLAY1 		= 4'd7;	//X coord set
+	parameter WRITERAM 		= 4'd8;	//write
+	parameter STOP 			= 4'd9;	//stop
 
-//LCD Read or Write select
+//LCD Read or Write select ***************************************//
 	reg [3:0]	state;	//state
 	reg			rs;	//LCD Command or Data Select / 0 or 1
 
 	//only wrte data rs will be high level
-	always @(posedge LCD_clk or negedge rst) begin
-		if (!rst)	rs = 1'b0;	//reset, command mode
+	always @(posedge LCD_clk or negedge rst or negedge rst2) begin
+		if (!rst || !rst2)	rs = 1'b0;	//reset, command mode
 		else if (state == WRITERAM)	rs <= 1'b1;	//state write, data mode
 		else	rs <= 1'b0;	//finish write, command mode
 	end
@@ -55,23 +93,30 @@ module LCD_Block_Disp_Ctrl(clk, rst, rs, rw, en, data);
 	
 	assign en = (flag == 1)? LCD_clk:1'b0;
 
-//State machine
-	reg [9:0]	addr_rom;	//coord count
+//State machine **************************************************//
+	reg [9:0]	addr;	//coord count
 	reg [7:0]	data;	//LCD data
-	wire [7:0]	data_rom_out;	//display data
 	wire 		line_done;
 	wire		frame_done;
+	wire [3:0]	key_combine;
+	reg [3:0]	move_x;	//delta x, 0 - 15
+	reg [4:0]	move_y;	//delta y, 0 - 31
 
+	initial begin
+		move_x = 4'd7;
+		move_y = 5'h18;
+	end
 
-	assign	line_done = (addr_rom[3:0] == 4'hf);
-	assign	frame_done = (addr_rom[9:4] == 7'h3f);
+	assign	key_combine = {up, down, left, right};
+	assign	line_done = (addr[3:0] == 4'hf);
+	assign	frame_done = (addr[9:4] == 7'h3f);
 
-	always @(posedge LCD_clk or negedge rst) begin
-		if (!rst) begin
+	always @(posedge LCD_clk or negedge rst or negedge rst2) begin
+		if (!rst || !rst2) begin
 			state <= IDLE;
 			data <= 8'bzzzzzzzz;
 			flag <= 1'b1;
-			addr_rom <= 10'd0;
+			addr <= 10'd0;
 		end
 		else begin
 			case (state)
@@ -81,7 +126,7 @@ module LCD_Block_Disp_Ctrl(clk, rst, rs, rw, en, data);
 						data <= 8'bzzzzzzzz;
 						state <= SETFUNCTION0;
 						flag <= 1'b1;
-						addr_rom <= 10'd0;
+						addr <= 10'd0;
 					end
 				
 				//funtion set
@@ -109,28 +154,67 @@ module LCD_Block_Disp_Ctrl(clk, rst, rs, rw, en, data);
 				SETFUNCTION1:
 					begin
 						data <= 8'h36;
-						state <= DISPLAY0;	//expanded instr
+						state <= PROCESSKEY;	//expanded instr
+					end
+				
+				//process key press
+				PROCESSKEY:
+					begin
+						case (key_combine)
+							4'b0111:	begin	//up
+											if (move_y == 5'h0 && addr[9] == 1'b0)	move_y = 5'h18;
+											else if (move_y == 5'h0 && addr[9] == 1'b1)	move_y = 5'h1D;
+											else	move_y = move_y + 5'd4;
+										end
+							4'b1011:	begin	//down
+											if (move_y == 5'h18 && addr[9] == 1'b1)	move_y = 5'h0;
+											else if (move_y == 5'h1D && addr[9] == 1'b0)	move_y = 5'h0;
+											else	move_y = move_y - 5'd4;
+										end
+							4'b1101:	begin	//left
+											if (move_x == 4'd1)	move_x = 4'd13;
+											else	move_x = move_x - 1'd1;
+										end
+							4'b1110:	begin	//right
+											if (move_x == 4'd13)	move_x = 4'd1;
+											else	move_x = move_x + 1'd1;
+										end
+							default:;
+						endcase
+						state <= DISPLAY0;
 					end
 
 				//Y coord set
 				DISPLAY0:
 					begin
-						data <= {3'b100,addr_rom[8:4]};
+						data <= {3'b100,addr[8:4]};
 						state <= DISPLAY1;
 					end
 				
 				//X coord set
 				DISPLAY1:
 					begin
-						data <= {4'b1000,addr_rom[9],addr_rom[3:1]};
+						data <= {4'b1000,addr[9],addr[3:1]};
 						state <= WRITERAM;
 					end
 				
 				//write ram
 				WRITERAM:
 					begin
-						data <= data_rom_out;
-						addr_rom <= addr_rom + 1'b1;
+						if (addr[3:0] == move_x || addr[3:0] == (move_x + 1'd1)) begin
+							if (5'h1F - move_y >= 5'hF) begin
+								if (addr[8:4] >= move_y && addr[8:4] <= (move_y+5'hF))
+									data <= 8'b11111111;
+							end
+							else begin
+								if (addr[8:4] >= move_y && addr[8:4] <= 5'h1F && addr[9] == 1'b0)
+									data <= 8'b11111111;
+								if (addr[8:4] >= 5'h0 && addr[8:4] <= (5'h1F - move_y) && addr[9] == 1'b1)
+									data <= 8'b11111111;
+							end
+						end
+						else	data <= 8'b0;
+						addr <= addr + 1'b1;
 						if (line_done)	begin
 							if (frame_done)	state <= STOP;
 							else	state <= DISPLAY0;
@@ -149,8 +233,5 @@ module LCD_Block_Disp_Ctrl(clk, rst, rs, rw, en, data);
 			endcase
 		end
 	end
-
-//rom
-	lpm_rom0 rom(.address(addr_rom), .clock(clk), .q(data_rom_out));
 
 endmodule

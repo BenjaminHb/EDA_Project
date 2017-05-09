@@ -5,7 +5,7 @@ Timing Analyzer Summary
 Type           : Worst-case tco
 Slack          : N/A
 Required Time  : None
-Actual Time    : 12.887 ns
+Actual Time    : 12.885 ns
 From           : data[5]~en
 To             : data[5]
 From Clock     : clk

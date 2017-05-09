@@ -1,5 +1,5 @@
 Assembler report for Digital_Clock_2
-Tue May 09 11:33:29 2017
+Tue May 09 23:17:24 2017
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Tue May 09 11:33:29 2017 ;
+; Assembler Status      ; Successful - Tue May 09 23:17:24 2017 ;
 ; Revision Name         ; Digital_Clock_2                       ;
 ; Top-level Entity Name ; Digital_Clock_2                       ;
 ; Family                ; Cyclone II                            ;
@@ -95,7 +95,7 @@ applicable agreement for further details.
 +----------------+------------------------------------------------------------------------------------------------------------------------------------+
 ; Device         ; EP2C5T144C8                                                                                                                        ;
 ; JTAG usercode  ; 0xFFFFFFFF                                                                                                                         ;
-; Checksum       ; 0x0008F266                                                                                                                         ;
+; Checksum       ; 0x0008F1B5                                                                                                                         ;
 +----------------+------------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -106,7 +106,7 @@ applicable agreement for further details.
 +--------------------+--------------------------------------------------------------------------------------------------------------------------------+
 ; Device             ; EPCS4                                                                                                                          ;
 ; JTAG usercode      ; 0x00000000                                                                                                                     ;
-; Checksum           ; 0x074F111E                                                                                                                     ;
+; Checksum           ; 0x074F1386                                                                                                                     ;
 ; Compression Ratio  ; 3                                                                                                                              ;
 +--------------------+--------------------------------------------------------------------------------------------------------------------------------+
 
@@ -117,14 +117,14 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II Assembler
     Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
-    Info: Processing started: Tue May 09 11:33:28 2017
+    Info: Processing started: Tue May 09 23:17:23 2017
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off Digital_Clock_2 -c Digital_Clock_2
 Info: Writing out detailed assembly data for power analysis
 Info: Assembler is generating device programming files
 Info: Quartus II Assembler was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 220 megabytes
-    Info: Processing ended: Tue May 09 11:33:29 2017
+    Info: Processing ended: Tue May 09 23:17:24 2017
     Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Total CPU time (on all processors): 00:00:02
 
 

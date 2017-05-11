@@ -1,5 +1,5 @@
 Flow report for LCD_Block_Disp_Ctrl
-Thu May 11 17:06:20 2017
+Thu May 11 18:03:49 2017
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +------------------------------------+------------------------------------------+
-; Flow Status                        ; Successful - Thu May 11 17:06:20 2017    ;
+; Flow Status                        ; Successful - Thu May 11 18:03:49 2017    ;
 ; Quartus II Version                 ; 9.1 Build 222 10/21/2009 SJ Full Version ;
 ; Revision Name                      ; LCD_Block_Disp_Ctrl                      ;
 ; Top-level Entity Name              ; LCD_Block_Disp_Ctrl                      ;
@@ -63,7 +63,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/11/2017 17:06:11 ;
+; Start date & time ; 05/11/2017 18:03:39 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; LCD_Block_Disp_Ctrl ;
 +-------------------+---------------------+
@@ -74,7 +74,7 @@ applicable agreement for further details.
 +------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                    ; Value                                                                                                                             ; Default Value ; Entity Name ; Section Id     ;
 +------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID              ; 52234966679.149449357105884                                                                                                       ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID              ; 52234966679.149449701901408                                                                                                       ; --            ; --          ; --             ;
 ; IP_TOOL_NAME                       ; LPM_ROM                                                                                                                           ; --            ; --          ; --             ;
 ; IP_TOOL_VERSION                    ; 9.1                                                                                                                               ; --            ; --          ; --             ;
 ; MAX_CORE_JUNCTION_TEMP             ; 85                                                                                                                                ; --            ; --          ; --             ;
@@ -93,10 +93,10 @@ applicable agreement for further details.
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name             ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis    ; 00:00:03     ; 1.0                     ; 237 MB              ; 00:00:04                           ;
+; Analysis & Synthesis    ; 00:00:03     ; 1.0                     ; 241 MB              ; 00:00:03                           ;
 ; Fitter                  ; 00:00:02     ; 1.0                     ; 266 MB              ; 00:00:02                           ;
 ; Assembler               ; 00:00:01     ; 1.0                     ; 220 MB              ; 00:00:01                           ;
-; Classic Timing Analyzer ; 00:00:01     ; 1.0                     ; 183 MB              ; 00:00:01                           ;
+; Classic Timing Analyzer ; 00:00:01     ; 1.0                     ; 183 MB              ; 00:00:02                           ;
 ; Total                   ; 00:00:07     ; --                      ; --                  ; 00:00:08                           ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 

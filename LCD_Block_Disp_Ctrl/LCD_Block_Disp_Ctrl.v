@@ -21,8 +21,8 @@ module LCD_Block_Disp_Ctrl(clk, rst, up, down, left, right, rs, rw, en, data);
 	reg			LCD_clk;	//20KHz clk
 	reg [11:0]	LCD_count;	//count
 
-	always @(posedge clk or negedge rst or negedge rst2) begin
-		if (!rst || !rst2) begin
+	always @(posedge clk or negedge rst) begin
+		if (!rst) begin
 			LCD_count <= 12'd0;
 			LCD_clk <= 1'b0;
 		end
@@ -59,17 +59,6 @@ module LCD_Block_Disp_Ctrl(clk, rst, up, down, left, right, rs, rw, en, data);
 		else    key_right <= 1'b1;
 	end
 
-//Key press reset ************************************************//
-	reg	rst2;
-
-	always @(*) begin
-		rst2 = 1'b1;
-	end
-	/*always @(up or down or left or right) begin
-		if (up==0 || down==0 || left==0 || right==0)	rst2 = 0;
-		else	rst2 = 1'b1;
-	end*/
-
 //Parameter ******************************************************//
 	parameter IDLE 			= 4'd0;	//initialization
 	parameter PROCESSKEY	= 4'd1;	//process key press, move block
@@ -87,8 +76,8 @@ module LCD_Block_Disp_Ctrl(clk, rst, up, down, left, right, rs, rw, en, data);
 	reg			rs;	//LCD Command or Data Select / 0 or 1
 
 	//only wrte data rs will be high level
-	always @(posedge LCD_clk or negedge rst or negedge rst2) begin
-		if (!rst || !rst2) begin
+	always @(posedge LCD_clk or negedge rst) begin
+		if (!rst) begin
 			rs = 1'b0;	//reset, command mode
 		end
 		else if (state == WRITERAM)	rs <= 1'b1;	//state write, data mode
@@ -119,32 +108,8 @@ module LCD_Block_Disp_Ctrl(clk, rst, up, down, left, right, rs, rw, en, data);
 	assign	line_done = (addr[3:0] == 4'hf);
 	assign	frame_done = (addr[9:4] == 7'h3f);
 
-	/*always @(negedge key_up or negedge key_down or negedge key_left or negedge key_right) begin
-		case (key_combine)
-			4'b0111:	begin	//up
-							if (move_y == 5'h0 && addr[9] == 1'b0)	move_y = 5'h18;
-							else if (move_y == 5'h0 && addr[9] == 1'b1)	move_y = 5'h1D;
-							else	move_y = move_y + 5'd4;
-						end
-			4'b1011:	begin	//down
-							if (move_y == 5'h18 && addr[9] == 1'b1)	move_y = 5'h0;
-							else if (move_y == 5'h1D && addr[9] == 1'b0)	move_y = 5'h0;
-							else	move_y = move_y - 5'd4;
-						end
-			4'b1101:	begin	//left
-							if (move_x == 4'd0)	move_x = 4'd14;
-							else	move_x = move_x - 1'd1;
-						end
-			4'b1110:	begin	//right
-							if (move_x == 4'd14)	move_x = 4'd0;
-							else	move_x = move_x + 1'd1;
-						end
-			default:;
-		endcase
-	end*/
-
-	always @(posedge LCD_clk or negedge rst or negedge rst2) begin
-		if (!rst || !rst2) begin
+	always @(posedge LCD_clk or negedge rst) begin
+		if (!rst) begin
 			state <= IDLE;
 			data <= 8'bzzzzzzzz;
 			flag <= 1'b1;

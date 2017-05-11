@@ -1,5 +1,5 @@
 Fitter report for LCD_Block_Disp_Ctrl
-Thu May 11 17:06:16 2017
+Thu May 11 18:03:44 2017
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -62,7 +62,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Fitter Summary                                                                ;
 +------------------------------------+------------------------------------------+
-; Fitter Status                      ; Successful - Thu May 11 17:06:16 2017    ;
+; Fitter Status                      ; Successful - Thu May 11 18:03:44 2017    ;
 ; Quartus II Version                 ; 9.1 Build 222 10/21/2009 SJ Full Version ;
 ; Revision Name                      ; LCD_Block_Disp_Ctrl                      ;
 ; Top-level Entity Name              ; LCD_Block_Disp_Ctrl                      ;
@@ -950,7 +950,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II Fitter
     Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
-    Info: Processing started: Thu May 11 17:06:14 2017
+    Info: Processing started: Thu May 11 18:03:42 2017
 Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off LCD_Block_Disp_Ctrl -c LCD_Block_Disp_Ctrl
 Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info: Selected device EP2C5T144C8 for design "LCD_Block_Disp_Ctrl"
@@ -979,7 +979,7 @@ Info: Automatically promoted node LCD_clk
 Info: Starting register packing
 Info: Finished register packing
     Extra Info: No registers were packed into other blocks
-Info: Fitter preparation operations ending: elapsed time is 00:00:01
+Info: Fitter preparation operations ending: elapsed time is 00:00:00
 Info: Fitter placement preparation operations beginning
 Info: Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info: Fitter placement operations beginning
@@ -1019,8 +1019,8 @@ Warning: The Reserve All Unused Pins setting has not been specified, and will de
 Info: Generated suppressed messages file Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/LCD_Block_Disp_Ctrl/LCD_Block_Disp_Ctrl.fit.smsg
 Info: Quartus II Fitter was successful. 0 errors, 2 warnings
     Info: Peak virtual memory: 273 megabytes
-    Info: Processing ended: Thu May 11 17:06:16 2017
-    Info: Elapsed time: 00:00:02
+    Info: Processing ended: Thu May 11 18:03:45 2017
+    Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 
 

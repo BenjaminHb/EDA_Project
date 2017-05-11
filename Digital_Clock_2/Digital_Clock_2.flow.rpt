@@ -1,5 +1,5 @@
 Flow report for Digital_Clock_2
-Tue May 09 23:17:27 2017
+Wed May 10 21:46:06 2017
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +------------------------------------+------------------------------------------+
-; Flow Status                        ; Successful - Tue May 09 23:17:27 2017    ;
+; Flow Status                        ; Successful - Wed May 10 21:46:06 2017    ;
 ; Quartus II Version                 ; 9.1 Build 222 10/21/2009 SJ Full Version ;
 ; Revision Name                      ; Digital_Clock_2                          ;
 ; Top-level Entity Name              ; Digital_Clock_2                          ;
@@ -63,7 +63,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/09/2017 23:17:16 ;
+; Start date & time ; 05/10/2017 21:45:56 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Digital_Clock_2     ;
 +-------------------+---------------------+
@@ -74,7 +74,7 @@ applicable agreement for further details.
 +------------------------------------+---------------------------------------------------------------------------------------------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                    ; Value                                                                                                                     ; Default Value ; Entity Name ; Section Id     ;
 +------------------------------------+---------------------------------------------------------------------------------------------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID              ; 52234966679.149434303503576                                                                                               ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID              ; 52234966679.149442395606600                                                                                               ; --            ; --          ; --             ;
 ; MAX_CORE_JUNCTION_TEMP             ; 85                                                                                                                        ; --            ; --          ; --             ;
 ; MIN_CORE_JUNCTION_TEMP             ; 0                                                                                                                         ; --            ; --          ; --             ;
 ; MISC_FILE                          ; Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/Digital_Clock_2/Digital_Clock_2.dpf ; --            ; --          ; --             ;
@@ -89,11 +89,11 @@ applicable agreement for further details.
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name             ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis    ; 00:00:04     ; 1.0                     ; 236 MB              ; 00:00:04                           ;
+; Analysis & Synthesis    ; 00:00:03     ; 1.0                     ; 237 MB              ; 00:00:04                           ;
 ; Fitter                  ; 00:00:02     ; 1.0                     ; 265 MB              ; 00:00:03                           ;
 ; Assembler               ; 00:00:01     ; 1.0                     ; 220 MB              ; 00:00:01                           ;
 ; Classic Timing Analyzer ; 00:00:02     ; 1.0                     ; 183 MB              ; 00:00:02                           ;
-; Total                   ; 00:00:09     ; --                      ; --                  ; 00:00:10                           ;
+; Total                   ; 00:00:08     ; --                      ; --                  ; 00:00:10                           ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

@@ -62,7 +62,7 @@ module Digital_Clock_2(clk, rst, en, min, hr, out_data, out_select);
 
 //********************* min_low *********************//
 	always @(clk_freq_div or key_min) begin
-		min_low_carryin <= (key_min & ~key_en) | (clk_freq_div & key_en);
+		min_low_carryin <= (~key_min & ~key_en) | (clk_freq_div & key_en);
 	end
 
 	//assign	min_low_carryin = (key_en)?clk_freq_div:~key_min;
@@ -99,7 +99,7 @@ module Digital_Clock_2(clk, rst, en, min, hr, out_data, out_select);
 	end
 
 //********************* hr_low *********************//
-	assign	hr_low_carryin = ~key_hr | min_high_carryout;
+	assign	hr_low_carryin = (~key_hr & ~key_en)| min_high_carryout;
 
 	always @(posedge hr_low_carryin or negedge rst) begin
 		if (!rst) begin

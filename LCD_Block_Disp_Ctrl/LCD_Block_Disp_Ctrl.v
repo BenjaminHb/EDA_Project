@@ -1,17 +1,17 @@
 module LCD_Block_Disp_Ctrl(clk, rst, up, down, left, right, rs, rw, en, data);
 //	EDA_Project/LCD_Block_Disp
-//	Version 2.1.4.110517
+//	Version 2.2.7.110517
 //	Created by Benjamin Zhang on 08/05/17
 //	Copyright © 2017 Benjamin Zhang
 //
 	input			clk;	//50MHz, clock speed
-	input			rst;	//global reset, low level effective
+	input			rst;	//global reset
 	input			up;
 	input			down;
 	input			left;
 	input			right;
-	output			rs;		//LCD Command or Data Select / 0 or 1
-	output			rw;		//LCD Read or Write / 1 or 0
+	output			rs;		//LCD Command or Data Select, 0 or 1
+	output			rw;		//LCD Read or Write, 1 or 0
 	output			en;		//LCD Enable, fall edge effective
 	output [7:0]	data;	//LCD Data
 
@@ -73,7 +73,7 @@ module LCD_Block_Disp_Ctrl(clk, rst, up, down, left, right, rs, rw, en, data);
 
 //LCD Read or Write select ***************************************//
 	reg [3:0]	state;	//state
-	reg			rs;	//LCD Command or Data Select / 0 or 1
+	reg			rs;	//LCD Command or Data Select, 0 or 1
 
 	//only wrte data rs will be high level
 	always @(posedge LCD_clk or negedge rst) begin
@@ -84,7 +84,7 @@ module LCD_Block_Disp_Ctrl(clk, rst, up, down, left, right, rs, rw, en, data);
 		else	rs <= 1'b0;	//finish write, command mode
 	end
 
-	reg	flag;	//LCD operate finish with low level
+	reg	flag;	//LCD operate finish, low level
 	
 	assign en = (flag == 1)? LCD_clk:1'b0;
 
@@ -95,7 +95,7 @@ module LCD_Block_Disp_Ctrl(clk, rst, up, down, left, right, rs, rw, en, data);
 	wire		frame_done;
 	wire [3:0]	key_combine;
 	reg [3:0]	move_x;	//delta x, 0 - 15
-	reg [5:0]	move_y;	//delta y, 0 - 31, 0 / 1
+	reg [5:0]	move_y;	//delta y, 0 / 1, 0 - 31
 	reg			init_status;
 
 	initial begin

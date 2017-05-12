@@ -1,5 +1,5 @@
 Flow report for LCD_Picture_Disp
-Tue May 09 19:39:31 2017
+Fri May 12 08:35:47 2017
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -35,27 +35,23 @@ applicable agreement for further details.
 
 
 
-+-------------------------------------------------------------------------------+
-; Flow Summary                                                                  ;
-+------------------------------------+------------------------------------------+
-; Flow Status                        ; Successful - Tue May 09 19:39:31 2017    ;
-; Quartus II Version                 ; 9.1 Build 222 10/21/2009 SJ Full Version ;
-; Revision Name                      ; LCD_Picture_Disp                         ;
-; Top-level Entity Name              ; LCD_Picture_Disp                         ;
-; Family                             ; Cyclone II                               ;
-; Device                             ; EP2C5T144C8                              ;
-; Timing Models                      ; Final                                    ;
-; Met timing requirements            ; No                                       ;
-; Total logic elements               ; 76 / 4,608 ( 2 % )                       ;
-;     Total combinational functions  ; 66 / 4,608 ( 1 % )                       ;
-;     Dedicated logic registers      ; 50 / 4,608 ( 1 % )                       ;
-; Total registers                    ; 50                                       ;
-; Total pins                         ; 13 / 89 ( 15 % )                         ;
-; Total virtual pins                 ; 0                                        ;
-; Total memory bits                  ; 8,192 / 119,808 ( 7 % )                  ;
-; Embedded Multiplier 9-bit elements ; 0 / 26 ( 0 % )                           ;
-; Total PLLs                         ; 0 / 2 ( 0 % )                            ;
-+------------------------------------+------------------------------------------+
++--------------------------------------------------------------------+
+; Flow Summary                                                       ;
++-------------------------+------------------------------------------+
+; Flow Status             ; Successful - Fri May 12 08:35:47 2017    ;
+; Quartus II Version      ; 9.1 Build 222 10/21/2009 SJ Full Version ;
+; Revision Name           ; LCD_Picture_Disp                         ;
+; Top-level Entity Name   ; LCD_Picture_Disp                         ;
+; Family                  ; Cyclone                                  ;
+; Device                  ; EP1C6Q240C8                              ;
+; Timing Models           ; Final                                    ;
+; Met timing requirements ; No                                       ;
+; Total logic elements    ; 81 / 5,980 ( 1 % )                       ;
+; Total pins              ; 13 / 185 ( 7 % )                         ;
+; Total virtual pins      ; 0                                        ;
+; Total memory bits       ; 8,192 / 92,160 ( 9 % )                   ;
+; Total PLLs              ; 0 / 2 ( 0 % )                            ;
++-------------------------+------------------------------------------+
 
 
 +-----------------------------------------+
@@ -63,7 +59,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/09/2017 19:39:19 ;
+; Start date & time ; 05/12/2017 08:35:37 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; LCD_Picture_Disp    ;
 +-------------------+---------------------+
@@ -74,11 +70,9 @@ applicable agreement for further details.
 +------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                    ; Value                                                                                                                       ; Default Value ; Entity Name ; Section Id     ;
 +------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID              ; 52234966679.149432995906896                                                                                                 ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID              ; 52234966679.149454933600544                                                                                                 ; --            ; --          ; --             ;
 ; IP_TOOL_NAME                       ; LPM_ROM                                                                                                                     ; --            ; --          ; --             ;
 ; IP_TOOL_VERSION                    ; 9.1                                                                                                                         ; --            ; --          ; --             ;
-; MAX_CORE_JUNCTION_TEMP             ; 85                                                                                                                          ; --            ; --          ; --             ;
-; MIN_CORE_JUNCTION_TEMP             ; 0                                                                                                                           ; --            ; --          ; --             ;
 ; MISC_FILE                          ; lpm_rom0.bsf                                                                                                                ; --            ; --          ; --             ;
 ; MISC_FILE                          ; lpm_rom0_bb.v                                                                                                               ; --            ; --          ; --             ;
 ; MISC_FILE                          ; Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/LCD_Picture_Disp/LCD_Picture_Disp.dpf ; --            ; --          ; --             ;
@@ -93,11 +87,11 @@ applicable agreement for further details.
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name             ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis    ; 00:00:04     ; 1.0                     ; 243 MB              ; 00:00:04                           ;
-; Fitter                  ; 00:00:02     ; 2.0                     ; 265 MB              ; 00:00:03                           ;
-; Assembler               ; 00:00:01     ; 1.0                     ; 224 MB              ; 00:00:01                           ;
-; Classic Timing Analyzer ; 00:00:02     ; 1.0                     ; 182 MB              ; 00:00:02                           ;
-; Total                   ; 00:00:09     ; --                      ; --                  ; 00:00:10                           ;
+; Analysis & Synthesis    ; 00:00:03     ; 1.0                     ; 252 MB              ; 00:00:03                           ;
+; Fitter                  ; 00:00:02     ; 1.0                     ; 274 MB              ; 00:00:02                           ;
+; Assembler               ; 00:00:02     ; 1.0                     ; 225 MB              ; 00:00:01                           ;
+; Classic Timing Analyzer ; 00:00:01     ; 1.0                     ; 180 MB              ; 00:00:01                           ;
+; Total                   ; 00:00:08     ; --                      ; --                  ; 00:00:07                           ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

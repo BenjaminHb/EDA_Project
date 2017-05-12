@@ -1,5 +1,5 @@
 Analysis & Synthesis report for LCD_Block_Disp_Ctrl
-Thu May 11 18:03:41 2017
+Fri May 12 08:43:03 2017
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -43,24 +43,20 @@ applicable agreement for further details.
 
 
 
-+-------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                  ;
-+------------------------------------+------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu May 11 18:03:41 2017    ;
-; Quartus II Version                 ; 9.1 Build 222 10/21/2009 SJ Full Version ;
-; Revision Name                      ; LCD_Block_Disp_Ctrl                      ;
-; Top-level Entity Name              ; LCD_Block_Disp_Ctrl                      ;
-; Family                             ; Cyclone II                               ;
-; Total logic elements               ; 233                                      ;
-;     Total combinational functions  ; 220                                      ;
-;     Dedicated logic registers      ; 148                                      ;
-; Total registers                    ; 148                                      ;
-; Total pins                         ; 17                                       ;
-; Total virtual pins                 ; 0                                        ;
-; Total memory bits                  ; 0                                        ;
-; Embedded Multiplier 9-bit elements ; 0                                        ;
-; Total PLLs                         ; 0                                        ;
-+------------------------------------+------------------------------------------+
++------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                           ;
++-----------------------------+------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Fri May 12 08:43:03 2017    ;
+; Quartus II Version          ; 9.1 Build 222 10/21/2009 SJ Full Version ;
+; Revision Name               ; LCD_Block_Disp_Ctrl                      ;
+; Top-level Entity Name       ; LCD_Block_Disp_Ctrl                      ;
+; Family                      ; Cyclone                                  ;
+; Total logic elements        ; 231                                      ;
+; Total pins                  ; 17                                       ;
+; Total virtual pins          ; 0                                        ;
+; Total memory bits           ; 0                                        ;
+; Total PLLs                  ; 0                                        ;
++-----------------------------+------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------+
@@ -68,9 +64,9 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+---------------------+---------------------+
 ; Option                                                                     ; Setting             ; Default Value       ;
 +----------------------------------------------------------------------------+---------------------+---------------------+
-; Device                                                                     ; EP2C5T144C8         ;                     ;
+; Device                                                                     ; EP1C6Q240C8         ;                     ;
 ; Top-level entity name                                                      ; LCD_Block_Disp_Ctrl ; LCD_Block_Disp_Ctrl ;
-; Family name                                                                ; Cyclone II          ; Stratix II          ;
+; Family name                                                                ; Cyclone             ; Stratix II          ;
 ; Use Generated Physical Constraints File                                    ; Off                 ;                     ;
 ; Use smart compilation                                                      ; Off                 ; Off                 ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                  ; On                  ;
@@ -90,7 +86,6 @@ applicable agreement for further details.
 ; Iteration limit for non-constant Verilog loops                             ; 250                 ; 250                 ;
 ; Add Pass-Through Logic to Inferred RAMs                                    ; On                  ; On                  ;
 ; Parallel Synthesis                                                         ; On                  ; On                  ;
-; DSP Block Balancing                                                        ; Auto                ; Auto                ;
 ; NOT Gate Push-Back                                                         ; On                  ; On                  ;
 ; Power-Up Don't Care                                                        ; On                  ; On                  ;
 ; Remove Redundant Logic Cells                                               ; Off                 ; Off                 ;
@@ -114,6 +109,7 @@ applicable agreement for further details.
 ; Strict RAM Replacement                                                     ; Off                 ; Off                 ;
 ; Allow Synchronous Control Signals                                          ; On                  ; On                  ;
 ; Force Use of Synchronous Clear Signals                                     ; Off                 ; Off                 ;
+; Auto RAM Block Balancing                                                   ; On                  ; On                  ;
 ; Auto RAM to Logic Cell Conversion                                          ; Off                 ; Off                 ;
 ; Auto Resource Sharing                                                      ; Off                 ; Off                 ;
 ; Allow Any RAM Size For Recognition                                         ; Off                 ; Off                 ;
@@ -121,7 +117,6 @@ applicable agreement for further details.
 ; Allow Any Shift Register Size For Recognition                              ; Off                 ; Off                 ;
 ; Use LogicLock Constraints during Resource Balancing                        ; On                  ; On                  ;
 ; Ignore translate_off and synthesis_off directives                          ; Off                 ; Off                 ;
-; Timing-Driven Synthesis                                                    ; Off                 ; Off                 ;
 ; Show Parameter Settings Tables in Synthesis Report                         ; On                  ; On                  ;
 ; Ignore Maximum Fan-Out Assignments                                         ; Off                 ; Off                 ;
 ; Synchronization Register Chain Length                                      ; 2                   ; 2                   ;
@@ -131,9 +126,7 @@ applicable agreement for further details.
 ; Number of Removed Registers Reported in Synthesis Report                   ; 100                 ; 100                 ;
 ; Number of Inverted Registers Reported in Synthesis Report                  ; 100                 ; 100                 ;
 ; Clock MUX Protection                                                       ; On                  ; On                  ;
-; Auto Gated Clock Conversion                                                ; Off                 ; Off                 ;
 ; Block Design Naming                                                        ; Auto                ; Auto                ;
-; SDC constraint protection                                                  ; Off                 ; Off                 ;
 ; Synthesis Effort                                                           ; Auto                ; Auto                ;
 ; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                  ; On                  ;
 ; Analysis & Synthesis Message Level                                         ; Medium              ; Medium              ;
@@ -173,37 +166,43 @@ applicable agreement for further details.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 233   ;
+; Total logic elements                        ; 231   ;
+;     -- Combinational with no register       ; 83    ;
+;     -- Register only                        ; 21    ;
+;     -- Combinational with a register        ; 127   ;
 ;                                             ;       ;
-; Total combinational functions               ; 220   ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 74    ;
-;     -- 3 input functions                    ; 15    ;
-;     -- <=2 input functions                  ; 131   ;
+;     -- 4 input functions                    ; 66    ;
+;     -- 3 input functions                    ; 18    ;
+;     -- 2 input functions                    ; 115   ;
+;     -- 1 input functions                    ; 11    ;
+;     -- 0 input functions                    ; 0     ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 120   ;
+;     -- normal mode                          ; 131   ;
 ;     -- arithmetic mode                      ; 100   ;
+;     -- qfbk mode                            ; 0     ;
+;     -- register cascade mode                ; 0     ;
+;     -- synchronous clear/load mode          ; 94    ;
+;     -- asynchronous clear/load mode         ; 43    ;
 ;                                             ;       ;
 ; Total registers                             ; 148   ;
-;     -- Dedicated logic registers            ; 148   ;
-;     -- I/O registers                        ; 0     ;
-;                                             ;       ;
+; Total logic cells in carry chains           ; 106   ;
 ; I/O pins                                    ; 17    ;
 ; Maximum fan-out node                        ; clk   ;
 ; Maximum fan-out                             ; 101   ;
-; Total fan-out                               ; 1073  ;
-; Average fan-out                             ; 2.79  ;
+; Total fan-out                               ; 913   ;
+; Average fan-out                             ; 3.68  ;
 +---------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                          ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name  ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------+--------------+
-; |LCD_Block_Disp_Ctrl       ; 220 (220)         ; 148 (148)    ; 0           ; 0            ; 0       ; 0         ; 17   ; 0            ; |LCD_Block_Disp_Ctrl ; work         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                    ;
++----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------+--------------+
+; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name  ; Library Name ;
++----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------+--------------+
+; |LCD_Block_Disp_Ctrl       ; 231 (231)   ; 148          ; 0           ; 17   ; 0            ; 83 (83)      ; 21 (21)           ; 127 (127)        ; 106 (106)       ; 0 (0)      ; |LCD_Block_Disp_Ctrl ; work         ;
++----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -269,9 +268,9 @@ Encoding Type:  One-Hot
 ; move_x[0]                              ; 10      ;
 ; move_x[1]                              ; 9       ;
 ; move_x[2]                              ; 7       ;
-; move_y[4]                              ; 11      ;
-; move_y[3]                              ; 11      ;
-; init_status                            ; 5       ;
+; move_y[4]                              ; 10      ;
+; move_y[3]                              ; 9       ;
+; init_status                            ; 6       ;
 ; Total number of inverted registers = 7 ;         ;
 +----------------------------------------+---------+
 
@@ -311,7 +310,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
-    Info: Processing started: Thu May 11 18:03:38 2017
+    Info: Processing started: Fri May 12 08:43:01 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off LCD_Block_Disp_Ctrl -c LCD_Block_Disp_Ctrl
 Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info: Found 1 design units, including 1 entities, in source file lcd_block_disp_ctrl.v
@@ -319,10 +318,9 @@ Info: Found 1 design units, including 1 entities, in source file lcd_block_disp_
 Info: Found 1 design units, including 1 entities, in source file lpm_rom0.v
     Info: Found entity 1: lpm_rom0
 Info: Elaborating entity "LCD_Block_Disp_Ctrl" for the top level hierarchy
-Info: Registers with preset signals will power-up high
-Info: DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning: Output pins are stuck at VCC or GND
     Warning (13410): Pin "rw" is stuck at GND
+Info: Registers with preset signals will power-up high
 Info: 44 registers lost all their fanouts during netlist optimizations. The first 44 are displayed below.
     Info: Register "state~4" lost all its fanouts during netlist optimizations.
     Info: Register "state~5" lost all its fanouts during netlist optimizations.
@@ -369,15 +367,15 @@ Info: 44 registers lost all their fanouts during netlist optimizations. The firs
     Info: Register "key_in_up[29]" lost all its fanouts during netlist optimizations.
     Info: Register "key_in_up[30]" lost all its fanouts during netlist optimizations.
 Info: Generated suppressed messages file Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/LCD_Block_Disp_Ctrl/LCD_Block_Disp_Ctrl.map.smsg
-Info: Implemented 250 device resources after synthesis - the final resource count might be different
+Info: Implemented 248 device resources after synthesis - the final resource count might be different
     Info: Implemented 6 input pins
     Info: Implemented 11 output pins
-    Info: Implemented 233 logic cells
+    Info: Implemented 231 logic cells
 Info: Quartus II Analysis & Synthesis was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 241 megabytes
-    Info: Processing ended: Thu May 11 18:03:41 2017
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:04
+    Info: Peak virtual memory: 235 megabytes
+    Info: Processing ended: Fri May 12 08:43:03 2017
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:03
 
 
 +------------------------------------------+

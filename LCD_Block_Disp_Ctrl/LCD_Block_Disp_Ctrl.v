@@ -1,6 +1,6 @@
 module LCD_Block_Disp_Ctrl(clk, rst, up, down, left, right, rs, rw, en, data);
 //	EDA_Project/LCD_Block_Disp
-//	Version 2.2.7.110517
+//	Version 2.2.9.110517
 //	Created by Benjamin Zhang on 08/05/17
 //	Copyright © 2017 Benjamin Zhang
 //
@@ -17,7 +17,7 @@ module LCD_Block_Disp_Ctrl(clk, rst, up, down, left, right, rs, rw, en, data);
 
 	assign	rw = 1'b0;
 
-//Produce 0.5KHz(2ms) clock speed ********************************//
+//Produce 20KHz(50us) clock speed ********************************//
 	reg			LCD_clk;	//20KHz clk
 	reg [11:0]	LCD_count;	//count
 
@@ -28,14 +28,14 @@ module LCD_Block_Disp_Ctrl(clk, rst, up, down, left, right, rs, rw, en, data);
 		end
 		else if (LCD_count == 12'd2499) begin	//50us
 			LCD_count <= 12'd0;
-			LCD_clk <= ~LCD_clk;	//50us turn, 20KHz
+			LCD_clk <= ~LCD_clk;	//20KHz
 		end
 		else	LCD_count <= LCD_count + 1'b1;
 	end
 
 //Anti_shaking ***************************************************//
 	reg [30:0]		key_in_up, key_in_down, key_in_left, key_in_right;
-	reg				key_up, key_down, key_left, key_right;
+	reg				key_up, key_down, key_left, key_right;	//after anti_shaking processed key
 
 	always @(posedge clk) begin
 		if (!up)	key_in_up <= key_in_up + 1'b1;
@@ -72,10 +72,10 @@ module LCD_Block_Disp_Ctrl(clk, rst, up, down, left, right, rs, rw, en, data);
 	parameter STOP 			= 4'd9;	//stop
 
 //LCD Read or Write select ***************************************//
-	reg [3:0]	state;	//state
+	reg [3:0]	state;
 	reg			rs;	//LCD Command or Data Select, 0 or 1
 
-	//only wrte data rs will be high level
+	//only wrte data, rs will be high level
 	always @(posedge LCD_clk or negedge rst) begin
 		if (!rst) begin
 			rs = 1'b0;	//reset, command mode
@@ -94,8 +94,8 @@ module LCD_Block_Disp_Ctrl(clk, rst, up, down, left, right, rs, rw, en, data);
 	wire 		line_done;
 	wire		frame_done;
 	wire [3:0]	key_combine;
-	reg [3:0]	move_x;	//delta x, 0 - 15
-	reg [5:0]	move_y;	//delta y, 0 / 1, 0 - 31
+	reg [3:0]	move_x;	//delta x, 4bits 0 - 15
+	reg [5:0]	move_y;	//delta y, 1bit 0 / 1, 4bits 0 - 31
 	reg			init_status;
 
 	initial begin
@@ -126,29 +126,29 @@ module LCD_Block_Disp_Ctrl(clk, rst, up, down, left, right, rs, rw, en, data);
 						addr <= 10'd0;
 					end
 				
-				//process key press
+				//process key press, move block, process coord change
 				PROCESSKEY:
 					begin
-						if (key_combine == 4'b1111)	state <= PROCESSKEY;
+						if (key_combine == 4'b1111)	state <= PROCESSKEY;	//not receiving key press, waiting key press
 						else begin
 							if (init_status == 1'b0) begin
 								case (key_combine)
 									4'b0111:	begin	//up
-													if (move_y[4:0] == 5'h0 && move_y[5] == 1'b0)	move_y = {1'b1,5'h10};
-													else if (move_y[4:0] == 5'h0 && move_y[5] == 1'b1)	move_y = {1'b0,5'h1C};
+													if (move_y[4:0] == 5'h0 && move_y[5] == 1'b0)	move_y = {1'b1,5'h10};	//block reaches the upper part of the upper boundary
+													else if (move_y[4:0] == 5'h0 && move_y[5] == 1'b1)	move_y = {1'b0,5'h1C};	//block reaches the lower part of the upper boundary
 													else	move_y[4:0] = move_y[4:0] - 5'h4;
 												end
 									4'b1011:	begin	//down
-													if (move_y[4:0] == 5'h10 && move_y[5] == 1'b1)	move_y = {1'b0,5'h0};
-													else if (move_y[4:0] == 5'h1C && move_y[5] == 1'b0)	move_y = {1'b1,5'h0};
+													if (move_y[4:0] == 5'h10 && move_y[5] == 1'b1)	move_y = {1'b0,5'h0};	//block reaches the lower part of the lower boundary
+													else if (move_y[4:0] == 5'h1C && move_y[5] == 1'b0)	move_y = {1'b1,5'h0};	//block reaches the upper part of the critical point, where move_y[5] must be changed
 													else	move_y[4:0] = move_y[4:0] + 5'h4;
 												end
 									4'b1101:	begin	//left
-													if (move_x == 4'd0)	move_x = 4'd14;
+													if (move_x == 4'd0)	move_x = 4'd14;	//block reaches the left boundary
 													else	move_x = move_x - 1'd1;
 												end
 									4'b1110:	begin	//right
-													if (move_x == 4'd14)	move_x = 4'd0;
+													if (move_x == 4'd14)	move_x = 4'd0;	//block reaches the right boundary
 													else	move_x = move_x + 1'd1;
 												end
 									default:;
@@ -205,14 +205,14 @@ module LCD_Block_Disp_Ctrl(clk, rst, up, down, left, right, rs, rw, en, data);
 				WRITERAM:
 					begin
 						if (addr[3:0] == move_x || addr[3:0] == (move_x + 1'd1)) begin
-							if (5'h1F - move_y[4:0] >= 5'hF) begin
+							if (5'h1F - move_y[4:0] >= 5'hF) begin	//the block is all in the upper half
 								if (addr[8:4] >= move_y[4:0] && addr[8:4] <= (move_y[4:0] + 5'hF) && addr[9] == move_y[5])
 									data <= 8'b11111111;
 							end
-							else begin
-								if (addr[8:4] >= move_y[4:0] && addr[8:4] <= 5'h1F && addr[9] == 1'b0)// && move_y[4:0] > 5'h18 && move_y[5] == 1'b0)
+							else begin	//the block is not all in the upper half
+								if (addr[8:4] >= move_y[4:0] && addr[8:4] <= 5'h1F && addr[9] == 1'b0)	//the block in the upper half
 									data <= 8'b11111111;
-								if (addr[8:4] >= 5'h0 && addr[8:4] < (move_y[4:0] - 5'hF) && addr[9] == 1'b1)// && move_y[4:0] > 5'h18 && move_y[5] == 1'b0)
+								if (addr[8:4] >= 5'h0 && addr[8:4] < (move_y[4:0] - 5'hF) && addr[9] == 1'b1)	//the block in the lower half
 									data <= 8'b11111111;
 							end
 						end
@@ -228,7 +228,7 @@ module LCD_Block_Disp_Ctrl(clk, rst, up, down, left, right, rs, rw, en, data);
 				//stop
 				STOP:
 					begin
-						state <= IDLE;
+						state <= IDLE;	//go back to PROCESSKEY to detect key press
 						flag <= 1'b0;
 					end
 

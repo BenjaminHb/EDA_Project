@@ -1,14 +1,10 @@
-Analysis & Synthesis Status : Successful - Tue May 09 19:39:22 2017
+Analysis & Synthesis Status : Successful - Fri May 12 08:35:39 2017
 Quartus II Version : 9.1 Build 222 10/21/2009 SJ Full Version
 Revision Name : LCD_Picture_Disp
 Top-level Entity Name : LCD_Picture_Disp
-Family : Cyclone II
-Total logic elements : 79
-    Total combinational functions : 65
-    Dedicated logic registers : 50
-Total registers : 50
+Family : Cyclone
+Total logic elements : 86
 Total pins : 13
 Total virtual pins : 0
 Total memory bits : 8,192
-Embedded Multiplier 9-bit elements : 0
 Total PLLs : 0

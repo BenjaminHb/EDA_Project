@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Digital_Clock_2
-Wed May 10 21:45:58 2017
+Fri May 12 11:30:26 2017
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -40,24 +40,20 @@ applicable agreement for further details.
 
 
 
-+-------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                  ;
-+------------------------------------+------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed May 10 21:45:58 2017    ;
-; Quartus II Version                 ; 9.1 Build 222 10/21/2009 SJ Full Version ;
-; Revision Name                      ; Digital_Clock_2                          ;
-; Top-level Entity Name              ; Digital_Clock_2                          ;
-; Family                             ; Cyclone II                               ;
-; Total logic elements               ; 212                                      ;
-;     Total combinational functions  ; 212                                      ;
-;     Dedicated logic registers      ; 151                                      ;
-; Total registers                    ; 151                                      ;
-; Total pins                         ; 17                                       ;
-; Total virtual pins                 ; 0                                        ;
-; Total memory bits                  ; 0                                        ;
-; Embedded Multiplier 9-bit elements ; 0                                        ;
-; Total PLLs                         ; 0                                        ;
-+------------------------------------+------------------------------------------+
++------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                           ;
++-----------------------------+------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Fri May 12 11:30:26 2017    ;
+; Quartus II Version          ; 9.1 Build 222 10/21/2009 SJ Full Version ;
+; Revision Name               ; Digital_Clock_2                          ;
+; Top-level Entity Name       ; Digital_Clock_2                          ;
+; Family                      ; Cyclone                                  ;
+; Total logic elements        ; 220                                      ;
+; Total pins                  ; 17                                       ;
+; Total virtual pins          ; 0                                        ;
+; Total memory bits           ; 0                                        ;
+; Total PLLs                  ; 0                                        ;
++-----------------------------+------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------+
@@ -65,9 +61,9 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
-; Device                                                                     ; EP2C5T144C8        ;                    ;
+; Device                                                                     ; EP1C6Q240C8        ;                    ;
 ; Top-level entity name                                                      ; Digital_Clock_2    ; Digital_Clock_2    ;
-; Family name                                                                ; Cyclone II         ; Stratix II         ;
+; Family name                                                                ; Cyclone            ; Stratix II         ;
 ; Use Generated Physical Constraints File                                    ; Off                ;                    ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -87,7 +83,6 @@ applicable agreement for further details.
 ; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
 ; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
 ; Parallel Synthesis                                                         ; On                 ; On                 ;
-; DSP Block Balancing                                                        ; Auto               ; Auto               ;
 ; NOT Gate Push-Back                                                         ; On                 ; On                 ;
 ; Power-Up Don't Care                                                        ; On                 ; On                 ;
 ; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
@@ -111,6 +106,7 @@ applicable agreement for further details.
 ; Strict RAM Replacement                                                     ; Off                ; Off                ;
 ; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
 ; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
 ; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
 ; Auto Resource Sharing                                                      ; Off                ; Off                ;
 ; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
@@ -118,7 +114,6 @@ applicable agreement for further details.
 ; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
 ; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
 ; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
-; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
 ; Show Parameter Settings Tables in Synthesis Report                         ; On                 ; On                 ;
 ; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
 ; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
@@ -128,9 +123,7 @@ applicable agreement for further details.
 ; Number of Removed Registers Reported in Synthesis Report                   ; 100                ; 100                ;
 ; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
 ; Clock MUX Protection                                                       ; On                 ; On                 ;
-; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
 ; Block Design Naming                                                        ; Auto               ; Auto               ;
-; SDC constraint protection                                                  ; Off                ; Off                ;
 ; Synthesis Effort                                                           ; Auto               ; Auto               ;
 ; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
 ; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
@@ -170,37 +163,43 @@ applicable agreement for further details.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 212   ;
+; Total logic elements                        ; 220   ;
+;     -- Combinational with no register       ; 91    ;
+;     -- Register only                        ; 31    ;
+;     -- Combinational with a register        ; 98    ;
 ;                                             ;       ;
-; Total combinational functions               ; 212   ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 39    ;
-;     -- 3 input functions                    ; 7     ;
-;     -- <=2 input functions                  ; 166   ;
+;     -- 4 input functions                    ; 35    ;
+;     -- 3 input functions                    ; 3     ;
+;     -- 2 input functions                    ; 140   ;
+;     -- 1 input functions                    ; 11    ;
+;     -- 0 input functions                    ; 0     ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 89    ;
-;     -- arithmetic mode                      ; 123   ;
+;     -- normal mode                          ; 117   ;
+;     -- arithmetic mode                      ; 103   ;
+;     -- qfbk mode                            ; 0     ;
+;     -- register cascade mode                ; 0     ;
+;     -- synchronous clear/load mode          ; 60    ;
+;     -- asynchronous clear/load mode         ; 23    ;
 ;                                             ;       ;
-; Total registers                             ; 151   ;
-;     -- Dedicated logic registers            ; 151   ;
-;     -- I/O registers                        ; 0     ;
-;                                             ;       ;
+; Total registers                             ; 129   ;
+; Total logic cells in carry chains           ; 111   ;
 ; I/O pins                                    ; 17    ;
 ; Maximum fan-out node                        ; clk   ;
-; Maximum fan-out                             ; 117   ;
-; Total fan-out                               ; 914   ;
-; Average fan-out                             ; 2.41  ;
+; Maximum fan-out                             ; 95    ;
+; Total fan-out                               ; 694   ;
+; Average fan-out                             ; 2.93  ;
 +---------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |Digital_Clock_2           ; 212 (212)         ; 151 (151)    ; 0           ; 0            ; 0       ; 0         ; 17   ; 0            ; |Digital_Clock_2    ; work         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                   ;
++----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
+; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
+; |Digital_Clock_2           ; 220 (220)   ; 129          ; 0           ; 17   ; 0            ; 91 (91)      ; 31 (31)           ; 98 (98)          ; 111 (111)       ; 0 (0)      ; |Digital_Clock_2    ; work         ;
++----------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -212,9 +211,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; LEDOut[5..7]                           ; Stuck at GND due to stuck port data_in ;
 ; count1[18..30]                         ; Lost fanout                            ;
 ; key_low_min[21..30]                    ; Lost fanout                            ;
-; key_low_en[21..30]                     ; Lost fanout                            ;
 ; key_low_hr[21..30]                     ; Lost fanout                            ;
-; Total Number of Removed Registers = 46 ;                                        ;
+; Total Number of Removed Registers = 36 ;                                        ;
 +----------------------------------------+----------------------------------------+
 
 
@@ -223,8 +221,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 151   ;
-; Number of registers using Synchronous Clear  ; 81    ;
+; Total registers                              ; 129   ;
+; Number of registers using Synchronous Clear  ; 60    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 23    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
@@ -248,16 +246,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
-    Info: Processing started: Wed May 10 21:45:54 2017
+    Info: Processing started: Fri May 12 11:30:23 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Digital_Clock_2 -c Digital_Clock_2
 Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info: Found 1 design units, including 1 entities, in source file digital_clock_2.v
     Info: Found entity 1: Digital_Clock_2
 Info: Elaborating entity "Digital_Clock_2" for the top level hierarchy
-Warning (10235): Verilog HDL Always Construct warning at Digital_Clock_2.v(65): variable "key_en" is read inside the Always Construct but isn't in the Always Construct's Event Control
 Warning: Clock multiplexers are found and protected
-    Warning: Found clock multiplexer min_low_carryin~synth
-Info: 43 registers lost all their fanouts during netlist optimizations. The first 43 are displayed below.
+    Warning: Found clock multiplexer min_low_carryin
+Info: 33 registers lost all their fanouts during netlist optimizations. The first 33 are displayed below.
     Info: Register "count1[18]" lost all its fanouts during netlist optimizations.
     Info: Register "count1[19]" lost all its fanouts during netlist optimizations.
     Info: Register "count1[20]" lost all its fanouts during netlist optimizations.
@@ -281,16 +278,6 @@ Info: 43 registers lost all their fanouts during netlist optimizations. The firs
     Info: Register "key_low_min[28]" lost all its fanouts during netlist optimizations.
     Info: Register "key_low_min[29]" lost all its fanouts during netlist optimizations.
     Info: Register "key_low_min[30]" lost all its fanouts during netlist optimizations.
-    Info: Register "key_low_en[21]" lost all its fanouts during netlist optimizations.
-    Info: Register "key_low_en[22]" lost all its fanouts during netlist optimizations.
-    Info: Register "key_low_en[23]" lost all its fanouts during netlist optimizations.
-    Info: Register "key_low_en[24]" lost all its fanouts during netlist optimizations.
-    Info: Register "key_low_en[25]" lost all its fanouts during netlist optimizations.
-    Info: Register "key_low_en[26]" lost all its fanouts during netlist optimizations.
-    Info: Register "key_low_en[27]" lost all its fanouts during netlist optimizations.
-    Info: Register "key_low_en[28]" lost all its fanouts during netlist optimizations.
-    Info: Register "key_low_en[29]" lost all its fanouts during netlist optimizations.
-    Info: Register "key_low_en[30]" lost all its fanouts during netlist optimizations.
     Info: Register "key_low_hr[21]" lost all its fanouts during netlist optimizations.
     Info: Register "key_low_hr[22]" lost all its fanouts during netlist optimizations.
     Info: Register "key_low_hr[23]" lost all its fanouts during netlist optimizations.
@@ -302,15 +289,15 @@ Info: 43 registers lost all their fanouts during netlist optimizations. The firs
     Info: Register "key_low_hr[29]" lost all its fanouts during netlist optimizations.
     Info: Register "key_low_hr[30]" lost all its fanouts during netlist optimizations.
 Info: Generated suppressed messages file Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/Digital_Clock_2/Digital_Clock_2.map.smsg
-Info: Implemented 229 device resources after synthesis - the final resource count might be different
+Info: Implemented 237 device resources after synthesis - the final resource count might be different
     Info: Implemented 5 input pins
     Info: Implemented 12 output pins
-    Info: Implemented 212 logic cells
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 237 megabytes
-    Info: Processing ended: Wed May 10 21:45:58 2017
-    Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:04
+    Info: Implemented 220 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 235 megabytes
+    Info: Processing ended: Fri May 12 11:30:26 2017
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
 
 
 +------------------------------------------+

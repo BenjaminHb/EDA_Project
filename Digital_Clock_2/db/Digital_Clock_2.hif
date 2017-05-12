@@ -1,7 +1,7 @@
 Quartus II
 Version 9.1 Build 222 10/21/2009 SJ Full Version
-11
-910
+44
+3127
 OFF
 OFF
 OFF
@@ -31,7 +31,7 @@ ON
 # case_sensitive
 # source_file
 digital_clock_2.v
-9c1afcb39372ae09c32b45a6c86213f
+10be35c999ffcc338717ec6552f51791
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT

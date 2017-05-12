@@ -1,7 +1,7 @@
 Quartus II
 Version 9.1 Build 222 10/21/2009 SJ Full Version
-11
-910
+44
+3127
 OFF
 OFF
 OFF
@@ -31,7 +31,7 @@ ON
 # case_sensitive
 # source_file
 lcd_block_disp_ctrl.v
-d760668468a84cff74f9018faad1c47
+3c4e5cae3e94c8374f74df1932d1e16
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT

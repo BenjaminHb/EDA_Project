@@ -1,19 +1,19 @@
 module LCD_Picture_Disp(clk, rst, rs, rw, en, data);
 //	EDA_Project/LCD_Picture_Disp
-//	Version 1.2.0.040517
+//	Version 1.2.5.040517
 //	Created by Benjamin Zhang on 04/05/17
 //	Copyright © 2017 Benjamin Zhang
 //
 	input			clk;	//50MHz, clock speed
 	input			rst;	//global reset, low level effective
-	output			rs;		//LCD Command or Data Select / 0 or 1
-	output			rw;		//LCD Read or Write / 1 or 0
+	output			rs;		//LCD Command or Data Select, 0 or 1
+	output			rw;		//LCD Read or Write, 1 or 0
 	output			en;		//LCD Enable, fall edge effective
 	output [7:0]	data;	//LCD Data
 
 	assign	rw = 1'b0;
 
-//Produce 0.5KHz(2ms) clock speed
+//Produce 20KHz(50us) clock speed ********************************//
 	reg			LCD_clk;	//20KHz clk
 	reg [11:0]	LCD_count;	//count
 
@@ -24,12 +24,12 @@ module LCD_Picture_Disp(clk, rst, rs, rw, en, data);
 		end
 		else if (LCD_count == 12'd2499) begin	//50us
 			LCD_count <= 12'd0;
-			LCD_clk <= ~LCD_clk;	//50us turn, 20KHz
+			LCD_clk <= ~LCD_clk;	//20KHz
 		end
 		else	LCD_count <= LCD_count + 1'b1;
 	end
 
-//Parameter
+//Parameter ******************************************************//
 	parameter IDLE 			= 4'd0;	//initialization
 	parameter SETMODE 		= 4'd1;	//entry mode set
 	parameter SWITCHMODE 	= 4'd2;	//display status
@@ -40,7 +40,7 @@ module LCD_Picture_Disp(clk, rst, rs, rw, en, data);
 	parameter WRITERAM 		= 4'd7;	//write
 	parameter STOP 			= 4'd8;	//stop
 
-//LCD Read or Write select
+//LCD Read or Write select ***************************************//
 	reg [3:0]	state;	//state
 	reg			rs;	//LCD Command or Data Select / 0 or 1
 
@@ -55,7 +55,7 @@ module LCD_Picture_Disp(clk, rst, rs, rw, en, data);
 	
 	assign en = (flag == 1)? LCD_clk:1'b0;
 
-//State machine
+//State machine **************************************************//
 	reg [9:0]	addr_rom;	//coord count
 	reg [7:0]	data;	//LCD data
 	wire [7:0]	data_rom_out;	//display data
@@ -150,7 +150,7 @@ module LCD_Picture_Disp(clk, rst, rs, rw, en, data);
 		end
 	end
 
-//rom
+//rom ************************************************************//
 	lpm_rom0 rom(.address(addr_rom), .clock(clk), .q(data_rom_out));
 
 endmodule

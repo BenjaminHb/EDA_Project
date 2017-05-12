@@ -1,5 +1,5 @@
 Analysis & Synthesis report for LCD_Picture_Disp
-Tue May 09 19:39:22 2017
+Fri May 12 08:35:39 2017
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -18,7 +18,7 @@ Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
  10. Registers Removed During Synthesis
  11. General Register Statistics
  12. Inverted Register Statistics
- 13. Source assignments for lpm_rom0:rom|altsyncram:altsyncram_component|altsyncram_lf31:auto_generated
+ 13. Source assignments for lpm_rom0:rom|altsyncram:altsyncram_component|altsyncram_3831:auto_generated
  14. Parameter Settings for User Entity Instance: Top-level Entity: |LCD_Picture_Disp
  15. Parameter Settings for User Entity Instance: lpm_rom0:rom|altsyncram:altsyncram_component
  16. altsyncram Parameter Settings by Entity Instance
@@ -46,24 +46,20 @@ applicable agreement for further details.
 
 
 
-+-------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                  ;
-+------------------------------------+------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue May 09 19:39:22 2017    ;
-; Quartus II Version                 ; 9.1 Build 222 10/21/2009 SJ Full Version ;
-; Revision Name                      ; LCD_Picture_Disp                         ;
-; Top-level Entity Name              ; LCD_Picture_Disp                         ;
-; Family                             ; Cyclone II                               ;
-; Total logic elements               ; 79                                       ;
-;     Total combinational functions  ; 65                                       ;
-;     Dedicated logic registers      ; 50                                       ;
-; Total registers                    ; 50                                       ;
-; Total pins                         ; 13                                       ;
-; Total virtual pins                 ; 0                                        ;
-; Total memory bits                  ; 8,192                                    ;
-; Embedded Multiplier 9-bit elements ; 0                                        ;
-; Total PLLs                         ; 0                                        ;
-+------------------------------------+------------------------------------------+
++------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                           ;
++-----------------------------+------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Fri May 12 08:35:39 2017    ;
+; Quartus II Version          ; 9.1 Build 222 10/21/2009 SJ Full Version ;
+; Revision Name               ; LCD_Picture_Disp                         ;
+; Top-level Entity Name       ; LCD_Picture_Disp                         ;
+; Family                      ; Cyclone                                  ;
+; Total logic elements        ; 86                                       ;
+; Total pins                  ; 13                                       ;
+; Total virtual pins          ; 0                                        ;
+; Total memory bits           ; 8,192                                    ;
+; Total PLLs                  ; 0                                        ;
++-----------------------------+------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------+
@@ -71,9 +67,9 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
-; Device                                                                     ; EP2C5T144C8        ;                    ;
+; Device                                                                     ; EP1C6Q240C8        ;                    ;
 ; Top-level entity name                                                      ; LCD_Picture_Disp   ; LCD_Picture_Disp   ;
-; Family name                                                                ; Cyclone II         ; Stratix II         ;
+; Family name                                                                ; Cyclone            ; Stratix II         ;
 ; Use Generated Physical Constraints File                                    ; Off                ;                    ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -93,7 +89,6 @@ applicable agreement for further details.
 ; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
 ; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
 ; Parallel Synthesis                                                         ; On                 ; On                 ;
-; DSP Block Balancing                                                        ; Auto               ; Auto               ;
 ; NOT Gate Push-Back                                                         ; On                 ; On                 ;
 ; Power-Up Don't Care                                                        ; On                 ; On                 ;
 ; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
@@ -117,6 +112,7 @@ applicable agreement for further details.
 ; Strict RAM Replacement                                                     ; Off                ; Off                ;
 ; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
 ; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
 ; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
 ; Auto Resource Sharing                                                      ; Off                ; Off                ;
 ; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
@@ -124,7 +120,6 @@ applicable agreement for further details.
 ; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
 ; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
 ; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
-; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
 ; Show Parameter Settings Tables in Synthesis Report                         ; On                 ; On                 ;
 ; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
 ; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
@@ -134,9 +129,7 @@ applicable agreement for further details.
 ; Number of Removed Registers Reported in Synthesis Report                   ; 100                ; 100                ;
 ; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
 ; Clock MUX Protection                                                       ; On                 ; On                 ;
-; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
 ; Block Design Naming                                                        ; Auto               ; Auto               ;
-; SDC constraint protection                                                  ; Off                ; Off                ;
 ; Synthesis Effort                                                           ; Auto               ; Auto               ;
 ; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
 ; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
@@ -170,8 +163,8 @@ applicable agreement for further details.
 ; lpm_rom0.v                       ; yes             ; User Wizard-Generated File             ; Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/LCD_Picture_Disp/lpm_rom0.v             ;
 ; LCD_Picture_Disp.v               ; yes             ; User Verilog HDL File                  ; Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/LCD_Picture_Disp/LCD_Picture_Disp.v     ;
 ; altsyncram.tdf                   ; yes             ; Megafunction                           ; c:/altera/91/quartus/libraries/megafunctions/altsyncram.tdf                                                                   ;
-; db/altsyncram_lf31.tdf           ; yes             ; Auto-Generated Megafunction            ; Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/LCD_Picture_Disp/db/altsyncram_lf31.tdf ;
-; pic_bin.hex                      ; yes             ; Auto-Found Memory Initialization File  ; Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/LCD_Picture_Disp/pic_bin.hex            ;
+; db/altsyncram_3831.tdf           ; yes             ; Auto-Generated Megafunction            ; Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/LCD_Picture_Disp/db/altsyncram_3831.tdf ;
+; Pic_Bin.Hex                      ; yes             ; Auto-Found Memory Initialization File  ; Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/LCD_Picture_Disp/Pic_Bin.Hex            ;
 +----------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -180,41 +173,47 @@ applicable agreement for further details.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 79    ;
+; Total logic elements                        ; 86    ;
+;     -- Combinational with no register       ; 36    ;
+;     -- Register only                        ; 20    ;
+;     -- Combinational with a register        ; 30    ;
 ;                                             ;       ;
-; Total combinational functions               ; 65    ;
 ; Logic element usage by number of LUT inputs ;       ;
 ;     -- 4 input functions                    ; 23    ;
-;     -- 3 input functions                    ; 6     ;
-;     -- <=2 input functions                  ; 36    ;
+;     -- 3 input functions                    ; 5     ;
+;     -- 2 input functions                    ; 34    ;
+;     -- 1 input functions                    ; 3     ;
+;     -- 0 input functions                    ; 1     ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 45    ;
+;     -- normal mode                          ; 66    ;
 ;     -- arithmetic mode                      ; 20    ;
+;     -- qfbk mode                            ; 0     ;
+;     -- register cascade mode                ; 0     ;
+;     -- synchronous clear/load mode          ; 10    ;
+;     -- asynchronous clear/load mode         ; 42    ;
 ;                                             ;       ;
 ; Total registers                             ; 50    ;
-;     -- Dedicated logic registers            ; 50    ;
-;     -- I/O registers                        ; 0     ;
-;                                             ;       ;
+; Total logic cells in carry chains           ; 22    ;
 ; I/O pins                                    ; 13    ;
 ; Total memory bits                           ; 8192  ;
 ; Maximum fan-out node                        ; rst   ;
 ; Maximum fan-out                             ; 42    ;
-; Total fan-out                               ; 462   ;
-; Average fan-out                             ; 3.40  ;
+; Total fan-out                               ; 432   ;
+; Average fan-out                             ; 4.04  ;
 +---------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                  ;
-+-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------+--------------+
-; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                           ; Library Name ;
-+-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------+--------------+
-; |LCD_Picture_Disp                         ; 65 (65)           ; 50 (50)      ; 8192        ; 0            ; 0       ; 0         ; 13   ; 0            ; |LCD_Picture_Disp                                                                             ; work         ;
-;    |lpm_rom0:rom|                         ; 0 (0)             ; 0 (0)        ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |LCD_Picture_Disp|lpm_rom0:rom                                                                ;              ;
-;       |altsyncram:altsyncram_component|   ; 0 (0)             ; 0 (0)        ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |LCD_Picture_Disp|lpm_rom0:rom|altsyncram:altsyncram_component                                ;              ;
-;          |altsyncram_lf31:auto_generated| ; 0 (0)             ; 0 (0)        ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |LCD_Picture_Disp|lpm_rom0:rom|altsyncram:altsyncram_component|altsyncram_lf31:auto_generated ;              ;
-+-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                            ;
++-------------------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                                                           ; Library Name ;
++-------------------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------------------------------------------------------------+--------------+
+; |LCD_Picture_Disp                         ; 86 (86)     ; 50           ; 8192        ; 13   ; 0            ; 36 (36)      ; 20 (20)           ; 30 (30)          ; 22 (22)         ; 0 (0)      ; |LCD_Picture_Disp                                                                             ; work         ;
+;    |lpm_rom0:rom|                         ; 0 (0)       ; 0            ; 8192        ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |LCD_Picture_Disp|lpm_rom0:rom                                                                ;              ;
+;       |altsyncram:altsyncram_component|   ; 0 (0)       ; 0            ; 8192        ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |LCD_Picture_Disp|lpm_rom0:rom|altsyncram:altsyncram_component                                ;              ;
+;          |altsyncram_3831:auto_generated| ; 0 (0)       ; 0            ; 8192        ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |LCD_Picture_Disp|lpm_rom0:rom|altsyncram:altsyncram_component|altsyncram_3831:auto_generated ;              ;
++-------------------------------------------+-------------+--------------+-------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -223,7 +222,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+-------------+
 ; Name                                                                                   ; Type ; Mode ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF         ;
 +----------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+-------------+
-; lpm_rom0:rom|altsyncram:altsyncram_component|altsyncram_lf31:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 1024         ; 8            ; --           ; --           ; 8192 ; Pic_Bin.Hex ;
+; lpm_rom0:rom|altsyncram:altsyncram_component|altsyncram_3831:auto_generated|ALTSYNCRAM ; AUTO ; ROM  ; 1024         ; 8            ; --           ; --           ; 8192 ; Pic_Bin.Hex ;
 +----------------------------------------------------------------------------------------+------+------+--------------+--------------+--------------+--------------+------+-------------+
 
 
@@ -283,7 +282,7 @@ Encoding Type:  One-Hot
 
 
 +----------------------------------------------------------------------------------------------------+
-; Source assignments for lpm_rom0:rom|altsyncram:altsyncram_component|altsyncram_lf31:auto_generated ;
+; Source assignments for lpm_rom0:rom|altsyncram:altsyncram_component|altsyncram_3831:auto_generated ;
 +---------------------------------+--------------------+------+--------------------------------------+
 ; Assignment                      ; Value              ; From ; To                                   ;
 +---------------------------------+--------------------+------+--------------------------------------+
@@ -362,8 +361,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                       ;
 ; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                       ;
 ; ENABLE_ECC                         ; FALSE                ; Untyped                       ;
-; DEVICE_FAMILY                      ; Cyclone II           ; Untyped                       ;
-; CBXI_PARAMETER                     ; altsyncram_lf31      ; Untyped                       ;
+; DEVICE_FAMILY                      ; Cyclone              ; Untyped                       ;
+; CBXI_PARAMETER                     ; altsyncram_3831      ; Untyped                       ;
 +------------------------------------+----------------------+-------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -394,7 +393,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
-    Info: Processing started: Tue May 09 19:39:17 2017
+    Info: Processing started: Fri May 12 08:35:35 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off LCD_Picture_Disp -c LCD_Picture_Disp
 Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info: Found 1 design units, including 1 entities, in source file lpm_rom0.v
@@ -418,28 +417,39 @@ Info: Instantiated megafunction "lpm_rom0:rom|altsyncram:altsyncram_component" w
     Info: Parameter "widthad_a" = "10"
     Info: Parameter "width_a" = "8"
     Info: Parameter "width_byteena_a" = "1"
-Info: Found 1 design units, including 1 entities, in source file db/altsyncram_lf31.tdf
-    Info: Found entity 1: altsyncram_lf31
-Info: Elaborating entity "altsyncram_lf31" for hierarchy "lpm_rom0:rom|altsyncram:altsyncram_component|altsyncram_lf31:auto_generated"
-Info: Registers with preset signals will power-up high
-Info: DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info: Found 1 design units, including 1 entities, in source file db/altsyncram_3831.tdf
+    Info: Found entity 1: altsyncram_3831
+Info: Elaborating entity "altsyncram_3831" for hierarchy "lpm_rom0:rom|altsyncram:altsyncram_component|altsyncram_3831:auto_generated"
+Warning: Byte addressed memory initialization file "Pic_Bin.Hex" was read in the word-addressed format
+Warning: Width of data items in "Pic_Bin.Hex" is greater than the memory width. Wrapping data items to subsequent addresses. Found 64 warnings, reporting 10
+    Warning: Data at line (1) of memory initialization file "Pic_Bin.Hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses.
+    Warning: Data at line (2) of memory initialization file "Pic_Bin.Hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses.
+    Warning: Data at line (3) of memory initialization file "Pic_Bin.Hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses.
+    Warning: Data at line (4) of memory initialization file "Pic_Bin.Hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses.
+    Warning: Data at line (5) of memory initialization file "Pic_Bin.Hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses.
+    Warning: Data at line (6) of memory initialization file "Pic_Bin.Hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses.
+    Warning: Data at line (7) of memory initialization file "Pic_Bin.Hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses.
+    Warning: Data at line (8) of memory initialization file "Pic_Bin.Hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses.
+    Warning: Data at line (9) of memory initialization file "Pic_Bin.Hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses.
+    Warning: Data at line (10) of memory initialization file "Pic_Bin.Hex" is too wide to fit in one memory word. Wrapping data to subsequent addresses.
 Warning: Output pins are stuck at VCC or GND
     Warning (13410): Pin "rw" is stuck at GND
+Info: Registers with preset signals will power-up high
 Info: 3 registers lost all their fanouts during netlist optimizations. The first 3 are displayed below.
     Info: Register "state~4" lost all its fanouts during netlist optimizations.
     Info: Register "state~5" lost all its fanouts during netlist optimizations.
     Info: Register "state~6" lost all its fanouts during netlist optimizations.
 Info: Generated suppressed messages file Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/LCD_Picture_Disp/LCD_Picture_Disp.map.smsg
-Info: Implemented 100 device resources after synthesis - the final resource count might be different
+Info: Implemented 107 device resources after synthesis - the final resource count might be different
     Info: Implemented 2 input pins
     Info: Implemented 11 output pins
-    Info: Implemented 79 logic cells
+    Info: Implemented 86 logic cells
     Info: Implemented 8 RAM segments
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 243 megabytes
-    Info: Processing ended: Tue May 09 19:39:22 2017
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:04
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 14 warnings
+    Info: Peak virtual memory: 252 megabytes
+    Info: Processing ended: Fri May 12 08:35:39 2017
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:03
 
 
 +------------------------------------------+

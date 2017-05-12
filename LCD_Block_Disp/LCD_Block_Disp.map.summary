@@ -1,14 +1,10 @@
-Analysis & Synthesis Status : Successful - Tue May 09 19:46:48 2017
+Analysis & Synthesis Status : Successful - Fri May 12 08:39:50 2017
 Quartus II Version : 9.1 Build 222 10/21/2009 SJ Full Version
 Revision Name : LCD_Block_Disp
 Top-level Entity Name : LCD_Block_Disp
-Family : Cyclone II
-Total logic elements : 80
-    Total combinational functions : 66
-    Dedicated logic registers : 50
-Total registers : 50
+Family : Cyclone
+Total logic elements : 88
 Total pins : 13
 Total virtual pins : 0
 Total memory bits : 0
-Embedded Multiplier 9-bit elements : 0
 Total PLLs : 0

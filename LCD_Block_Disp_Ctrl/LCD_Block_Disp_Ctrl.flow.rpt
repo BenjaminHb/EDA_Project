@@ -1,5 +1,5 @@
 Flow report for LCD_Block_Disp_Ctrl
-Fri May 12 08:43:10 2017
+Wed May 17 23:53:17 2017
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------+
 ; Flow Summary                                                       ;
 +-------------------------+------------------------------------------+
-; Flow Status             ; Successful - Fri May 12 08:43:10 2017    ;
+; Flow Status             ; Successful - Wed May 17 23:53:17 2017    ;
 ; Quartus II Version      ; 9.1 Build 222 10/21/2009 SJ Full Version ;
 ; Revision Name           ; LCD_Block_Disp_Ctrl                      ;
 ; Top-level Entity Name   ; LCD_Block_Disp_Ctrl                      ;
@@ -59,7 +59,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 05/12/2017 08:43:02 ;
+; Start date & time ; 05/17/2017 23:53:03 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; LCD_Block_Disp_Ctrl ;
 +-------------------+---------------------+
@@ -70,11 +70,7 @@ applicable agreement for further details.
 +------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                    ; Value                                                                                                                             ; Default Value ; Entity Name ; Section Id     ;
 +------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID              ; 52234966679.149454978203752                                                                                                       ; --            ; --          ; --             ;
-; IP_TOOL_NAME                       ; LPM_ROM                                                                                                                           ; --            ; --          ; --             ;
-; IP_TOOL_VERSION                    ; 9.1                                                                                                                               ; --            ; --          ; --             ;
-; MISC_FILE                          ; lpm_rom0.bsf                                                                                                                      ; --            ; --          ; --             ;
-; MISC_FILE                          ; lpm_rom0_bb.v                                                                                                                     ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID              ; 52234966679.149503638302312                                                                                                       ; --            ; --          ; --             ;
 ; MISC_FILE                          ; Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/LCD_Block_Disp_Ctrl/LCD_Block_Disp_Ctrl.dpf ; --            ; --          ; --             ;
 ; PARTITION_COLOR                    ; 16764057                                                                                                                          ; --            ; --          ; Top            ;
 ; PARTITION_NETLIST_TYPE             ; SOURCE                                                                                                                            ; --            ; --          ; Top            ;
@@ -87,24 +83,24 @@ applicable agreement for further details.
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name             ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis    ; 00:00:02     ; 1.0                     ; 235 MB              ; 00:00:03                           ;
-; Fitter                  ; 00:00:02     ; 1.0                     ; 274 MB              ; 00:00:02                           ;
-; Assembler               ; 00:00:01     ; 1.0                     ; 222 MB              ; 00:00:01                           ;
-; Classic Timing Analyzer ; 00:00:01     ; 1.0                     ; 181 MB              ; 00:00:01                           ;
-; Total                   ; 00:00:06     ; --                      ; --                  ; 00:00:07                           ;
+; Analysis & Synthesis    ; 00:00:03     ; 1.0                     ; 235 MB              ; 00:00:03                           ;
+; Fitter                  ; 00:00:03     ; 1.0                     ; 267 MB              ; 00:00:03                           ;
+; Assembler               ; 00:00:02     ; 1.0                     ; 222 MB              ; 00:00:02                           ;
+; Classic Timing Analyzer ; 00:00:02     ; 1.0                     ; 181 MB              ; 00:00:02                           ;
+; Total                   ; 00:00:10     ; --                      ; --                  ; 00:00:10                           ;
 +-------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+------------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                          ;
-+-------------------------+------------------+---------------+------------+----------------+
-; Module Name             ; Machine Hostname ; OS Name       ; OS Version ; Processor type ;
-+-------------------------+------------------+---------------+------------+----------------+
-; Analysis & Synthesis    ; Benjamin_PC      ; Windows Vista ; 6.2        ; x86_64         ;
-; Fitter                  ; Benjamin_PC      ; Windows Vista ; 6.2        ; x86_64         ;
-; Assembler               ; Benjamin_PC      ; Windows Vista ; 6.2        ; x86_64         ;
-; Classic Timing Analyzer ; Benjamin_PC      ; Windows Vista ; 6.2        ; x86_64         ;
-+-------------------------+------------------+---------------+------------+----------------+
++-------------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                           ;
++-------------------------+-------------------+---------------+------------+----------------+
+; Module Name             ; Machine Hostname  ; OS Name       ; OS Version ; Processor type ;
++-------------------------+-------------------+---------------+------------+----------------+
+; Analysis & Synthesis    ; Benjamin-VM-Win10 ; Windows Vista ; 6.2        ; x86_64         ;
+; Fitter                  ; Benjamin-VM-Win10 ; Windows Vista ; 6.2        ; x86_64         ;
+; Assembler               ; Benjamin-VM-Win10 ; Windows Vista ; 6.2        ; x86_64         ;
+; Classic Timing Analyzer ; Benjamin-VM-Win10 ; Windows Vista ; 6.2        ; x86_64         ;
++-------------------------+-------------------+---------------+------------+----------------+
 
 
 ------------

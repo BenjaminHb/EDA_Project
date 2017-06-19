@@ -1,13 +1,16 @@
 
 State Machine - |LCD_Block_Disp_Ctrl_2|state
-Name state.STOP state.WRITERAM state.DISPLAY1 state.DISPLAY0 state.SETFUNCTION1 state.SETFUNCTION0 state.SWITCHMODE state.SETMODE state.PROCESSKEY state.IDLE 
-state.IDLE 0 0 0 0 0 0 0 0 0 0 
-state.PROCESSKEY 0 0 0 0 0 0 0 0 1 1 
-state.SETMODE 0 0 0 0 0 0 0 1 0 1 
-state.SWITCHMODE 0 0 0 0 0 0 1 0 0 1 
-state.SETFUNCTION0 0 0 0 0 0 1 0 0 0 1 
-state.SETFUNCTION1 0 0 0 0 1 0 0 0 0 1 
-state.DISPLAY0 0 0 0 1 0 0 0 0 0 1 
-state.DISPLAY1 0 0 1 0 0 0 0 0 0 1 
-state.WRITERAM 0 1 0 0 0 0 0 0 0 1 
-state.STOP 1 0 0 0 0 0 0 0 0 1 
+Name state.STOP state.DISPLAY state.DISPLAYSETX state.DISPLAYSETY state.CLEAR state.CLEARSETX state.CLEARSETY state.SETFUNCTION1 state.SETFUNCTION0 state.SWITCHMODE state.SETMODE state.PROCESSKEY state.IDLE 
+state.IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.PROCESSKEY 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.SETMODE 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.SWITCHMODE 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.SETFUNCTION0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.SETFUNCTION1 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.CLEARSETY 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.CLEARSETX 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.CLEAR 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.DISPLAYSETY 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.DISPLAYSETX 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.DISPLAY 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.STOP 1 0 0 0 0 0 0 0 0 0 0 0 1 

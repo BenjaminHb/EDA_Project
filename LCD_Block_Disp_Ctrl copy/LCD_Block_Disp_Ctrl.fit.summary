@@ -1,0 +1,16 @@
+Fitter Status : Successful - Fri May 19 16:58:38 2017
+Quartus II Version : 9.1 Build 222 10/21/2009 SJ Full Version
+Revision Name : LCD_Block_Disp_Ctrl
+Top-level Entity Name : LCD_Block_Disp_Ctrl
+Family : Cyclone II
+Device : EP2C5T144C8
+Timing Models : Final
+Total logic elements : 222 / 4,608 ( 5 % )
+    Total combinational functions : 211 / 4,608 ( 5 % )
+    Dedicated logic registers : 148 / 4,608 ( 3 % )
+Total registers : 148
+Total pins : 17 / 89 ( 19 % )
+Total virtual pins : 0
+Total memory bits : 0 / 119,808 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 26 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

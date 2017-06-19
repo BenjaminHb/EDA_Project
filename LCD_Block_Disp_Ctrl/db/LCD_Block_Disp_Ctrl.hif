@@ -31,7 +31,7 @@ ON
 # case_sensitive
 # source_file
 lcd_block_disp_ctrl.v
-3c4e5cae3e94c8374f74df1932d1e16
+5e93c8e0fcc95dc423f3249e573677
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT

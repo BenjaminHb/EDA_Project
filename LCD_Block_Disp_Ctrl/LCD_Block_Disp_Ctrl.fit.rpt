@@ -1,5 +1,5 @@
 Fitter report for LCD_Block_Disp_Ctrl
-Fri May 12 08:43:06 2017
+Wed May 17 23:53:09 2017
 Quartus II Version 9.1 Build 222 10/21/2009 SJ Full Version
 
 
@@ -61,7 +61,7 @@ applicable agreement for further details.
 +------------------------------------------------------------------+
 ; Fitter Summary                                                   ;
 +-----------------------+------------------------------------------+
-; Fitter Status         ; Successful - Fri May 12 08:43:06 2017    ;
+; Fitter Status         ; Successful - Wed May 17 23:53:09 2017    ;
 ; Quartus II Version    ; 9.1 Build 222 10/21/2009 SJ Full Version ;
 ; Revision Name         ; LCD_Block_Disp_Ctrl                      ;
 ; Top-level Entity Name ; LCD_Block_Disp_Ctrl                      ;
@@ -969,7 +969,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II Fitter
     Info: Version 9.1 Build 222 10/21/2009 SJ Full Version
-    Info: Processing started: Fri May 12 08:43:04 2017
+    Info: Processing started: Wed May 17 23:53:06 2017
 Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off LCD_Block_Disp_Ctrl -c LCD_Block_Disp_Ctrl
 Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info: Selected device EP1C6Q240C8 for design "LCD_Block_Disp_Ctrl"
@@ -995,7 +995,7 @@ Info: Starting register packing
 Info: Fitter is using Normal packing mode for logic elements with Auto setting for Auto Packed Registers logic option
 Info: Finished moving registers into I/O cells, LUTs, and RAM blocks
 Info: Finished register packing
-Info: Fitter preparation operations ending: elapsed time is 00:00:00
+Info: Fitter preparation operations ending: elapsed time is 00:00:01
 Info: Fitter placement preparation operations beginning
 Info: Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info: Fitter placement operations beginning
@@ -1025,10 +1025,10 @@ Info: Completed Auto Delay Chain Operation
 Warning: The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
 Info: Generated suppressed messages file Z:/benjaminzhang On My Mac/Study And Info/College/作业及作业资料/大二/EDA/EDA_Project/LCD_Block_Disp_Ctrl/LCD_Block_Disp_Ctrl.fit.smsg
 Info: Quartus II Fitter was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 280 megabytes
-    Info: Processing ended: Fri May 12 08:43:06 2017
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Peak virtual memory: 272 megabytes
+    Info: Processing ended: Wed May 17 23:53:10 2017
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:04
 
 
 +----------------------------+

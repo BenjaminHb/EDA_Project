@@ -1,5 +1,5 @@
 module LCD_Block_Disp_Ctrl(clk, rst, up, down, left, right, rs, rw, en, data);
-//	EDA_Project/LCD_Block_Disp
+//	EDA_Project/LCD_Block_Disp_Ctrl
 //	Version 2.2.9.110517
 //	Created by Benjamin Zhang on 08/05/17
 //	Copyright © 2017 Benjamin Zhang

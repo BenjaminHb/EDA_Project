@@ -3,7 +3,7 @@
 EDA_Project 
 
 - Digital_Clock
-  - Digital_Clock FAIDED.
+  - Digital_Clock FAILED.
   - Digital_Clock_2 HANDED IN.
 - LCD_Picture_Disp
   - LCD_Picture_Disp HANDED IN.
